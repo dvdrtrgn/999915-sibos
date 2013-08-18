@@ -1,0 +1,48 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.shrink {
+    font-size: 90%;
+    line-height: 130%;
+}
+.hide {
+    display: none;
+}
+.givingLogo img {
+    margin: 12px 22px;
+}
+.push, .navb a {
+    text-shadow: 0px .5px 1px #111;
+}
+.pull, .blocks {
+    text-shadow: 0px .5px 1px #eee;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+#sharebar .cap {
+    margin-right: 6px;
+    vertical-align: top;
+}
+#sharebar {
+    float: right;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* BANNER */
+#banner {
+    height: 248px;
+    overflow: hidden;
+    position: relative;
+    width: 900px;
+}
+img.banner {
+    float: left;
+    margin: 1px 0 5px 0;
+    position: relative;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.pushbutton {
+    border: 0;
+    margin: 0;
+}
+.pushbutton:hover {
+    border: 1px solid #ffc;
+    margin: -1px;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

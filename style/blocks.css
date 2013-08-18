@@ -1,0 +1,32 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.blocks {
+    background-color: #fff;
+}
+td.blocks {
+    background-color: #f7f6f1;
+    padding: 5px 9px;
+}
+td.blocks p {
+    max-width: 95%;
+}
+.blocks h3 {
+    background-color: #e6d8c9;
+    margin: -9px;
+    margin-bottom: 9px;
+    padding: 7px;
+    padding-bottom: 5px;
+}
+.blocks hr {
+	border: 0;
+	border-bottom: 1px solid #ccc;
+	height: 0px;
+    margin: 12px 0 11px 0;
+}
+.blocks a.learn {
+	color: black;
+	float: right;
+	font-size: 9px;
+	font-family: Verdana, Geneva, sans-serif;
+	margin: 0px 3px 0 0;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
