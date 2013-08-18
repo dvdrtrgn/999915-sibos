@@ -3,11 +3,11 @@
     <div class="mast"><img src="../images/header/wf-sibos.png" alt="Sibos 2012" width="222" height="64" align="left"> <img src="../images/header/stagecoach.png" alt="Together we’ll go far" width="227" height="64" align="right"></div>
     <div class="navb"><!--
 --> <a href="../pages/home.html">Home</a> <!--
---> <a href="../pages/visit.html">Visit our booth</a><!--
 --> <a href="../pages/about.html">About Wells Fargo</a> <!--
---> <a href="../pages/explore.html">Explore Osaka</a> <!--
---> <a href="../pages/pubs.html">Publications</a> <!--
+--> <a href="../pages/events.html">Sibos Events</a> <!--
+--> <a href="../pages/boot.html">Wells Fargo Booth</a><!--
+--> <a href="../pages/speakers.html">Sibos Speakers</a><!--
+--> <a href="../pages/explore.html">Explore Dubai</a> <!--
 --> <a href="../pages/giving.html">Charitable giving</a> <!--
---> <a style="border-right: 0;" href="../pages/photos.html">Gallery</a> <!--
 --> </div>
 </div>
