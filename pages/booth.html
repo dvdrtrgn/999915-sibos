@@ -16,6 +16,11 @@
         <script src="../script/init.js"></script>
         <script src="../lib/cansole.js"></script>
         <link rel="stylesheet" href="../style/main.css" type="text/css">
+        <!-- VIDEO BOOTSTRAP -->
+        <link href="../lib/video-js/video-js.css" rel="stylesheet">
+        <script src="../lib/video-js/video.js"></script>
+        <script> _V_.options.flash.swf = "../lib/video-js/video-js.swf"; </script>
+        <!-- END BOOTSTRAP -->
     </head>
     <body>
         <div id="all">
@@ -53,48 +58,50 @@
             </div>
             <!-- #EndLibraryItem -->
             <div id="feature">
-                <img class="banner" src="../images/banner/bannerC.jpg" width="898" height="241" alt="">
+                <img class="banner" src="../images/banner/bannerB.jpg" width="898" height="241" alt="">
                 <table border="0" cellspacing="10">
                 <tr>
-                    <td width="65%" rowspan="2"><h2>ABOUT WELLS FARGO </h2>
-                        <p>Wells Fargo is one of the largest banks in the United States, 
-                            and is the most valuable bank in the world in terms of market capitalization. 
-                            Founded in 1852 and headquartered in San Francisco, Wells Fargo provides banking, insurance, investments, 
-                            mortgage, consumer, and commercial finance through various distribution channels. We have offices in more than 
-                            35 countries to support customers who conduct business in the global economy. </p>
-                        <p>Wells Fargo serves one in three businesses in America. 
-                            We&rsquo;ve operated under the same vision for decades: We want to satisfy all our customers&rsquo; 
-                            financial needs and help them succeed financially. The GFI team executes this vision by serving the 
-                            increasing financial needs of financial institutions, central banks, multi-laterals, sovereign wealth funds, 
-                            and non-bank financial institutions in the markets where we conduct business.</p></td>
-                    <td colspan="2"><p>&nbsp;</p></td>
-                </tr>
-                <tr>
-                    <td width="5%">&nbsp;</td>
-                    <td width="30%" height="182" valign="top" class="blocks"><h3>Resources</h3>
-                        <p>Learn more about Wells Fargo </p>
-                        <ul>
-                            <li><a href="https://www.wellsfargo.com/downloads/pdf/about/wellsfargotoday.pdf">Wells Fargo Today</a></li>
-                            <li><a href="https://www.wellsfargo.com/downloads/pdf/about/csr/reports/2012-social-responsibility-interim.pdf">Social Responsibility report</a></li>
-                            <li><a href="https://www.wellsfargo.com/downloads/pdf/press/2q13pr.pdf">Latest earnings report</a></li>
-                        </ul>
-                        <p>&nbsp;</p></td>
-                </tr>
-                <tr>
-                    <td colspan="3"><h4>Our global presence includes: </h4>
-                        <ul>
-                            <li>Worldwide reach with over 35 overseas offices and branch locations in DIFC, 
-                                Hong Kong, <br>
-                                London, Seoul, Shanghai, Singapore, Taipei, Tokyo, Toronto, and the Cayman Islands</li>
-                            <li>More than 3,000 team members covering the global needs of our clients</li>
-                            <li>Relationships with over 2,000 financial institutions overseas and in the U.S.</li>
-                            <li>Customers in over 125 countries</li>
-                        </ul>
-                        <p>To learn more, just click on one of the links below to download our brochure or visit <a href="http://www.wellsfargo.com/international">wellsfargo.com/international</a>.</p></td>
+                    <td valign="top"><h2>WELLS FARGO BOOTH</h2>
+                        <p>As a repeat exhibitor, Wells Fargo is excited to bring you a booth experience like no other. We look forward to seeing you at booth <u>No. F87</u>.</p>
+                        <p><strong>Learn. </strong>Stop by to take your picture in front of the Buffalo Bill stagecoach and learn more about the history of Wells Fargo.<br>
+                            <strong>Explore. </strong>Experience all the exciting new enhancements we&rsquo;ve made to our Sibos booth this year.<br>
+                            <strong>Connect.</strong> Our senior leadership and relationship managers look forward to connecting with you in our booth. </p>
+                        <p>(link to exhibition floor map)  (include booth pictures)<br>
+                            <a title="booth_map" class="popup pic" href="../images/misc/booth_map.gif">View exhibition floor map</a> | <a title="rendered_booth" class="popup pic" href="../images/misc/rendered_booth.jpg">View Wells Fargo booth rendering</a></p></td>
+                    <td width="30%" valign="top"><p><strong>&lt;tile ad for booth check in gift&gt;</strong><br>
+                            <strong>Want one of these? (image of 3 in 1 phone charger booth giveaway)</strong></p>
+                        <p>Check into our booth via Foursquare or your LinkedIn account and receive a 3 in 1 phone charger while supplies last. You can also tweet about us via Twitter to receive your free gift.</p></td>
                 </tr>
                 </table>
+                <p class="shrink">*You may need Adobe Reader to read PDF files. <a href="http://get.adobe.com/reader">Download</a> Adobe Reader for free.</p>
+                <div class="popup">
+                    <img id="booth_map" src="../images/misc/booth_map.gif" width="1000" tabindex="-1">
+                    <br>
+                    CLICK OUTSIDE IMAGE TO CLOSE
+                </div>
+                <div class="popup">
+                    <img id="rendered_booth" src="../images/misc/rendered_booth.jpg" tabindex="-1">
+                    <br>
+                    CLICK OUTSIDE IMAGE TO CLOSE
+                </div>
+                <div class="popup">
+                    <video id="george_vid" class="video-js vjs-default-skin" controls preload="" width="853" height="480" poster="">
+                        <source src="../media/George_Doolittle-SIBOS_promo.mp4" type='video/mp4'>
+                        <track kind="captions" src="../media/George_Doolittle-SIBOS_promo.txt" srclang="en" label="English">
+                    </video>
+                    <br>
+                    CLICK OUTSIDE VIDEO TO CLOSE
+                </div>
+                <div class="popup">
+                    <video id="steve_vid" class="video-js vjs-default-skin" controls preload="" width="853" height="480" poster="">
+                        <source src="../media/Steve_Ellis-SIBOS_promo.mp4" type='video/mp4'>
+                        <track kind="captions" src="../media/Steve_Ellis-SIBOS_promo.txt" srclang="en" label="English">
+                    </video>
+                    <br>
+                    CLICK OUTSIDE VIDEO TO CLOSE
+                </div>
             </div>
-            <em></em><!-- #BeginLibraryItem "../lib/navfoo.lbi" -->
+            <!-- #BeginLibraryItem "../lib/navfoo.lbi" -->
             <div id="footer">
                 <div id="sharebar">
                     <script src="http://w.sharethis.com/button/buttons.js"></script>
@@ -122,11 +129,5 @@
             </div>
             <!-- #EndLibraryItem -->
         </div>
-        <script type="text/javascript">
-            $('.exhibits').click(function(){
-                //$(this).fancyzoom();
-            });
-
-        </script>
     </body>
 </html>
