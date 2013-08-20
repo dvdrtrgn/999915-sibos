@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals dev, drt, console, location, $, window */
+/*globals dev, drt, C, location, $, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Data, CDN, W = (W || window);
 var ShareStrings;
@@ -62,7 +62,7 @@ Modernizr.load([
 function Main(W) {
     var name = 'Main',
         self = new Global(name, '(kicker and binder)'),
-        C = W.console,
+        C = W.C,
         Df;
 
     Df = { // DEFAULTS

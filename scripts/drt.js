@@ -1,4 +1,5 @@
-/*global  dev, drt, console, location, $ */
+/*global  dev, drt, C, location, $ */
+
 
 function givingLinks() {
 
@@ -7,7 +8,7 @@ function givingLinks() {
     speed = 333;
 
     function showTime(str) {
-        console.log(str);
+        C.log(str);
         current.fadeOut(speed, function () {
             current.fadeIn(speed);
         });
@@ -94,14 +95,14 @@ var dev, drt = {
             div.removeClass('big');
         });
         div.bind('mouseup', function(evt){
-            //  console.log(evt);
+            //  C.log(evt);
             var who = evt.target.className.match('popup');
             if (who && who.length) div.trigger('hide.vid');
         });
 
         _V_(vid.prop('id')).ready(function(){
             vip = this;
-            console.log('ready', vid, vip);
+            C.log('ready', vid, vip);
         });
     },
     init: function () {
@@ -122,4 +123,4 @@ var dev, drt = {
 };
 
 $(drt.init);
-
+$(givingLinks);

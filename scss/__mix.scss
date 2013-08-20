@@ -35,11 +35,22 @@
         width: $width * 1px;
     }
 }
+@mixin vgrad($clr1: white, $clr2: black){
+    @include background-image( linear-gradient(top, $clr1 1%, $clr2 77%) );
+}
 
 // GRADS
 @mixin buttongrad1(){
     background-color: $button1;
     @include background-image( linear-gradient(top, $button1 50%, $button2 53%) );
+}
+@mixin navgray(){
+    background-color: $navgray1;
+    @include vgrad( $navgray1, $navgray2);
+}
+@mixin navred(){
+    background-color: $navred1;
+    @include vgrad( $navred1, $navred2);
 }
 @mixin graygrad(){
     background-color: #ddd;
@@ -48,9 +59,6 @@
 @mixin buttongrad2(){
     background-color: $button2;
     @include background-image( linear-gradient(top, $button2 50%, $button1 53%) );
-}
-@mixin vgrad($clr1: white, $clr2: black){
-    @include background-image( linear-gradient(top, $clr1 33%, $clr2 100%) );
 }
 
 //* >^º!º^< */

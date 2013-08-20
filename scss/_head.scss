@@ -1,4 +1,6 @@
-/* CSS Document */
+/* LAYOUT */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #head {
     height: 90px;
     padding: 28px;
@@ -7,7 +9,7 @@
     height: 80px;
 }
 #head .navb { /* baseline */
-    background-color: #64574c;
+    @include navgray();
     color: gray;
     font-family: Verdana, Geneva, sans-serif;
     font-size: 13px;
@@ -22,20 +24,19 @@
     float: left;
     height: 21px;
     margin: 0;
-    padding: 3px 20px;
+    padding: 3px 12px;
     text-decoration: none;
 }
 #head .navb a:hover {
-    background: -webkit-linear-gradient(bottom, rgba(0,0,0,.3), transparent 60%, rgba(255,255,255,.3));
-    background: -moz-linear-gradient(bottom, rgba(0,0,0,.3), transparent 60%, rgba(255,255,255,.3));
-    background: linear-gradient(bottom, rgba(0,0,0,.3), transparent 60%, rgba(255,255,255,.3));
-
+    @include navred();
+    opacity: 0.8;
     border-left: 1px solid white;
     border-right: 1px solid white;
     color: #fff;
     margin-left: -1px;
 }
 #head .navb a.active {
-    background-color: #973f1e;
+    @include navred();
+    background-color: $prime;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
