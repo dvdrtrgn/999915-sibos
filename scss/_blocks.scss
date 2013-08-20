@@ -1,3 +1,5 @@
+/* BLOCKS */
+@import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .blocks {
     background-color: #fff;
@@ -10,7 +12,7 @@ td.blocks p {
     max-width: 95%;
 }
 .blocks h3 {
-    background-color: #e6d8c9;
+    background-color: $prime1;
     margin: -9px;
     margin-bottom: 9px;
     padding: 7px;
