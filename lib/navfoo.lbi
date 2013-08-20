@@ -2,7 +2,7 @@
 
 <div id="footer">
     <div id="sharebar">
-        <script src="http://w.sharethis.com/button/buttons.js"></script>
+        <!-- <script src="http://w.sharethis.com/button/buttons.js"></script> -->
         <p class="cap">Share this page
             <!-- -->
 	        <span id="st_twitter"></span>

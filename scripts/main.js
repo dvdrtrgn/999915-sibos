@@ -1,105 +1,143 @@
-/*global  dev, drt, console, location, $ */
+/*jslint es5:true, white:false */
+/*globals dev, drt, console, location, $, window */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+var Data, CDN, W = (W || window);
+var ShareStrings;
 
-var dev, drt = {
-    activeNavButton: function () {
-        var page = (' ' + location.pathname).split('/').pop();
-        $('a[href="' + page + '"]').addClass('active');
-    },
-    animateBanner: function () {
-        var div = $('#banner')
-        ,   all = div.find('.banner')
-        ,   cnt = all.length
-        ,   now = cnt-1
-        ;
-        if (cnt === 0) return;
-        all.not(all.eq(cnt-1)).css({
-            width: 0
-        });
-        div.bind('next.rot', function (){
-            var nex = (now - 1) % cnt;
-            all.eq(now).animate({
-                width: 0
-            }, 333);
-            all.eq(nex).animate({
-                width: 898
-            }, 333);
-            now = nex;
-        });
-        setInterval(function(){
-            div.trigger('next.rot');
-        }, 9999);
-    },
-    shadowboxPic: function (i, e) {
-        var lnk = $(e)
-        ,   pic = $('#' + e.title)
-        ,   div = pic.parent()
-        ;
-        lnk.bind('click', function(evt){
-            evt.preventDefault();
-            div.trigger('show.pic');
-            return false;
-        });
-        if (div.data('pic')) return;
-        div.appendTo('body').data('pic', true);
-        div.bind('show.pic', function(){
-            div.addClass('big');
-        });
-        div.bind('hide.pic', function(){
-            div.removeClass('big');
-        });
-        div.bind('mouseup', function(evt){
-            var who = evt.target.className.match('popup');
-            if (who && who.length) div.trigger('hide.pic');
-        });
-    },
-    shadowboxVid: function (i, e) {
-        var lnk = $(e)
-        ,   vid = $('#' + e.title)
-        ,   div = vid.parent()
-        ,   vip
-        ;
-        lnk.bind('mouseup', function(){
-            div.trigger('show.vid');
-            return false;
-        }).attr('href', null);
-        if (div.data('vid')) return;
-        div.appendTo('body').data('vid', true);
-        div.bind('show.vid', function(){
-            div.addClass('big');
-            if (!vip) return; // vip.currentTime(7);
-            vip.play();
-        });
-        div.bind('hide.vid', function(){
-            vip.pause();
-            div.removeClass('big');
-        });
-        div.bind('mouseup', function(evt){
-            //  console.log(evt);
-            var who = evt.target.className.match('popup');
-            if (who && who.length) div.trigger('hide.vid');
-        });
+W.debug = 1;
 
-        _V_(vid.prop('id')).ready(function(){
-            vip = this;
-            console.log('ready', vid, vip);
-        });
+if ($.now() > 137760e7) {
+    W.debug--;
+}
+
+CDN = {
+    self: '/lib/',
+    disk: 'file:///lib/',
+    bithon: '../../../lib/',
+    webdev: 'http://10.89.101.100/lib/',
+    mython: 'http://10.89.101.81:8000/lib/',
+    python: 'http://localhost:8000/lib/',
+    other0: 'http://cdnjs.cloudflare.com/ajax/libs/',
+}.bithon;
+
+Modernizr.load([
+{
+    test: W.isIE,
+    yep: [
+    CDN + 'ie/split.js',
+    CDN + 'ie/html5shiv.js',
+    CDN + 'ie/nwmatcher.min.js',
+    CDN + 'ie/selectivizr-min.js',
+    ],
+    both: [
+    CDN + 'underscore/js-1.4.4/underscore.js',
+    CDN + 'js/console.js',
+    //        CDN + 'video-js/4.1/video-js.css',
+    //        CDN + 'video-js/4.1/video.dev.js',
+    //        './lib/drt.cellophy.js',
+    //        './lib/mdz.highres.js',
+    ],
+    complete: function () {
+        Data = new Global('Data', '(catchall data fixture)');
     },
-    init: function () {
-//        $('#header, #navbar, #footer').nosel();
-//        $('img').parent().nosel();
-        drt.activeNavButton();
-        drt.animateBanner();
-        $('#banner').show();
+},
+{
+    both: [
+    '../scripts/drt.js',
+    ],
+    complete: function () {
+        Main(W).init();
+    },
+},
+{
+    test: !W.debug,
+    yep: [
+    CDN + 'js/ecg-ga.js',
+    ],
+},
+]);
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+function Main(W) {
+    var name = 'Main',
+        self = new Global(name, '(kicker and binder)'),
+        C = W.console,
+        Df;
+
+    Df = { // DEFAULTS
+        sects: 'cgray red green purple amber plum teal exit legal slug',
+        inits: function (cb) {},
+    };
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    function Init() {
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+        // http://videojs.com/docs/options/
+        // http://support.sharethis.com/customer/portal/articles/464663-customize-functionality
+        // http://support.sharethis.com/customer/portal/articles/475079-share-properties-and-sharing-custom-information#Dynamic_Specification_through_JavaScript
+        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+        var raw = location.pathname.split('/').pop().match(/\w+/g);
+        var pageHash = {
+            home: ["Home", 'Check out the #WellsFargo Global Financial Institutions Sibos microsite'],
+            visit: ["Visit our booth", 'See pics of the #WellsFargo booth & learn about events being hosted'],
+            about: ["About Us", 'Learn about the #WellsFargo Global Financial Institutions business'],
+            explore: ["Explore Osaka", 'Explore what Osaka has to offer at #Sibos 2012'],
+            pubs: ["Publications", 'Learn about the #WellsFargo Global Financial Institutions publications'],
+            giving: ["Charitable giving", 'Learn more about the #WellsFargo charity programs at #Sibos'],
+            photos: ["Gallery", 'View pics from last year’s #WellsFargo Annual Sibos Celebration event']
+        };
+
         try {
-            if (!(/mobi/i).test(navigator.userAgent)){
-                $('a.popup.vid').each(drt.shadowboxVid);
-                $('a.popup.pic').each(drt.shadowboxPic);
-            }
-        } catch (err) {
-            return;
+            ShareStrings = {
+                url: 'http://wellsfargomedia.com/sibos2012/pages/' + raw.join('.'),
+                tab: 'Wells Fargo at Sibos 2012 – ' + pageHash[raw[0]][0],
+                sum: pageHash[raw[0]][1],
+                img: 'http://wellsfargomedia.com/sibos2012/images/header/wf-sibos.png'
+            };
+
+            $('#head0').text(ShareStrings.tab);
+            $('#head1, #head3').attr('content', ShareStrings.tab);
+            $('#head2, #head4').attr('content', ShareStrings.sum);
+            $('#head5').attr('content', ShareStrings.url);
+        //    $('#head6').attr('content', ShareStrings.img);
+        } catch (e) {
+            C.error(e);
         }
     }
-};
 
-$(drt.init);
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+    function _init() {
+        C.error('init @ ' + Date() + ' debug:', W.debug);
+
+        if (self.inited(true)) {
+            return null;
+        }
+
+        Init();
+    }
+
+    W[name] = $.extend(true, self, {
+        _: function () {
+            return Df;
+        },
+        init: _init,
+        sectStr: function () {
+            return Df.sects;
+        },
+        sectArr: function () {
+            return Df.sects.split(' ');
+        },
+    });
+    return self;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*
+
+
+
+
+ */

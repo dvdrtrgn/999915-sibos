@@ -13,7 +13,7 @@ html {
     height: 100%;
     line-height: 140%;
     position: absolute;
-	width: 100%;
+    width: 100%;
 }
 body {
     background: -webkit-linear-gradient(top left, #ddd, #f2f2f2, #eee, #f2f2f2, #ddd) fixed;
@@ -23,8 +23,8 @@ body {
     font-family: Archer, Georgia, serif;
 }
 /*div {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
+box-sizing: border-box;
+-moz-box-sizing: border-box;
 }*/
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 h2 {
@@ -49,8 +49,8 @@ img {
     border: 0;
 }
 img.portait {
-	margin-right: 9px;
-	border: 1px solid #ddd;
+    margin-right: 9px;
+    border: 1px solid #ddd;
 }
 p, li {
     font-family: Verdana, Geneva, sans-serif;
@@ -58,19 +58,19 @@ p, li {
     text-indent: 1px;
 }
 a {
-	color: #369;
-	text-decoration: underline;
+    color: #369;
+    text-decoration: underline;
 }
 a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 table {
-	clear: both;
+    clear: both;
 }
 ul {
-	font-size: 100%;
-	list-style-type: square;
-	padding-left: 22px;
+    font-size: 100%;
+    list-style-type: square;
+    padding-left: 22px;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* SEGMENTS */
@@ -88,7 +88,7 @@ ul {
     width: 900px;
 }
 #feature table {
-	margin: 0 -10px;
+    margin: 0 -10px;
 }
 #footer {
     color: #857b72;

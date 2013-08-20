@@ -9,50 +9,50 @@ $(function () {
         stWidget.addEntry({
             element: document.getElementById('st_twitter'),
             service: 'twitter',
-            title: stStrings.tab + '/' + stStrings.sum,
-            url: stStrings.url,
-            summary: stStrings.tab,
+            title: ShareStrings.tab + '/' + ShareStrings.sum,
+            url: ShareStrings.url,
+            summary: ShareStrings.tab,
             type: 'chicklet'
         });
         stWidget.addEntry({
             element: document.getElementById('st_linkedin'),
             service: 'linkedin',
-            title: stStrings.tab,
-            url: stStrings.url,
-            summary: stStrings.sum,
+            title: ShareStrings.tab,
+            url: ShareStrings.url,
+            summary: ShareStrings.sum,
             type: 'chicklet'
         });
         stWidget.addEntry({
             element: document.getElementById('st_email'),
             service: 'email',
-            title: stStrings.tab,
-            url: stStrings.url,
-            summary: stStrings.sum,
-            image: stStrings.img,
+            title: ShareStrings.tab,
+            url: ShareStrings.url,
+            summary: ShareStrings.sum,
+            image: ShareStrings.img,
             type: 'chicklet'
         });
         stWidget.addEntry({
             element: document.getElementById('st_facebook'),
             service: 'facebook',
-            title: stStrings.tab,
-            url: stStrings.url,
-            summary: stStrings.sum,
+            title: ShareStrings.tab,
+            url: ShareStrings.url,
+            summary: ShareStrings.sum,
             type: 'chicklet'
         });
         stWidget.addEntry({
             element: document.getElementById('st_googleplus'),
             service: 'googleplus',
-            title: stStrings.tab,
-            url: stStrings.url,
-            summary: stStrings.sum,
+            title: ShareStrings.tab,
+            url: ShareStrings.url,
+            summary: ShareStrings.sum,
             type: 'chicklet'
         });
         stWidget.addEntry({
             element: document.getElementById('st_pinterest'),
             service: 'pinterest',
-            title: stStrings.tab,
-            url: stStrings.url,
-            summary: stStrings.sum,
+            title: ShareStrings.tab,
+            url: ShareStrings.url,
+            summary: ShareStrings.sum,
             type: 'chicklet'
         });
     } catch(e){}
