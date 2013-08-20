@@ -1,8 +1,15 @@
 /* BLOCKS */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+td {
+    vertical-align: top;
+}
 .blocks {
     background-color: #fff;
+}
+td.chevron {
+    background-color: $light2;
+    padding: 5px 9px;
 }
 td.blocks {
     background-color: $light2;
@@ -11,12 +18,21 @@ td.blocks {
 td.blocks p {
     max-width: 95%;
 }
-.blocks h3 {
+td.ribron {
     background-color: $light1;
-    margin: -9px;
-    margin-bottom: 9px;
-    padding: 7px;
-    padding-bottom: 5px;
+    padding: 0px;
+}
+.blocks h3 {
+    margin: 0;
+    padding: 7px 20px 5px 10px;
+    text-transform: uppercase;
+    color: $gold;
+    background: {
+        image: url(../images/misc/ribron.png);
+        repeat: no-repeat;
+        position: 100% 50%;
+    }
+    display: inline-block;
 }
 .blocks hr {
     border: 0;

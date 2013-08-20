@@ -65,7 +65,7 @@ html {
         img {
             @include nosel();
             background-repeat: no-repeat;
-            max-width: 100%;
+            //max-width: 100%;
         }
         strong {
             font-weight: bold;
