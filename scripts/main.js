@@ -85,8 +85,8 @@ var dev, drt = {
         });
     },
     init: function () {
-        $('#header, #navbar, #footer').nosel();
-        $('img').parent().nosel();
+//        $('#header, #navbar, #footer').nosel();
+//        $('img').parent().nosel();
         drt.activeNavButton();
         drt.animateBanner();
         $('#banner').show();
