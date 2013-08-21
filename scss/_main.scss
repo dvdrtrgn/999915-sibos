@@ -26,7 +26,7 @@ html {
             color: $red;
         }
         h3 {
-            font-size: 19px;
+            font-size: 18px;
             line-height: 22px;
             font-weight: normal;
         }
@@ -65,10 +65,10 @@ html {
     }
 }
 /* SEGMENTS */
-#all {
+#Page {
     background-color: #fff;
-    border: 1px solid #eee;
-    margin: 3px auto;
+    border: 1px solid #f8f8f8;
+    margin: 0 auto;
     position: relative;
     width: 954px;
 }
