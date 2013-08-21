@@ -110,7 +110,8 @@ var dev, drt = {
 //        $('img').parent().nosel();
         drt.activeNavButton();
         drt.animateBanner();
-        $('#banner').show();
+
+        $('#Banner').show();
         try {
             if (!(/mobi/i).test(navigator.userAgent)){
                 $('a.popup.vid').each(drt.shadowboxVid);
