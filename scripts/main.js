@@ -142,7 +142,13 @@ function Main(W) {
 
  */
 function fuggit () {
+    var me = $('.banner'),
+        mq = $('<div>').addClass('blot');
+    me.before(mq);
 
+    var me1 = $('.banner1'),
+        mq1 = $('<div>').addClass('blot1');
+    me1.before(mq1);
 }
 
 $(fuggit);
