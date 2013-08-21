@@ -1,24 +1,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<header>
-    <div class="mast">
-        <img src="../images/header/wf-sibos.png" alt="Sibos 2012" width="222" height="64" align="left">
-        <img src="../images/header/stagecoach.png" alt="Together we’ll go far" width="227" height="64" align="right">
-    </div>
-    <div class="navb">
-        <!--  -->
-        <a href="home.html">Home</a>
-        <!-- -->
-        <a href="about.html">About Wells Fargo</a>
-        <!--  -->
-        <a href="events.html">Sibos Events</a>
-        <!--  -->
-        <a href="booth.html">Wells Fargo Booth</a>
-        <!--  -->
-        <a href="speakers.html">Sibos Speakers</a>
-        <!--  -->
-        <a href="explore.html">Explore Dubai</a>
-        <!--  -->
-        <a href="giving.html">Charitable giving</a>
-        <!--  -->
-    </div>
-</header>
+    <header>
+            <div class="mast">
+                <img src="../images/header/wf-sibos.png" alt="Sibos 2012" width="222" height="64" align="left">
+                <img src="../images/header/stagecoach.png" alt="Together we’ll go far" width="227" height="64" align="right">
+            </div>
+            <div class="navb">
+                <!--  -->
+                <a href="home.html">Home</a>
+                <!--  -->
+                <a href="about.html">About Wells Fargo</a>
+                <!--  -->
+                <a href="events.html">Sibos Events</a>
+                <!--  -->
+                <a href="booth.html">Wells Fargo Booth</a>
+                <!--  -->
+                <a href="speakers.html">Sibos Speakers</a>
+                <!--  -->
+                <a href="explore.html">Explore Dubai</a>
+                <!--  -->
+                <a href="giving.html">Charitable giving</a>
+                <!--  -->
+            </div>
+    </header>
