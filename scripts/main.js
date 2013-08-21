@@ -141,3 +141,8 @@ function Main(W) {
 
 
  */
+function fuggit () {
+
+}
+
+$(fuggit);

@@ -24,9 +24,6 @@ td {
     background-color: #fff;
 
     h3 {
-        margin: 0;
-        padding: 7px 20px 5px 10px;
-        text-transform: uppercase;
         color: $gold;
         background: {
             image: url(../images/misc/ribron.png);
@@ -34,6 +31,10 @@ td {
             position: 100% 50%;
         }
         display: inline-block;
+        margin: 0;
+        padding: 4px 20px 1px 12px;
+        text-transform: uppercase;
+        white-space: nowrap;
     }
     hr {
         border: 0;
@@ -42,11 +43,10 @@ td {
         margin: 12px 0 11px 0;
     }
     a.learn {
-        color: black;
         float: right;
         font-size: 9px;
         font-family: Verdana, Geneva, sans-serif;
-        margin: 0px 3px 0 0;
+        margin: 5px 9px;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

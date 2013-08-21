@@ -35,8 +35,8 @@
         width: $width * 1px;
     }
 }
-@mixin vgrad($clr1: white, $clr2: black){
-    @include background-image( linear-gradient(top, $clr1 1%, $clr2 77%) );
+@mixin vgrad($clr1: white, $clr2: black, $per1: 1%, $per2: 77% ){
+    @include background-image( linear-gradient(top, $clr1 $per1, $clr2 $per2) );
 }
 
 // GRADS
@@ -54,7 +54,7 @@
 }
 @mixin graygrad(){
     background-color: #ddd;
-    @include vgrad( #fefefe, #ddd);
+    @include vgrad( #fff, #ddd, 44%, 88%);
 }
 @mixin buttongrad2(){
     background-color: $button2;

@@ -4,6 +4,7 @@
 #head {
     height: 90px;
     padding: 28px;
+    margin-bottom: 1px;
 
     .mast {
         height: 80px;
@@ -39,5 +40,30 @@
         @include navred();
         background-color: $red;
     }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* BANNER */
+#banner {
+    height: 248px;
+    overflow: hidden;
+    position: relative;
+    //width: 900px;
+    margin: 0 -25%;
+}
+img.banner1 {
+    float: left;
+    margin: 1px 0 5px 0;
+    margin: -99px -20% 11px;
+    height: 150px;
+    position: relative;
+    width: 140%;
+}
+img.banner {
+    float: left;
+    margin: 1px 0 5px 0;
+    margin: -69px -20% 11px;
+    height: 100px;
+    position: relative;
+    width: 140%;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

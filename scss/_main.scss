@@ -1,9 +1,6 @@
-@charset "UTF-8";
-/*@import url("blocks.css");
-@import url("etc.css");
-@import url("head.css");
-@import url("popup.css");
-@import url("wierd.css");*/
+/* MAIN */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 * {
     margin: 0;
     padding: 0;
@@ -16,13 +13,13 @@ html {
     width: 100%;
 
     body {
-        background-color: #f2f2f2;
         font-family: Archer, Georgia, serif;
 
         h2 {
+            font-family: "Archer";
             font-size: 23px;
             line-height: 26px;
-            font-weight: normal;
+            font-weight: 600;
             margin-bottom: 7px;
         }
         h2, h3 {
@@ -50,7 +47,7 @@ html {
             text-indent: 1px;
         }
         a {
-            color: #369;
+            color: #336699;
             text-decoration: underline;
 
             &:hover {
@@ -70,30 +67,28 @@ html {
 /* SEGMENTS */
 #all {
     background-color: #fff;
-    border: 1px solid #e8ebea;
+    border: 1px solid #eee;
     margin: 3px auto;
     position: relative;
-    width: 955px;
+    width: 954px;
 }
 #feature {
     margin-left: 28px;
     overflow: visible;
     position: relative;
-    width: 900px;
-    table {
-        margin: 0 -10px;
-    }
+    width: 898px;
 }
 #footer {
-    color: #857b72;
     clear: both;
+    color: #857b72;
     border-top: 1px solid #e7e5e3;
     font-family: Verdana;
     height: 22px;
     margin: 8px 28px;
     position: relative;
     vertical-align: baseline;
-    width: 900px;
+    width: 898px;
+
     p {
         font-size: 10px;
         line-height: 28px;
