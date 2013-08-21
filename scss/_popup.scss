@@ -1,31 +1,31 @@
 /* POPUP */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-d/* POPUP */
 div.popup {
     color: white;
     display: none;
     padding: 10% 0 15% 0;
     text-align: center;
-}
-div.popup > div,
-div.popup > img {
-    border: 1em solid black;
-    border-radius: 1em;
-    margin: auto;
-    max-height: 70%;
-    max-width: 80%;
-}
-div.popup.big {
-    background-image: url("../images/misc/masq.png");
-    display: block;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    /*	background-color: rgba(0,0,0,.5);*/
-    z-index: 999;
+
+    & > div,
+    & > img {
+        border: 1em solid black;
+        border-radius: 1em;
+        margin: auto;
+        max-height: 70%;
+        max-width: 80%;
+    }
+    &.big {
+        background-image: url("../images/misc/masq.png");
+        display: block;
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        /*	background-color: rgba(0,0,0,.5);*/
+        z-index: 999;
+    }
 }
 a.popup {
     cursor: pointer;

@@ -4,39 +4,40 @@
 #head {
     height: 90px;
     padding: 28px;
-}
-#head .mast {
-    height: 80px;
-}
-#head .navb { /* baseline */
-    @include navgray();
-    color: gray;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 13px;
-    height: 24px;
-    margin-top: 13px;
-    overflow: hidden;
-}
-#head .navb a {
-    color: #eee;
-    border-right: 1px solid #aaa;
-    display: block;
-    float: left;
-    height: 21px;
-    margin: 0;
-    padding: 3px 12px;
-    text-decoration: none;
-}
-#head .navb a:hover {
-    @include navred();
-    opacity: 0.8;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    color: #fff;
-    margin-left: -1px;
-}
-#head .navb a.active {
-    @include navred();
-    background-color: $red;
+
+    .mast {
+        height: 80px;
+    }
+    .navb { /* baseline */
+        @include navgray();
+        color: gray;
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: 13px;
+        height: 24px;
+        margin-top: 13px;
+        overflow: hidden;
+    }
+    .navb a {
+        color: #eee;
+        border-right: 1px solid #aaa;
+        display: block;
+        float: left;
+        height: 21px;
+        margin: 0;
+        padding: 3px 12px;
+        text-decoration: none;
+    }
+    .navb a:hover {
+        @include navred();
+        opacity: 0.8;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+        color: #fff;
+        margin-left: -1px;
+    }
+    .navb a.active {
+        @include navred();
+        background-color: $red;
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

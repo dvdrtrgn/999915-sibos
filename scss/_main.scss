@@ -14,65 +14,59 @@ html {
     line-height: 140%;
     position: absolute;
     width: 100%;
+
+    body {
+        background-color: #f2f2f2;
+        font-family: Archer, Georgia, serif;
+
+        h2 {
+            font-size: 23px;
+            line-height: 26px;
+            font-weight: normal;
+            margin-bottom: 7px;
+        }
+        h2, h3 {
+            color: $red;
+        }
+        h3 {
+            font-size: 19px;
+            line-height: 22px;
+            font-weight: normal;
+        }
+        h4 {
+            font-size: 15px;
+            line-height: 22px;
+        }
+        img {
+            border: 0;
+            &.portait {
+                margin-right: 9px;
+                border: 1px solid #ddd;
+            }
+        }
+        p, li {
+            font-family: Verdana, Geneva, sans-serif;
+            margin-bottom: 11px;
+            text-indent: 1px;
+        }
+        a {
+            color: #369;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        table {
+            clear: both;
+        }
+        ul {
+            font-size: 100%;
+            list-style-type: square;
+            padding-left: 22px;
+        }
+    }
 }
-body {
-    background: -webkit-linear-gradient(top left, #ddd, #f2f2f2, #eee, #f2f2f2, #ddd) fixed;
-    background: -moz-linear-gradient(top left, #ddd, #f2f2f2, #eee, #f2f2f2, #ddd) fixed;
-    background: linear-gradient(top left, #ddd, #f2f2f2, #eee, #f2f2f2, #ddd) fixed;
-    background-color: #f2f2f2;
-    font-family: Archer, Georgia, serif;
-}
-/*div {
-box-sizing: border-box;
--moz-box-sizing: border-box;
-}*/
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-h2 {
-    font-size: 23px;
-    line-height: 26px;
-    font-weight: normal;
-    margin-bottom: 7px;
-}
-h2, h3 {
-    color: $red;
-}
-h3 {
-    font-size: 19px;
-    line-height: 22px;
-    font-weight: normal;
-}
-h4 {
-    font-size: 15px;
-    line-height: 22px;
-}
-img {
-    border: 0;
-}
-img.portait {
-    margin-right: 9px;
-    border: 1px solid #ddd;
-}
-p, li {
-    font-family: Verdana, Geneva, sans-serif;
-    margin-bottom: 11px;
-    text-indent: 1px;
-}
-a {
-    color: #369;
-    text-decoration: underline;
-}
-a:hover {
-    text-decoration: none;
-}
-table {
-    clear: both;
-}
-ul {
-    font-size: 100%;
-    list-style-type: square;
-    padding-left: 22px;
-}
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* SEGMENTS */
 #all {
     background-color: #fff;
@@ -86,9 +80,9 @@ ul {
     overflow: visible;
     position: relative;
     width: 900px;
-}
-#feature table {
-    margin: 0 -10px;
+    table {
+        margin: 0 -10px;
+    }
 }
 #footer {
     color: #857b72;
@@ -100,9 +94,9 @@ ul {
     position: relative;
     vertical-align: baseline;
     width: 900px;
-}
-#footer p {
-    font-size: 10px;
-    line-height: 28px;
+    p {
+        font-size: 10px;
+        line-height: 28px;
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
