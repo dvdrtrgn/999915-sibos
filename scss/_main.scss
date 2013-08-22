@@ -27,12 +27,16 @@ html {
         }
         h3 {
             font-size: 18px;
-            line-height: 22px;
+            line-height: 32px;
             font-weight: normal;
         }
         h4 {
             font-size: 15px;
             line-height: 22px;
+        }
+        hr {
+            border-color: gray;
+            margin: 1em 0;
         }
         img {
             border: 0;
