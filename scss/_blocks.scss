@@ -3,7 +3,10 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 td {
     vertical-align: top;
-
+    &.blocks > p, &.blocks > ul {
+        font-size: 95%;
+        line-height: 130%;
+    }
     &.chevron {
         background-color: $light2;
         padding: 5px 9px;
