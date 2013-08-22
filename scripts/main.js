@@ -24,18 +24,18 @@ Modernizr.load([
 {
     test: W.isIE,
     yep: [
-    CDN + 'ie/split.js',
-    CDN + 'ie/html5shiv.js',
-    CDN + 'ie/nwmatcher.min.js',
-    CDN + 'ie/selectivizr-min.js',
+        CDN + 'ie/split.js',
+        CDN + 'ie/html5shiv.js',
+        CDN + 'ie/nwmatcher.min.js',
+        CDN + 'ie/selectivizr-min.js',
     ],
     both: [
-    CDN + 'underscore/js-1.4.4/underscore.js',
-    CDN + 'js/console.js',
-    //        CDN + 'video-js/4.1/video-js.css',
-    //        CDN + 'video-js/4.1/video.dev.js',
-    //        './lib/drt.cellophy.js',
-    //        './lib/mdz.highres.js',
+        CDN + 'underscore/js-1.4.4/underscore.js',
+        CDN + 'js/console.js',
+        //        CDN + 'video-js/4.1/video-js.css',
+        //        CDN + 'video-js/4.1/video.dev.js',
+        //        './lib/drt.cellophy.js',
+        //        './lib/mdz.highres.js',
     ],
     complete: function () {
         Data = new Global('Data', '(catchall data fixture)');
@@ -43,7 +43,7 @@ Modernizr.load([
 },
 {
     both: [
-    '../scripts/drt.js',
+        '../scripts/drt.js',
     ],
     complete: function () {
         Main(W).init();
@@ -52,7 +52,7 @@ Modernizr.load([
 {
     test: !W.debug,
     yep: [
-    CDN + 'js/ecg-ga.js',
+        CDN + 'js/ecg-ga.js',
     ],
 },
 ]);
