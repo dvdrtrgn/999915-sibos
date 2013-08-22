@@ -157,21 +157,27 @@ function fuggit () {
 
     }
 
-    function _scroll(ele) {
-        var $me = $(ele);
-
-        // look before leap
-        if ($me.length) {
-            $(W.isIE ? 'html' : 'body').stop().animate({
-                scrollTop: $me.offset().top,
-            }, 333);
-        }
-    }
 
     function SCROLL() {
-        var fixed, funum = 200;
+        var fixed,
+            funum = 200;
 
-        function fixit() {
+        function _scroll(ele) {
+            var $me = $(ele);
+
+            // look before leap
+            if ($me.length) {
+                $(W.isIE ? 'html' : 'body').stop().animate({
+                    scrollTop: $me.offset().top,
+                }, 333, function () {
+                    W.location.hash = $me.get(0).id;
+                });
+            } else {
+                $(W.isIE ? 'html' : 'body').scroll();
+            }
+        }
+
+        function _fixit() {
             if (fixed) return fixed;
             fixed = $('.tofix');
             fixed.css({
@@ -180,10 +186,13 @@ function fuggit () {
                 top: funum / 2
             });
         }
-        $(W).on('scroll', function (evt) {
-            var me = fixit(),
-                off = this.pageYOffset;
 
+        $(W).on('scroll', function (evt) {
+            var me = _fixit(),
+                off = this.pageYOffset;
+            if (!me) {
+                return;
+            }
             if (off > funum * 2) {
                 me.css({
                     position: 'fixed',
@@ -196,15 +205,23 @@ function fuggit () {
         });
 
         $('.scroll').on('click', function (evt) {
-            evt.preventDefault();
+            var str = evt.target.href;
+
             // smooth and prevent def
-            _scroll($(evt.target.href));
+            evt.preventDefault();
+            str = str.split('#')[1];
+
+            _scroll('#' + str);
         });
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    $('.click2run').one('click', function () {
+        drt.activeNavButton();
+    });
 
     BANNER();
+    SCROLL();
     $('.fade').slice(0,-1).fadeOut(); // FADE();
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 }
