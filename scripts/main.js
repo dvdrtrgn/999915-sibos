@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals dev, drt, C, location, $, window */
+/*globals $, Global, Main, Modernizr, drt, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Data, CDN, W = (W || window);
 var ShareStrings;
@@ -24,48 +24,50 @@ CDN = {
 }.bithon;
 
 Modernizr.load([
-{
+    {
     test: W.isIE,
     yep: [
-    CDN + 'ie/split.js',
-    CDN + 'ie/html5shiv.js',
+        CDN + 'ie/split.js',
+        CDN + 'ie/html5shiv.js',
+        ],
     //        CDN + 'ie/nwmatcher.min.js',
     //        CDN + 'ie/selectivizr-min.js',
-    ],
     both: [
-    CDN + 'underscore/js-1.4.4/underscore.js',
-    CDN + 'js/console.js',
+        CDN + 'underscore/js-1.4.4/underscore.js',
+        CDN + 'js/console.js',
+        ],
     //        CDN + 'video-js/4.1/video-js.css',
     //        CDN + 'video-js/4.1/video.dev.js',
-    ],
     complete: function () {
         Data = new Global('Data', '(catchall data fixture)');
     },
-},
-{
+    },
+    {
     both: [
-    '../scripts/drt.js',
-    '../scripts/share.js',
-    ],
+        '../scripts/drt.js',
+        '../scripts/share.js',
+        '../scripts/banner.js',
+        '../scripts/scroll.js',
+        ],
     complete: function () {
         Main(W).init();
     },
-},
-{
+    },
+    {
     test: !W.debug,
     yep: [
-    CDN + 'js/ecg-ga.js',
-    ],
-},
-]);
+        CDN + 'js/ecg-ga.js',
+        ],
+    },
+    ]);
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 function Main(W) {
     var name = 'Main',
-    self = new Global(name, '(kicker and binder)'),
-    C = W.C,
-    Df;
+        self = new Global(name, '(kicker and binder)'),
+        C = W.C,
+        Df;
 
     Df = { // DEFAULTS
         sects: 'cgray red green purple amber plum teal exit legal slug',
@@ -79,7 +81,7 @@ function Main(W) {
         // http://support.sharethis.com/customer/portal/articles/464663-customize-functionality
         // http://support.sharethis.com/customer/portal/articles/475079-share-properties-and-sharing-custom-information#Dynamic_Specification_through_JavaScript
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-        var raw = location.pathname.split('/').pop().match(/\w+/g);
+        var raw = W.location.pathname.split('/').pop().match(/\w+/g);
         var pageHash = {
             about: ["About Wells Fargo", 'Learn about the #WellsFargo Global Financial Institutions business'],
             booth: ["Visit our booth", 'See pics of the #WellsFargo booth & learn about events being hosted'],
@@ -102,7 +104,7 @@ function Main(W) {
             $('#head1, #head3').attr('content', ShareStrings.tab);
             $('#head2, #head4').attr('content', ShareStrings.sum);
             $('#head5').attr('content', ShareStrings.url);
-        //    $('#head6').attr('content', ShareStrings.img);
+            //    $('#head6').attr('content', ShareStrings.img);
         } catch (e) {
             if (!W.isIE) {
                 C.error(e);
@@ -120,6 +122,8 @@ function Main(W) {
         }
 
         Init();
+        Scroll.init();
+        Banner.init();
     }
 
     W[name] = $.extend(true, self, {
@@ -145,7 +149,8 @@ function Main(W) {
 
 
  */
-function fuggit () {
+
+function fuggit() {
     function BANNER() {
         var me = $('.banner'),
             mq = $('<div>').addClass('blot');
@@ -156,74 +161,15 @@ function fuggit () {
         me1.before(mq1);
 
     }
-
-
-    function SCROLL() {
-        var fixed,
-            funum = 200;
-
-        function _scroll(ele) {
-            var $me = $(ele);
-
-            // look before leap
-            if ($me.length) {
-                $(W.isIE ? 'html' : 'body').stop().animate({
-                    scrollTop: $me.offset().top,
-                }, 333, function () {
-                    W.location.hash = $me.get(0).id;
-                });
-            } else {
-                $(W.isIE ? 'html' : 'body').scroll();
-            }
-        }
-
-        function _fixit() {
-            if (fixed) return fixed;
-            fixed = $('.tofix');
-            fixed.css({
-                position: 'static',
-                width: fixed.width(),
-                top: funum / 2
-            });
-        }
-
-        $(W).on('scroll', function (evt) {
-            var me = _fixit(),
-                off = this.pageYOffset;
-            if (!me) {
-                return;
-            }
-            if (off > funum * 2) {
-                me.css({
-                    position: 'fixed',
-                });
-            } else {
-                me.css({
-                    position: 'static',
-                });
-            }
-        });
-
-        $('.scroll').on('click', function (evt) {
-            var str = evt.target.href;
-
-            // smooth and prevent def
-            evt.preventDefault();
-            str = str.split('#')[1];
-
-            _scroll('#' + str);
-        });
-    }
+    BANNER();
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     $('.click2run').fadeIn().on('click', function () {
         drt.activeNavButton();
     });
 
-    BANNER();
-    SCROLL();
-    $('.fade').slice(0,-1).fadeOut(); // FADE();
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // $('.fade').slice(0, - 1).fadeOut(); // FADE();
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 }
 
 $(fuggit);
