@@ -9,6 +9,9 @@ W.debug = 1;
 if ($.now() > 137760e7) {
     W.debug--;
 }
+if (W.isIE) {
+    W.debug--;
+}
 
 CDN = {
     self: '/lib/',
@@ -26,8 +29,8 @@ Modernizr.load([
     yep: [
         CDN + 'ie/split.js',
         CDN + 'ie/html5shiv.js',
-        CDN + 'ie/nwmatcher.min.js',
-        CDN + 'ie/selectivizr-min.js',
+//        CDN + 'ie/nwmatcher.min.js',
+//        CDN + 'ie/selectivizr-min.js',
     ],
     both: [
         CDN + 'underscore/js-1.4.4/underscore.js',
@@ -44,6 +47,7 @@ Modernizr.load([
 {
     both: [
         '../scripts/drt.js',
+        '../scripts/share.js',
     ],
     complete: function () {
         Main(W).init();
