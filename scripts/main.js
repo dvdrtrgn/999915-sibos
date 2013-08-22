@@ -102,7 +102,9 @@ function Main(W) {
             $('#head5').attr('content', ShareStrings.url);
         //    $('#head6').attr('content', ShareStrings.img);
         } catch (e) {
-            C.error(e);
+            if (!W.isIE) {
+                C.error(e);
+            }
         }
     }
 
