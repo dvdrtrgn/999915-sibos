@@ -37,8 +37,6 @@ Modernizr.load([
         CDN + 'js/console.js',
         //        CDN + 'video-js/4.1/video-js.css',
         //        CDN + 'video-js/4.1/video.dev.js',
-        //        './lib/drt.cellophy.js',
-        //        './lib/mdz.highres.js',
     ],
     complete: function () {
         Data = new Global('Data', '(catchall data fixture)');
@@ -155,6 +153,41 @@ function fuggit () {
     var me1 = $('.banner1'),
         mq1 = $('<div>').addClass('blot1');
     me1.before(mq1);
+
+    var fixed, funum = 200;
+    function fixit() {
+        if (fixed) return fixed;
+        fixed = $('.tofix');
+        fixed.css({
+            position: 'static',
+            width: fixed.width(),
+            top: funum / 2
+        });
+    }
+    $(W).on('scroll', function (evt) {
+        var me = fixit(),
+            off = this.pageYOffset;
+
+        if (off > funum * 2) {
+            fixed.css({
+                position: 'fixed',
+            });
+        } else {
+            fixed.css({
+                position: 'static',
+            });
+        }
+    });
+    $('.scroll').each(function () {
+        // smooth and prevent def
+    });
+
+    $('.fade').css({
+        position: 'absolute',
+    });
+        //.fadeOut();
+
+
 }
 
 $(fuggit);
