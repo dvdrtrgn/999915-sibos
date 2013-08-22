@@ -27,16 +27,16 @@ Modernizr.load([
 {
     test: W.isIE,
     yep: [
-        CDN + 'ie/split.js',
-        CDN + 'ie/html5shiv.js',
-//        CDN + 'ie/nwmatcher.min.js',
-//        CDN + 'ie/selectivizr-min.js',
+    CDN + 'ie/split.js',
+    CDN + 'ie/html5shiv.js',
+    //        CDN + 'ie/nwmatcher.min.js',
+    //        CDN + 'ie/selectivizr-min.js',
     ],
     both: [
-        CDN + 'underscore/js-1.4.4/underscore.js',
-        CDN + 'js/console.js',
-        //        CDN + 'video-js/4.1/video-js.css',
-        //        CDN + 'video-js/4.1/video.dev.js',
+    CDN + 'underscore/js-1.4.4/underscore.js',
+    CDN + 'js/console.js',
+    //        CDN + 'video-js/4.1/video-js.css',
+    //        CDN + 'video-js/4.1/video.dev.js',
     ],
     complete: function () {
         Data = new Global('Data', '(catchall data fixture)');
@@ -44,8 +44,8 @@ Modernizr.load([
 },
 {
     both: [
-        '../scripts/drt.js',
-        '../scripts/share.js',
+    '../scripts/drt.js',
+    '../scripts/share.js',
     ],
     complete: function () {
         Main(W).init();
@@ -54,7 +54,7 @@ Modernizr.load([
 {
     test: !W.debug,
     yep: [
-        CDN + 'js/ecg-ga.js',
+    CDN + 'js/ecg-ga.js',
     ],
 },
 ]);
@@ -63,9 +63,9 @@ Modernizr.load([
 
 function Main(W) {
     var name = 'Main',
-        self = new Global(name, '(kicker and binder)'),
-        C = W.C,
-        Df;
+    self = new Global(name, '(kicker and binder)'),
+    C = W.C,
+    Df;
 
     Df = { // DEFAULTS
         sects: 'cgray red green purple amber plum teal exit legal slug',
@@ -146,48 +146,67 @@ function Main(W) {
 
  */
 function fuggit () {
-    var me = $('.banner'),
-        mq = $('<div>').addClass('blot');
-    me.before(mq);
+    function BANNER() {
+        var me = $('.banner'),
+            mq = $('<div>').addClass('blot');
+        me.before(mq);
 
-    var me1 = $('.banner1'),
-        mq1 = $('<div>').addClass('blot1');
-    me1.before(mq1);
+        var me1 = $('.banner1'),
+            mq1 = $('<div>').addClass('blot1');
+        me1.before(mq1);
 
-    var fixed, funum = 200;
-    function fixit() {
-        if (fixed) return fixed;
-        fixed = $('.tofix');
-        fixed.css({
-            position: 'static',
-            width: fixed.width(),
-            top: funum / 2
-        });
     }
-    $(W).on('scroll', function (evt) {
-        var me = fixit(),
-            off = this.pageYOffset;
 
-        if (off > funum * 2) {
-            fixed.css({
-                position: 'fixed',
-            });
-        } else {
+    function _scroll(ele) {
+        var $me = $(ele);
+
+        // look before leap
+        if ($me.length) {
+            $(W.isIE ? 'html' : 'body').stop().animate({
+                scrollTop: $me.offset().top,
+            }, 333);
+        }
+    }
+
+    function SCROLL() {
+        var fixed, funum = 200;
+
+        function fixit() {
+            if (fixed) return fixed;
+            fixed = $('.tofix');
             fixed.css({
                 position: 'static',
+                width: fixed.width(),
+                top: funum / 2
             });
         }
-    });
-    $('.scroll').each(function () {
-        // smooth and prevent def
-    });
+        $(W).on('scroll', function (evt) {
+            var me = fixit(),
+                off = this.pageYOffset;
 
-    $('.fade').css({
-        position: 'absolute',
-    });
-        //.fadeOut();
+            if (off > funum * 2) {
+                me.css({
+                    position: 'fixed',
+                });
+            } else {
+                me.css({
+                    position: 'static',
+                });
+            }
+        });
 
+        $('.scroll').on('click', function (evt) {
+            evt.preventDefault();
+            // smooth and prevent def
+            _scroll($(evt.target.href));
+        });
+    }
 
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    BANNER();
+    $('.fade').slice(0,-1).fadeOut(); // FADE();
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 }
 
 $(fuggit);

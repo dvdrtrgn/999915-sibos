@@ -27,6 +27,38 @@ var dev, drt = {
         $('a[href="' + page + '"]').addClass('active');
     },
     animateBanner: function () {
+        var Df = {};
+
+        Df.all = $('.fade');
+        Df.total = Df.all.length;
+        Df.now = Df.total;
+        Df.time = 999;
+        Df.all.css({
+            position: 'absolute',
+        });
+
+        function decr() {
+            Df.now--;
+
+            if (Df.now <= 1) {
+                Df.now = Df.total;
+                Df.all.fadeIn(Df.time)
+            }
+            console.error(Df.now);
+        }
+
+        function runfade() {
+            decr();
+            Df.all.eq(Df.now).fadeOut(Df.time, function () {
+                setTimeout(function(){
+                    runfade(); // recurses
+                }, 7777);
+            });
+        }
+        // kick it off
+        runfade();
+    },
+    animateBanner0: function () {
         var div = $('#banner')
         ,   all = div.find('.banner')
         ,   cnt = all.length
@@ -106,10 +138,10 @@ var dev, drt = {
         });
     },
     init: function () {
-//        $('#header, #navbar, #footer').nosel();
-//        $('img').parent().nosel();
-        drt.activeNavButton();
-        drt.animateBanner();
+        //  $('#header, #navbar, #footer').nosel();
+        //  $('img').parent().nosel();
+        //  drt.activeNavButton();
+        //  drt.animateBanner();
 
         $('#Banner').show();
         try {
