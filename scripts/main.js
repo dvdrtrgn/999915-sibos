@@ -13,7 +13,7 @@ if ($.now() > 137760e7) {
 CDN = {
     self: '/lib/',
     disk: 'file:///lib/',
-    bithon: '../../../lib/',
+    bithon: '../../../../lib/',
     webdev: 'http://10.89.101.100/lib/',
     mython: 'http://10.89.101.81:8000/lib/',
     python: 'http://localhost:8000/lib/',
@@ -79,21 +79,21 @@ function Main(W) {
         /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
         var raw = location.pathname.split('/').pop().match(/\w+/g);
         var pageHash = {
-            home: ["Home", 'Check out the #WellsFargo Global Financial Institutions Sibos microsite'],
-            visit: ["Visit our booth", 'See pics of the #WellsFargo booth & learn about events being hosted'],
-            about: ["About Us", 'Learn about the #WellsFargo Global Financial Institutions business'],
-            explore: ["Explore Osaka", 'Explore what Osaka has to offer at #Sibos 2012'],
-            pubs: ["Publications", 'Learn about the #WellsFargo Global Financial Institutions publications'],
+            about: ["About Wells Fargo", 'Learn about the #WellsFargo Global Financial Institutions business'],
+            booth: ["Visit our booth", 'See pics of the #WellsFargo booth & learn about events being hosted'],
+            events: ["Sibos events", 'Learn more about the #WellsFargo events at #Sibos'],
+            explore: ["Explore Dubai", 'See what Dubai has to offer at #Sibos 2013'],
             giving: ["Charitable giving", 'Learn more about the #WellsFargo charity programs at #Sibos'],
-            photos: ["Gallery", 'View pics from last year’s #WellsFargo Annual Sibos Celebration event']
+            home: ["Home", 'Check out the #WellsFargo Global Financial Institutions Sibos microsite'],
+            speakers: ["speakers", 'Learn about the #WellsFargo Global Financial Institutions publications'],
         };
 
         try {
             ShareStrings = {
-                url: 'http://wellsfargomedia.com/sibos2012/pages/' + raw.join('.'),
-                tab: 'Wells Fargo at Sibos 2012 – ' + pageHash[raw[0]][0],
+                url: 'http://wellsfargomedia.com/sibos2013/pages/' + raw.join('.'),
+                tab: 'Wells Fargo at Sibos 2013 – ' + pageHash[raw[0]][0],
                 sum: pageHash[raw[0]][1],
-                img: 'http://wellsfargomedia.com/sibos2012/images/header/wf-sibos.png'
+                img: 'http://wellsfargomedia.com/sibos2013/images/header/wf-sibos.png',
             };
 
             $('#head0').text(ShareStrings.tab);
