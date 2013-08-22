@@ -216,7 +216,7 @@ function fuggit () {
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    $('.click2run').one('click', function () {
+    $('.click2run').fadeIn().on('click', function () {
         drt.activeNavButton();
     });
 
