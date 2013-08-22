@@ -45,24 +45,26 @@ header {
 #Banner {
     display: none;
     position: relative;
+    height: 295px;
 }
 img.banner {
     float: left;
     margin: 1px 0 5px 0;
     margin: -63px -10% 3px;
     height: 90px;
-    position: relative;
+    position: absolute;
     width: 120%;
+    top: 245px;
     z-index: 9;
 }
 div.blot {
     background-color: white;
-    float: right;
+    bottom: 50px;
     height: 40px;
-    position: relative;
-    margin-top: -40px;
-    width: 50%;
+    right: 0;
+    width: 55%;
     z-index: 3;
+    position: absolute;
 }
 img.banner1 {
     @extend img.banner;
@@ -73,6 +75,5 @@ img.banner1 {
 div.blot1 {
     @extend div.blot;
     height: 60px;
-    margin-top: -60px;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
