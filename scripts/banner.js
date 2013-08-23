@@ -30,7 +30,7 @@ var Banner;
             Df.now = Df.total;
             Df.all.fadeIn(Df.time);
         }
-        C.error(Df.now);
+        W.debug > 1 && C.error(Df.now);
     }
 
     function _runfade() {
