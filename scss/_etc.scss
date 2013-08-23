@@ -43,6 +43,10 @@
     margin-bottom: -2px;
 }
 :target {
-    background-color: #fffff8;
+    background-color: $hilite;
+    @include transition( all 0.5s ease-out 0 );
+}
+.fade:target {
+    background-color: white;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

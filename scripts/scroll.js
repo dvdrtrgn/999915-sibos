@@ -22,12 +22,21 @@ var Scroll;
 
         // look before leap
         if ($me.length) {
+            $me.removeClass('fade');
             $(W.isIE ? 'html' : 'body').stop().animate({
                 scrollTop: $me.offset().top,
             }, 333, function () {
                 W.location.hash = $me.get(0).id;
+                _scroll(-15);
             });
         } else {
+            if (!isNaN(ele)) {
+                console.error(ele);
+                $(W.isIE ? 'html' : 'body').animate({
+                    scrollTop: $(':target').offset().top + ele,
+                }, 333);
+                $me.addClass('fade');
+            }
             $(W.isIE ? 'html' : 'body').scroll();
         }
     }
@@ -82,6 +91,8 @@ var Scroll;
         }
 
         _bind();
+        _scroll(); // wake up
+        _scroll();
     }
 
     W[name] = $.extend(true, self, {
@@ -89,6 +100,7 @@ var Scroll;
             return Df;
         },
         init: _init,
+        update: _scroll,
     });
 
     return self;
