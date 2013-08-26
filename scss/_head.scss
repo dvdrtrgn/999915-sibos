@@ -37,7 +37,7 @@ header {
     }
     .navb a.active {
         @include navFore();
-        background-color: $prime1;
+        background-color: $navfore2;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
