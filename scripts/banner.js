@@ -43,12 +43,12 @@ var Banner;
     }
 
     function _blotto() {
-        var me = $('.reins-small'),
-            mq = $('<div>').addClass('blot-small');
+        var me = $('.reins.small'),
+            mq = $('<div>').addClass('blot small');
         me.before(mq);
 
-        var me1 = $('.reins-large'),
-            mq1 = $('<div>').addClass('blot-large');
+        var me1 = $('.reins.large'),
+            mq1 = $('<div>').addClass('blot large');
         me1.before(mq1);
 
     }

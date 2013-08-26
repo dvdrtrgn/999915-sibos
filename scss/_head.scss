@@ -46,35 +46,42 @@ header {
     display: none;
     position: relative;
     height: 295px;
-}
-img.reins-small {
-    float: left;
-    margin: 1px 0 5px 0;
-    margin: -63px -10% 3px;
-    height: 90px;
-    left: 0;
-    position: absolute;
-    width: 120%;
-    top: 245px;
-    z-index: 9;
-}
-div.blot-small {
-    background-color: white;
-    bottom: 50px;
-    height: 40px;
-    right: 0;
-    width: 55%;
-    z-index: 3;
-    position: absolute;
-}
-img.reins-large {
-    @extend img.reins-small;
-    margin: -99px -20% 11px;
-    height: 150px;
-    width: 140%;
-}
-div.blot-large {
-    @extend div.blot-small;
-    height: 60px;
+
+    img.reins {
+        float: left;
+        left: 0;
+        position: absolute;
+        top: 245px;
+        z-index: 9;
+
+        &.small {
+            height: 90px;
+            margin: -63px -10% 3px;
+            width: 120%;
+        }
+        &.large {
+            @extend img.reins;
+            margin: -99px -20% 11px;
+            height: 150px;
+            width: 140%;
+        }
+    }
+    div.blot {
+        background-color: white;
+        bottom: 50px;
+        right: 0;
+        width: 55%;
+        z-index: 3;
+        position: absolute;
+
+        &.small {
+            @extend div.blot;
+            height: 40px;
+        }
+        &.large {
+            @extend div.blot;
+            height: 60px;
+        }
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
