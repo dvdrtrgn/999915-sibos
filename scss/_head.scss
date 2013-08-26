@@ -37,7 +37,7 @@ header {
     }
     .navb a.active {
         @include navred();
-        background-color: $red;
+        background-color: $prime1;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
