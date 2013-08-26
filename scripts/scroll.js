@@ -10,6 +10,7 @@ var Scroll;
         Df;
 
     Df = { // DEFAULTS
+        box: $(W.isIE ? 'html' : 'body'),
         inits: function (cb) {},
         fixed: null,
         funum: 200,
@@ -17,27 +18,26 @@ var Scroll;
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _scroll(ele) {
+    function _scroll(ele, amt) {
+        amt = amt || 0;
+        ele = ele || Df.box;
+
         var $me = $(ele);
+
+        W.debug > 0 && C.debug(name + '_scroll', '\n', amt, [$me]);
 
         // look before leap
         if ($me.length) {
-            $me.removeClass('fade');
-            $(W.isIE ? 'html' : 'body').stop().animate({
-                scrollTop: $me.offset().top,
+            $me.addClass('target');
+            Df.box.stop().animate({
+                scrollTop: $me.offset().top + amt,
             }, 333, function () {
                 W.location.hash = $me.get(0).id;
-                _scroll(-15);
+                if (!amt) {
+                    _scroll(ele, -15);
+                }
+                $me.removeClass('target');
             });
-        } else {
-            if (!isNaN(ele)) {
-                console.error(ele);
-                $(W.isIE ? 'html' : 'body').animate({
-                    scrollTop: $(':target').offset().top + ele,
-                }, 333);
-                $me.addClass('fade');
-            }
-            $(W.isIE ? 'html' : 'body').scroll();
         }
     }
 
@@ -92,7 +92,6 @@ var Scroll;
 
         _bind();
         _scroll(); // wake up
-        _scroll();
     }
 
     W[name] = $.extend(true, self, {
