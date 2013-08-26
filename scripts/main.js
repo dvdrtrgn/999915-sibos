@@ -88,27 +88,3 @@ function Main(W) {
 
 
  */
-
-function fuggit() {
-    function BANNER() {
-        var me = $('.banner'),
-            mq = $('<div>').addClass('blot');
-        me.before(mq);
-
-        var me1 = $('.banner1'),
-            mq1 = $('<div>').addClass('blot1');
-        me1.before(mq1);
-
-    }
-    BANNER();
-
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    $('.click2run').fadeIn().on('click', function () {
-        drt.activeNavButton();
-    });
-
-    // $('.fade').slice(0, - 1).fadeOut(); // FADE();
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-}
-
-$(fuggit);

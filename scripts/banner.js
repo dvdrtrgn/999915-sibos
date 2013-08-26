@@ -42,6 +42,17 @@ var Banner;
         });
     }
 
+    function _blotto() {
+        var me = $('.banner'),
+            mq = $('<div>').addClass('blot');
+        me.before(mq);
+
+        var me1 = $('.banner1'),
+            mq1 = $('<div>').addClass('blot1');
+        me1.before(mq1);
+
+    }
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
@@ -49,7 +60,12 @@ var Banner;
             return null;
         }
         Df.inits();
+        _blotto();
         _runfade();
+
+        $('.click2run').fadeIn().on('click', function () {
+            drt.activeNavButton();
+        });
     }
 
     W[name] = $.extend(true, self, {
