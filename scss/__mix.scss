@@ -40,25 +40,17 @@
 }
 
 // GRADS
-@mixin buttongrad1(){
-    background-color: $button1;
-    @include background-image( linear-gradient(top, $button1 50%, $button2 53%) );
+@mixin navBack(){
+    background-color: $navback1;
+    @include vgrad( $navback1, $navback2);
 }
-@mixin navgray(){
-    background-color: $navgray1;
-    @include vgrad( $navgray1, $navgray2);
+@mixin navFore(){
+    background-color: $navfore1;
+    @include vgrad( $navfore1, $navfore2);
 }
-@mixin navred(){
-    background-color: $navred1;
-    @include vgrad( $navred1, $navred2);
-}
-@mixin graygrad(){
+@mixin bodyGrad(){
     background-color: #ddd;
     @include vgrad( #fff, #ddd, 44%, 88%);
-}
-@mixin buttongrad2(){
-    background-color: $button2;
-    @include background-image( linear-gradient(top, $button2 50%, $button1 53%) );
 }
 
 //* >^º!º^< */

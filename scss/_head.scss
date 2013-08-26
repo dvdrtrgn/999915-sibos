@@ -10,7 +10,7 @@ header {
         height: 80px;
     }
     .navb { /* baseline */
-        @include navgray();
+        @include navBack();
         color: gray;
         font-family: Verdana, Geneva, sans-serif;
         font-size: 13px;
@@ -29,14 +29,14 @@ header {
         text-decoration: none;
     }
     .navb a:hover {
-        @include navred();
+        @include navFore();
         border-left: 1px solid white;
         border-right: 1px solid white;
         opacity: 0.7;
         margin-left: -1px;
     }
     .navb a.active {
-        @include navred();
+        @include navFore();
         background-color: $prime1;
     }
 }

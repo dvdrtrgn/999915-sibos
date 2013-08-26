@@ -7,7 +7,7 @@ html {
     line-height: 1;
 
     body {
-        @include graygrad();
+        @include bodyGrad();
         background-attachment: fixed;
 
         a {
