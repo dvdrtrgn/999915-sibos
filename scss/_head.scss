@@ -47,7 +47,7 @@ header {
     position: relative;
     height: 295px;
 }
-img.banner {
+img.reins-small {
     float: left;
     margin: 1px 0 5px 0;
     margin: -63px -10% 3px;
@@ -58,7 +58,7 @@ img.banner {
     top: 245px;
     z-index: 9;
 }
-div.blot {
+div.blot-small {
     background-color: white;
     bottom: 50px;
     height: 40px;
@@ -67,14 +67,14 @@ div.blot {
     z-index: 3;
     position: absolute;
 }
-img.banner1 {
-    @extend img.banner;
+img.reins-large {
+    @extend img.reins-small;
     margin: -99px -20% 11px;
     height: 150px;
     width: 140%;
 }
-div.blot1 {
-    @extend div.blot;
+div.blot-large {
+    @extend div.blot-small;
     height: 60px;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
