@@ -44,7 +44,6 @@ Modernizr.load([{
 }, {
     both: [
         '../scripts/drt.js',
-        '../scripts/share.js',
         '../scripts/banner.js',
         '../scripts/scroll.js',
         '../scripts/main.js',
@@ -55,6 +54,7 @@ Modernizr.load([{
 }, {
     test: !W.debug,
     yep: [
+//        '../scripts/share.js',
         CDN + 'js/ecg-ga.js',
     ],
 }]);

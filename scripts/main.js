@@ -76,6 +76,8 @@ function Main(W) {
 
         if (_whatPage() === 'home.html') {
             Banner.init(Df.bnrLinks);
+        } else {
+            Banner.init();
         }
     }
 
