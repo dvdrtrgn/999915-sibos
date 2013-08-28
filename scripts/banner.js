@@ -55,15 +55,27 @@ var Banner;
 
     }
 
+    function _binder(obj) {
+        $.each(obj, function (i, e) {
+            $('.' + i).click(function () {
+                W.location = e;
+            });
+        });
+    }
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init() {
+    function _init(obj) {
         if (self.inited(true)) {
             return null;
         }
         Df.inits();
         _blotto();
         _runfade();
+
+        if (obj) {
+            _binder(obj);
+        }
 
         $('.click2run').fadeIn().on('click', function () {
             drt.activeNavButton();

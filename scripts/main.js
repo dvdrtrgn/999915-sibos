@@ -11,6 +11,14 @@ function Main(W) {
     Df = { // DEFAULTS
         sects: 'cgray red green purple amber plum teal exit legal slug',
         inits: function (cb) {},
+        bnrLinks: {
+            bnr1: '#',
+            bnr2: 'http://tagboard.com/wfpony',
+            bnr3: 'booth.html',
+            bnr4: 'explore.html',
+            bnr5: 'about.html',
+            bnr6: 'booth.html',
+        },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -50,6 +58,9 @@ function Main(W) {
             }
         }
     }
+    function _whatPage() {
+        return location.pathname.split('/').slice(-1).toString();
+    }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -62,7 +73,10 @@ function Main(W) {
 
         Init();
         Scroll.init();
-        Banner.init();
+
+        if (_whatPage() === 'home.html') {
+            Banner.init(Df.bnrLinks);
+        }
     }
 
     W[name] = $.extend(true, self, {
