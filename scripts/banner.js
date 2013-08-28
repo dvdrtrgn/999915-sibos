@@ -13,8 +13,8 @@ var Banner;
         inits: function (cb) {
             this.all = $('.fade');
             this.total = this.all.length;
-            this.now = this.total;
-            this.time = 999;
+            this.now = 2;
+            this.time = 666;
             this.all.css({
                 position: 'absolute',
             });
@@ -23,22 +23,24 @@ var Banner;
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-    function decr() {
+    function descend() {
         Df.now--;
 
         if (Df.now <= 0) {
-            Df.now = Df.total;
-            Df.all.fadeIn(Df.time);
+            Df.now = Df.total - 1;
+            Df.all.fadeIn(0);
         }
-        W.debug > 1 && C.error(Df.now);
+        W.debug > 0 && C.debug(Df.now);
     }
 
     function _runfade() {
-        decr();
-        Df.all.eq(Df.now).fadeOut(Df.time, function () {
+        descend();
+
+        Df.all.eq(Df.now) //
+        .fadeOut(Df.time, function () {
             W.setTimeout(function () {
                 _runfade(); // recurses
-            }, 7777);
+            }, Df.time * 9);
         });
     }
 
