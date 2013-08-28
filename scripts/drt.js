@@ -36,7 +36,6 @@ var dev, drt = {
     init: function () {
         drt.activeNavButton();
 
-        $('#Banner').show();
         try {
             if (!(/mobi/i).test(W.navigator.userAgent)) {
                 $('a.popup.vid').each(drt.shadowboxVid);

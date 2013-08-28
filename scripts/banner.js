@@ -77,7 +77,7 @@ var Banner;
             _binder(obj);
         }
 
-        $('.click2run').fadeIn().on('click', function () {
+        $('#Banner').fadeOut(1).fadeIn(999).on('click', function () {
             drt.activeNavButton();
         });
     }
