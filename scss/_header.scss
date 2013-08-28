@@ -1,4 +1,4 @@
-/* HEAD */
+/* HEADER */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 header {
@@ -38,6 +38,23 @@ header {
     .navb a.active {
         @include navFore();
         background-color: $navfore2;
+    }
+}
+
+footer {
+    clear: both;
+    color: #857b72;
+    border-top: 1px solid #e7e5e3;
+    font-family: Verdana;
+    height: 22px;
+    margin: 8px 28px;
+    position: relative;
+    vertical-align: baseline;
+    width: 898px;
+
+    p {
+        font-size: 10px;
+        line-height: 28px;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
