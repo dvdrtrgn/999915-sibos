@@ -35,6 +35,7 @@ Modernizr.load([{
     both: [
         CDN + 'underscore/js-1.4.4/underscore.js',
         CDN + 'js/console.js',
+        CDN + 'js/global.js',
     ],
     //        CDN + 'video-js/4.1/video-js.css',
     //        CDN + 'video-js/4.1/video.dev.js',
