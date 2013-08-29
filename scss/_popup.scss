@@ -3,6 +3,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 div.popup {
     color: white;
+    cursor: pointer;
     display: none;
     padding: 5% 0 5% 0;
     text-align: center;
@@ -28,10 +29,11 @@ div.popup {
 
         img {
             box-shadow: 0 11px 66px black;
+            cursor: default;
         }
     }
 }
 a.popup {
-    cursor: pointer;
+    cursor: move;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
