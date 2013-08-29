@@ -37,6 +37,7 @@ function Main(W) {
             giving: ["Charitable giving", 'Learn more about the #WellsFargo charity programs at #Sibos'],
             home: ["Home", 'Check out the #WellsFargo Global Financial Institutions Sibos microsite'],
             speakers: ["speakers", 'Learn about the #WellsFargo Global Financial Institutions publications'],
+            test: ["x", 'x'],
         };
 
         try {
