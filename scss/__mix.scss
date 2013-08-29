@@ -52,5 +52,10 @@
     background-color: #ddd;
     @include vgrad( #fff, #ddd, 44%, 88%);
 }
-
+@mixin beigegrad(){
+    @include background-image( linear-gradient(top, $beige1 0%, $beige2 100%) );
+}
+@mixin thinshadow() {
+    text-shadow: 0px 1px 1px gray;
+}
 //* >^º!º^< */

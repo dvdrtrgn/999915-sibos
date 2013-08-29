@@ -1,0 +1,60 @@
+/* CHEV (NAV) */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+body.NAV___ {
+    .chevar {
+        background-color: $beige2;
+        border-top: 1px solid white;
+        border-bottom: 2px solid white;
+        clear: both;
+        font-family: Archer;
+        font-weight: 500;
+        line-height: 1em;
+        margin-top: 1px;
+        padding: 0.15em;
+        position: relative;
+        text-shadow: 1px 0 0 $beige1;
+        @include beigegrad();
+
+        &.hover, &:hover {
+            a:after {
+                color: white;
+                @include thinshadow;
+            }
+        }
+        a {
+            color: $brown;
+            display: inline-block;
+            padding: 0.25em;
+            text-decoration: none;
+
+            &.active {
+                color: white;
+            }
+            &:after {  // CHEVRON
+                content: ' › ';
+                font-family: Arial;
+                font-size: 2.25em;
+                line-height: 0.44em;
+                font-weight: bold;
+                position: absolute;
+                right: $hem;
+                top: 0.666rem;
+            }
+        }
+    }
+    .mini .chevar {
+        border-top: 2px solid white;
+        border-bottom: 1px solid white;
+        font-size: 125%;
+        font-weight: 600;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+
+        a: after {// CHEVRON
+            font-size: 3em;
+        }
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
