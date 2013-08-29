@@ -94,7 +94,8 @@ var Banner;
             _binder(obj);
         }
 
-        $('#Banner').fadeOut(1).fadeIn(999).on('click', function () {
+        $('#Banner').fadeOut(1).fadeIn(999);
+        $('.reins').on('click', function () {
             _reinImage();
         });
     }
