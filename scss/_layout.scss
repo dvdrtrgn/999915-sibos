@@ -1,25 +1,6 @@
 /* LAYOUT */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-html {
-    body {
-        h2, h3 {
-            color: $prime1;
-        }
-        p, li {
-            font-family: Verdana, Geneva, sans-serif;
-            margin-bottom: 11px;
-            text-indent: 1px;
-        }
-        ul {
-            font-size: 100%;
-            list-style-type: square;
-            margin-top: 9px;
-            padding-left: 22px;
-        }
-    }
-}
-/* SEGMENTS */
 #Page {
     background-color: #fff;
     border: 1px solid #f8f8f8;
@@ -32,5 +13,13 @@ html {
     overflow: visible;
     position: relative;
     width: 898px;
+}
+#Share {
+    float: right;
+
+    .cap {
+        margin-right: 6px;
+        vertical-align: top;
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

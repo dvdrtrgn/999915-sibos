@@ -87,8 +87,22 @@ html {
         }
     }
 }
+html {
+    body {
+        h2, h3 {
+            color: $prime1;
+        }
+        p, li {
+            font-family: Verdana, Geneva, sans-serif;
+            margin-bottom: 11px;
+            text-indent: 1px;
+        }
+        ul {
+            font-size: 100%;
+            list-style-type: square;
+            margin-top: 9px;
+            padding-left: 22px;
+        }
+    }
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-// [min|max]- width * height
-// [min|max]- device-width * device-height
-// [min|max]- aspect-ratio * device-aspect-ratio
-// orientation :[port|land]
