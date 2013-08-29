@@ -1,46 +1,31 @@
 /* MINI and MOBILE (LAYOUT) */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-body.LAY___ #Body {
-    #Showbox {
-        .iphone {
-            background-position: 0 0; // -97px -5px;
-            left: $rem * -8.5; // -7px;
-            top: $rem * -2.5; // -8px;
+.iphone {
+    background-image: url("../images/mobile/bezel.png");
+    background-position: 0 0;
+    position: relative;
+    width: 600px; height: 700px;
+        left: 32px; top: 10px;
 
-            .mini {
-                left: $rem * 8.6; // 32px;
-                top: $rem * 7.6; // 110px;
-            }
-        }
-    }
-    .iphone {
-        background-image: url("../mobile/bezel.png");
-        background-position: -97px -5px;
-        height: 700px;
-        left: -7px;
-        position: relative;
-        top: -8px;
-        width: 600px;
+    z-index: 1;
 
-        &.hover, &:hover {
-            header.mini {
-                z-index: 1;
-            }
-        }
-        header.mini {
-            border: 4px solid #eee;
-            height: 452px;
-            left: 32px;
-            overflow: hidden;
-            overflow-y: auto;
-            top: 110px;
-            width: 308px;
-            z-index: -1;
-        }
+    .mini {
+        left: $rem * 8.6; // 32px;
+        top: $rem * 7.6; // 110px;
     }
 
-    header.mini {
+
+    .mini {
+        border: 4px solid #eee;
+        height: 452px;
+        left: 129px; top: 115px;
+        overflow: hidden;
+        overflow-y: auto;
+
+        width: 308px;
+        z-index: -1;
+
         background-color: #fcfcff;
         position: relative;
 
@@ -58,13 +43,7 @@ body.LAY___ #Body {
             top: 0;
         }
     }
-    .portrait {
-        margin-right: $rem;
-    }
-    .buttonys {
-        padding: $rem 0;
-    }
-    .mast h1 {
+    .mastr h1 {
         color: black;
         clear: none;
         line-height: 200%;
@@ -72,6 +51,6 @@ body.LAY___ #Body {
         font-size: 1.3rem;
         font-weight: 500;
     }
-
 }
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
