@@ -24,7 +24,7 @@ var Scroll;
 
         var $me = $(ele);
 
-        W.debug > 0 && C.debug(name + '_scroll', '\n', amt, [$me]);
+        W.debug > 1 && C.debug(name + '_scroll', '\n', amt + 'px', [$me]);
 
         // look before leap
         if ($me.length) {
