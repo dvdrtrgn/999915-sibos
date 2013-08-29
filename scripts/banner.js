@@ -64,11 +64,11 @@ var Banner;
     function _blotto() {
         var me = $('.reins.small'),
             mq = $('<div>').addClass('blot small');
-        me.before(mq);
+        me.after(mq);
 
         var me1 = $('.reins.large'),
             mq1 = $('<div>').addClass('blot large');
-        me1.before(mq1);
+        me1.after(mq1);
 
     }
 

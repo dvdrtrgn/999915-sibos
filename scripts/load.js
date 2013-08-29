@@ -29,9 +29,10 @@ Modernizr.load([{
     yep: [
         CDN + 'ie/split.js',
         CDN + 'ie/html5shiv.js',
+//        CDN + 'ie/nwmatcher.min.js',
+//        CDN + 'ie/selectivizr-min.js',
+        '../lib/respond.min.js',
     ],
-    //        CDN + 'ie/nwmatcher.min.js',
-    //        CDN + 'ie/selectivizr-min.js',
     both: [
         CDN + 'underscore/js-1.4.4/underscore.js',
         CDN + 'js/console.js',

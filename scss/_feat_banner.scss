@@ -4,8 +4,11 @@
 #Feature #Banner {
     display: none;
     position: relative;
-    height: 295px;
+    width: 898px; height: 295px;
 
+    img.fade {
+        left: 0; top: 0;
+    }
     div.reins {
         @include transition( all 0.5s ease-out 0 );
         background-size: 111% 100%;
@@ -14,8 +17,7 @@
     .reins {
         float: left;
         left: 0;
-        position: absolute;
-        top: 245px;
+        position: relative;
         z-index: 9;
 
         &.small {
@@ -31,18 +33,20 @@
     }
     div.blot {
         background-color: white;
-        bottom: 50px;
-        position: absolute;
+        float: right;
+        position: relative;
         right: 0;
         width: 55%;
         z-index: 3;
 
         &.small {
             @extend div.blot;
+            margin-top: -70px;
             height: 40px;
         }
         &.large {
             @extend div.blot;
+            margin-top: -125px;
             height: 60px;
         }
     }
