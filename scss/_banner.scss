@@ -6,7 +6,12 @@
     position: relative;
     height: 295px;
 
-    img.reins {
+    div.reins {
+        @include transition( all 0.5s ease-out 0 );
+        background-size: 111% 100%;
+        background-position: 50%;
+    }
+    .reins {
         float: left;
         left: 0;
         position: absolute;
@@ -19,7 +24,6 @@
             width: 120%;
         }
         &.large {
-            @extend img.reins;
             margin: -99px -20% 11px;
             height: 150px;
             width: 140%;
