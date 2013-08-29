@@ -5,21 +5,18 @@
     body {
         line-height: 150%;
     }
+    div.popup {
+        &.big {
+            background-image: url("../images/misc/masq.png");
+        }
+    }
     .blocks a.learn {
         line-height: 9px;
         margin: 7px 3px 0 0;
         z-index: 3;
     }
-    & .vjs-fullscreen-control {
+    .vjs-fullscreen-control {
         display: none;
-    }
-    div.blot-small, div.blot-large {
-        // display: none;
-    }
-    div.popup {
-        &.big {
-            background-image: url("../images/misc/masq.png");
-        }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
