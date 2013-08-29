@@ -14,7 +14,12 @@
         display: none;
     }
     div.blot-small, div.blot-large {
-       // display: none;
+        // display: none;
+    }
+    div.popup {
+        &.big {
+            background-image: url("../images/misc/masq.png");
+        }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
