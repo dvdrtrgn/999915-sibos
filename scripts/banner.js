@@ -96,7 +96,7 @@ var Banner;
 
         $('#Banner').fadeOut(1).fadeIn(999);
         $('.reins').on('click', function () {
-            _reinImage();
+            W.isIE || _reinImage();
         });
     }
 
