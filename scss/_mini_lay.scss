@@ -1,7 +1,7 @@
 /* MINI and MOBILE (LAYOUT) */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-.iphone {
+#Mobile {
     background-image: url("../images/mobile/bezel.png");
     background-position: 0 0;
     position: relative;
@@ -43,7 +43,7 @@
             top: 0;
         }
     }
-    .mastr h1 {
+    .mast h1 {
         color: black;
         clear: none;
         line-height: 200%;
