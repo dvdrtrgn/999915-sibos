@@ -59,8 +59,15 @@ function Main(W) {
             }
         }
     }
-    function _whatPage() {
-        return location.pathname.split('/').slice(-1).toString();
+
+    function _whatPage(x) {
+        x = x || W.location.pathname;
+        return x.split('/').slice(-1).toString();
+    }
+
+    function _noExt(x) {
+        x = x.split('.');
+        return x.slice(0, 1).toString();
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -88,6 +95,8 @@ function Main(W) {
             return Df;
         },
         init: _init,
+        what: _whatPage,
+        noext: _noExt,
         sectStr: function () {
             return Df.sects;
         },

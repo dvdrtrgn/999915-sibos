@@ -42,12 +42,12 @@ var Mobile, Div, Art, Nav;
             display: 'block',
             left: Df.wide,
             width: Df.wide,
-//            top: '0',
+            //            top: '0',
             position: 'absolute',
         }).animate({
             left: '0',
         }, 999, function () {
-        });
+            });
     }
 
     function _useArt() {
@@ -58,11 +58,11 @@ var Mobile, Div, Art, Nav;
         $(jq).css({
             display: 'block',
             left: '0',
-//            top: '0',
+        //            top: '0',
         }).animate({
             left: -Df.wide,
         }, 999, function () {
-        });
+            });
     }
 
     function _loadArt() {
@@ -92,6 +92,15 @@ var Mobile, Div, Art, Nav;
         });
     }
 
+    function _capture(){
+        $('nav a').click(function (evt) {
+            var str = evt.target.href;
+
+            evt.preventDefault();
+            C.log(Main.noext(Main.what(str)));
+        })
+
+    }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -100,7 +109,8 @@ var Mobile, Div, Art, Nav;
             return null;
         }
         Df.inits();
-//        _binder();
+        _binder();
+        _capture();
 
     }
 

@@ -24,7 +24,7 @@ var Scroll;
 
         var $me = $(ele);
 
-        W.debug > 1 && C.debug(name + '_scroll', '\n', amt + 'px', [$me]);
+        W.debug > 0 && C.debug(name + '_scroll', '\n', amt + 'px', [$me]);
 
         // look before leap
         if ($me.length) {
@@ -72,7 +72,7 @@ var Scroll;
             }
         });
 
-        $('.scroll').on('click', function (evt) {
+        $('.scroll').click(function (evt) {
             var str = evt.target.href;
 
             // smooth and prevent def
@@ -91,7 +91,7 @@ var Scroll;
         }
 
         _bind();
-        _scroll(); // wake up
+        //_scroll(); // wake up
     }
 
     W[name] = $.extend(true, self, {
