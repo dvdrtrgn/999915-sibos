@@ -47,6 +47,7 @@ Modernizr.load([{
     both: [
         '../scripts/drt.js',
         '../scripts/banner.js',
+        '../scripts/mobile.js',
         '../scripts/scroll.js',
         '../scripts/main.js',
     ],

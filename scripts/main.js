@@ -74,6 +74,7 @@ function Main(W) {
 
         Init();
         Scroll.init();
+        Mobile.init();
 
         if (_whatPage() === 'home.html') {
             Banner.init(Df.bnrLinks);
