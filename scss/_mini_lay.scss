@@ -3,33 +3,68 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Mobile {
     background-image: url("../images/mobile/bezel.png");
-    background-position: 0 0;
-    left: 32px; top: 10px;
     position: relative;
     width: 600px; height: 700px;
-    z-index: 1;
+
+    &:hover {
+        z-index: 1;
+    }
 
     .port {
         background-color: #fcfcff;
-        border: 4px solid #eee;
-        left: 129px; top: 115px;
+        border: 1px solid $red;
+        left: 121px; top: 94px;
         overflow: hidden;
         overflow-y: auto;
+        padding: 4px;
         position: relative;
-        width: 308px; height: 452px;
+        width: 322px; height: 482px;
         z-index: -1;
 
-        h1 {
-            color: black;
-            clear: none;
-            line-height: 200%;
-            text-indent: 48px;
-            font-size: 2rem;
-            font-weight: 500;
+        header {
+            border-bottom: 1px solid #bbb;
+            box-shadow: 0 0 3px black;
+            margin: -4px -4px 4px;
+
+            .logobar {
+                @include bargrad();
+                @include nosel();
+
+                background-color: $bar1;
+                box-shadow: 0 0 3px black;
+                color: #fc0;
+                font-size: 32px;
+                font-weight: bold;
+                text-align: center;
+                z-index: 111;
+
+                img {
+                    padding: 6px;
+                    width: 50%;
+                }
+            }
+            h1 {
+                color: black;
+                display: block;
+                font-family: Myriad;
+                font-size: 17px;
+                font-weight: 600;
+                line-height: 130%;
+                padding: 9px 6px 3px;
+            }
         }
-        .rube {
-            position: absolute;
-            left: 0; top: 0;
+        .banner {
+            width: 100%;
+        }
+        .reins {
+            width: 120%;
+            margin: 10px -10% -10px;
+
+        }
+        footer {
+            padding: 4px;
+            font-size: 9px;
+
         }
     }
 }

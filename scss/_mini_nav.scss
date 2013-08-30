@@ -3,23 +3,22 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Mobile {
     nav {
+        @include whiteShadow;
         border-top: 2px solid white;
         border-bottom: 1px solid white;
         clear: both;
-        font: {
-            size: 166%;
-            family: Archer, Georgia, serif;
-            weight: 500;
-        }
+        font-size: 150%;
+        font-family: Archer, Georgia, serif;
+        font-weight: 600;
         line-height: 1;
-        @include whiteShadow;
 
         a {
             @include lightGrad();
+
             color: $red;
             display: inline-block;
-            margin: 3px 1px;
-            padding: 0.25em;
+            margin: 2px 1px;
+            padding: 0.25em 0.5em;
             position: relative;
             text-decoration: none;
             width: 100%;
@@ -30,19 +29,17 @@
             &.hover, &:hover {
                 @include grayGrad();
                 @include thinShadow;
+
                 color: white;
             }
 
             // CHEVRON
             &:after {
                 content: ' › ';
-                font: {
-                    size: 200%;
-                    family: Arial, sans-serif;
-                    weight: 900;
-                }
+                font-family: Arial, sans-serif;
+                font-size: 200%;
+                font-weight: 900;
                 line-height: 0.2em;
-                font-weight: bold;
                 position: absolute;
                 right: $hem;
                 top: 0.666rem;
