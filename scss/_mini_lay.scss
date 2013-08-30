@@ -1,4 +1,4 @@
-/* MINI and MOBILE (LAYOUT) */
+/* MINI LAYOUT */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Mobile {
@@ -19,14 +19,6 @@
         width: 308px; height: 452px;
         z-index: -1;
 
-        a {
-            width: 100%;
-        }
-        button.share {
-            position: absolute;
-            right: $hem;
-            top: $hem;
-        }
         h1 {
             color: black;
             clear: none;

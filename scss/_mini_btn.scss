@@ -1,4 +1,4 @@
-/* BUTTONS */
+/* MINI BUTTONS */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Mobile {
@@ -49,6 +49,11 @@
         &:after {
             content: ' Share';
         }
+    }
+    button.share {
+        position: absolute;
+        right: $hem;
+        top: $hem;
     }
     .home {
         @extend .blue;
