@@ -1,58 +1,48 @@
 /* CHEV (NAV) */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-#Mobile .chevar {
-    background-color: $beige2;
-    border-top: 1px solid white;
-    border-bottom: 2px solid white;
-    clear: both;
-    font-family: Archer;
-    font-weight: 500;
-    line-height: 1em;
-    margin-top: 1px;
-    padding: 0.15em;
-    position: relative;
-    text-shadow: 1px 0 0 $beige1;
-    @include beigegrad();
+#Mobile {
+    nav {
+        border-top: 2px solid white;
+        border-bottom: 1px solid white;
+        clear: both;
+        font-size: 166%;
+        font-family: Archer, Georgia, serif;
+        font-weight: 400;
+        line-height: 1;
+        @include whiteShadow;
 
-    &.hover, &:hover {
-        a:after {
-            color: white;
-            @include thinshadow;
-        }
-    }
-    a {
-        color: $brown;
-        display: inline-block;
-        padding: 0.25em;
-        text-decoration: none;
+        a {
+            @include lightGrad();
+            color: $red;
+            display: inline-block;
+            margin: 3px 1px;
+            padding: 0.25em;
+            position: relative;
+            text-decoration: none;
 
-        &.active {
-            color: white;
-        }
-        &:after {  // CHEVRON
-            content: ' › ';
-            font-family: Arial;
-            font-size: 2.25em;
-            line-height: 0.44em;
-            font-weight: bold;
-            position: absolute;
-            right: $hem;
-            top: 0.666rem;
+            &.active {
+                color: white;
+            }
+            &:after {  // CHEVRON
+                content: ' › ';
+                font-family: Arial;
+                font-size: 2em;
+                line-height: 0.2em;
+                font-weight: bold;
+                position: absolute;
+                right: $hem;
+                top: 0.666rem;
+            }
+            &.hover, &:hover {
+                @include grayGrad();
+                color: white;
+
+                &:after {
+                    @include thinShadow;
+                }
+            }
         }
     }
 }
-#Mobile .port .chevar {
-    border-top: 2px solid white;
-    border-bottom: 1px solid white;
-    font-size: 125%;
-    font-weight: 600;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-
-    a:after {
-        font-size: 3em;
-    }
-}
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

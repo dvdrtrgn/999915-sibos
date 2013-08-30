@@ -10,8 +10,8 @@
     }
 }
 @mixin nosel(){
-    -webkit-user-drag: none;
     @include user-select(none);
+    -webkit-user-drag: none;
     //cursor: move;
 }
 @mixin rex($prop, $rem){
@@ -25,9 +25,6 @@
 @mixin siz($w:0, $h:0){
     @include rex('width', $w);
     @include rex('height', $h);
-}
-@mixin textshadow() {
-    text-shadow: 1px 1px 1px black;
 }
 @mixin outline($color: $hilite, $width: 4){
     outline: {
@@ -52,19 +49,31 @@
     background-color: #ddd;
     @include vgrad( #fff, #ddd, 44%, 88%);
 }
-@mixin beigegrad(){
+@mixin lightGrad(){
+    background-color: $beige2;
     @include background-image( linear-gradient(top, $beige1 0%, $beige2 100%) );
 }
-@mixin bluegrad(){
+@mixin blueGrad(){
+    background-color: $blue2;
     @include background-image( linear-gradient(top, $blue1 0%, $blue2 100%) );
 }
-@mixin graygrad(){
+@mixin grayGrad(){
+    background-color: $gray2;
     @include background-image( linear-gradient(top, $gray1 0%, $gray2 100%) );
 }
-@mixin redgrad(){
+@mixin redGrad(){
+    background-color: $red2;
     @include background-image( linear-gradient(top, $red1 0%, $red2 100%) );
 }
-@mixin thinshadow() {
-    text-shadow: 0px 1px 1px gray;
+// SHADS
+@mixin textshadow() {
+    text-shadow: 1px 1px 1px black;
 }
+@mixin thinShadow() {
+    text-shadow: 0px 1px 1px black;
+}
+@mixin whiteShadow() {
+    text-shadow: 0 1px 0 white;
+}
+
 //* >^º!º^< */

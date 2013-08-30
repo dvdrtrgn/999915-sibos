@@ -21,7 +21,7 @@
         border-width: 1px;
         font-size: $MD;
         padding: 2px 7px;
-        @include redgrad();
+        @include redGrad();
         a {
             color: white;
             font-weight: bold;
@@ -32,7 +32,7 @@
         font-size: $SM;
         padding: 2px 4px;
         text-decoration: none;
-        @include graygrad();
+        @include grayGrad();
 
         a {
             color: white;
@@ -42,7 +42,7 @@
         border-color: $blue1;
         text-decoration: none;
         @extend .base;
-        @include bluegrad();
+        @include blueGrad();
     }
     .share {
         @extend .base;
