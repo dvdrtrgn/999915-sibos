@@ -80,4 +80,12 @@
     text-shadow: 0 1px 2px #eee;
 }
 
+// FACES
+@mixin sans() {
+    font-family: "Myriad", "Myriad Pro", Verdana, Arial, Geneva, sans-serif;
+}
+@mixin serif() {
+    font-family: "Archer", 'Archer Book', Georgia, Times, serif;
+}
+
 //* >^º!º^< */

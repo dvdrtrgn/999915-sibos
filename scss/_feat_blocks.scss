@@ -42,9 +42,10 @@
             white-space: nowrap;
         }
         a.learn {
+            @include sans;
+
             float: right;
             font-size: 9px;
-            font-family: Verdana, Geneva, sans-serif;
             margin: 5px 9px;
         }
     }

@@ -43,14 +43,18 @@
                 }
             }
             h1 {
+                @include sans;
+
                 color: black;
                 display: block;
-                font-family: Myriad;
                 font-size: 17px;
                 font-weight: 600;
                 line-height: 130%;
                 padding: 9px 6px 3px;
             }
+        }
+        h3 {
+            font-weight: 600;
         }
         .banner {
             width: 100%;
