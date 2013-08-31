@@ -1,21 +1,44 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, window */
+/*globals $, Global, Page, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Extract;
 
 (function (W) {
     var name = 'Extract',
-    self = new Global(name, '(ajax page getter and storage)'),
-    C = W.C,
-    Df;
+        self = new Global(name, '(ajax page getter and storage)'),
+        C = W.C,
+        Df;
 
     Df = { // DEFAULTS
-        inits: function (cb) { },
         cache: $('#Mobile'),
-        caches: {},
+        cached: {},
+        stored: {
+            'foo':'bar',
+        },
+        inits: function () {
+            $.extend(this.cached, this.stored);
+        },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
+
+    function _log() {
+        C.debug.apply(C, arguments);
+    }
+
+    function _append(page) {
+        Df.parse = $(page.body).filter(Df.select).children();
+        Df.cache.append(Df.parse);
+        Df.cache = Df.cache.clone().addClass('port');
+    }
+
+    function _get(url, sel, cb) {
+        W.debug > 0 && C.debug(name + '_nav', [url, sel]);
+        cb = (cb || _log);
+
+        Df.select = sel;
+        Df.page = new Page(url, _append);
+    }
 
     function _nav(cb) {
         var url = '../lib/navport.html';
@@ -24,48 +47,6 @@ var Extract;
 
     function _page(url, cb) {
         _get(url, '#Feature', cb);
-    }
-
-    function _log() {
-        C.debug.apply(C, arguments);
-    }
-
-    function _get(url, sel, cb) {
-        W.debug > 0 && C.debug(name + '_nav', [url, sel]);
-        cb = cb || _log;
-
-        Df.select = sel;
-        Df.page = new Page(url, _append);
-    }
-
-    function _append(page) {
-        Df.parse = $(page.body).filter(Df.select).children();
-        Df.cache.append(Df.parse);
-        Df.cache = Df.cache.clone().addClass('port');
-        C.debug(name, 'finished');
-    }
-
-    function _bodyonly(str){
-        str = str.split(/\s+/).join(' ');
-        str = str.match(/<body>.+<\/body>/);
-        str = str.toString();
-        return str;
-    }
-
-    function _db(nom, str) {
-        if (str) {
-            Df.caches[nom] = str;
-        } else {
-            return Df.caches[nom];
-        }
-    }
-
-    function _binder(obj) {
-        $.each(obj, function (i, e) {
-            $('.' + i).click(function () {
-                W.location = e;
-            });
-        });
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

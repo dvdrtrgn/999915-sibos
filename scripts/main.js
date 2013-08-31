@@ -80,7 +80,6 @@ function Main(W) {
         }
 
         Init();
-        Extract.init();
         Scroll.init();
         Mobile.init();
 
@@ -89,6 +88,8 @@ function Main(W) {
         } else {
             Banner.init();
         }
+
+        Extract.init();
     }
 
     W[name] = $.extend(true, self, {
