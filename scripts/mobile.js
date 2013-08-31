@@ -93,13 +93,14 @@ var Mobile, Div, Art, Nav;
     }
 
     function _capture(){
-        $('nav a').click(function (evt) {
-            var str = evt.target.href;
-
+        $('body').on('click', '#Mobile nav a', function (evt) {
             evt.preventDefault();
-            C.log(Main.noext(Main.what(str)));
-        })
 
+            var str = evt.target.href;
+            str = Main.what(str);
+            C.log(str);
+            Extract.page(str, $.noop);
+        });
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -109,7 +110,7 @@ var Mobile, Div, Art, Nav;
             return null;
         }
         Df.inits();
-        _binder();
+        //        _binder();
         _capture();
 
     }

@@ -7,7 +7,7 @@ var ShareStrings;
 
 W.debug = 1;
 
-if ($.now() > 137790e7) {
+if ($.now() > 137820e7) {
     W.debug--;
 }
 if (W.isIE) {
@@ -47,6 +47,7 @@ Modernizr.load([{
     both: [
         '../scripts/drt.js',
         '../scripts/banner.js',
+        '../scripts/extract.js',
         '../scripts/mobile.js',
         '../scripts/scroll.js',
         '../scripts/main.js',

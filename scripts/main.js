@@ -80,6 +80,7 @@ function Main(W) {
         }
 
         Init();
+        Extract.init();
         Scroll.init();
         Mobile.init();
 
