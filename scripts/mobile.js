@@ -7,22 +7,17 @@ var Mobile, Div, Art, Nav;
     var name = 'Mobile',
         self = new Global(name, '(ajax fetch and db storage)'),
         C = W.C,
-        Df;
-
-    Art = {
-        div: null,
-    };
-    Nav = {
-        div: null,
-    };
+        Df, Nav;
 
     Df = { // DEFAULTS
         busy: false,
         current: '',
-        wide: 444,
-        time: 999,
+        left: 111,
+        time: 333,
+        wide: 999,
+        atnav: true,
         inits: function (cb) {
-
+            // get width (and offset)
         }
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -32,26 +27,38 @@ var Mobile, Div, Art, Nav;
 
         jq.css({
             display: 'block',
-            left: num1,
+            left: num1 + Df.left,
             width: Df.wide,
             position: 'absolute',
         }).animate({
-            left: num2,
+            left: num2 + Df.left,
         }, Df.time, cb);
     }
 
     function _revealPage(jq, yes) {
-        if (yes) {
-            _slide(Nav.jqs, 0, - Df.wide);
-            _slide(jq, Df.wide, 0, function () {
-                this.show();
-            });
+        if (!Df.atnav) {
+            yes = !yes;
+            Df.current.hide();
         } else {
-            _slide(Nav.jqs, - Df.wide, 0);
-            _slide(jq, 0, Df.wide, function () {
-                this.hide();
-            });
+            _useRegions(jq);
         }
+        Df.current = jq;
+        if (yes) {
+            jq.show();
+            _slide(Nav, 0, Df.wide * -1);
+            _slide(jq, Df.wide, 0);
+            Df.atnav = false;
+        } else {
+            _slide(Nav, Df.wide * -1, 0);
+            _slide(jq, 0, Df.wide, function () {
+                jq.hide();
+            });
+            Df.atnav = true;
+        }
+    }
+
+    function _useRegions(jq) {
+        jq.html(jq.find('article, .mobile'));
     }
 
     function _drill(jq) {
@@ -62,23 +69,12 @@ var Mobile, Div, Art, Nav;
         _revealPage(Df.current, false);
     }
 
-    function _loadArt() {
-        _drill(Art.jqs);
-    }
-
-    function _useFeature() {
-        Art.jqs.html('').append($('#Feature article'));
-    }
-
     function _binder() {
         Div = $('#Mobile');
-        Nav.jqs = Div.find('.port article');
-        Df.wide = Nav.jqs.width();
-        Art.jqs = Nav.jqs.clone();
-        Art.jqs.css('border', '1px solid lime');
-        Art.jqs.insertAfter(Nav.jqs);
 
-//        _useFeature();
+        Nav = Div.find('.port');
+        Df.wide = Nav.outerWidth();
+        Df.left = parseInt(Nav.css('left'));
     }
 
     function _capture() {
@@ -88,7 +84,6 @@ var Mobile, Div, Art, Nav;
             var str = evt.target.href;
             str = Main.what(str);
             C.log(str);
-            Df.current = str;
             Extract.page(str, _drill);
         });
     }
@@ -110,6 +105,7 @@ var Mobile, Div, Art, Nav;
             return Df;
         },
         init: _init,
+        gut: _useRegions,
     });
 
     return self;

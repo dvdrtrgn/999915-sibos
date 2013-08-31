@@ -81,7 +81,6 @@ function Main(W) {
 
         Init();
         Scroll.init();
-        Mobile.init();
 
         if (_whatPage() === 'home.html') {
             Banner.init(Df.bnrLinks);
@@ -90,6 +89,7 @@ function Main(W) {
         }
 
         Extract.init();
+        Mobile.init();
     }
 
     W[name] = $.extend(true, self, {
