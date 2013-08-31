@@ -45,6 +45,7 @@ Modernizr.load([{
     },
 }, {
     both: [
+        '../lib/Page.js',
         '../scripts/drt.js',
         '../scripts/banner.js',
         '../scripts/extract.js',

@@ -21,32 +21,36 @@ var Extract;
         var url = '../lib/navport.html';
         _get(url, '#Mobile', cb);
     }
+
     function _page(url, cb) {
         _get(url, '#Feature', cb);
     }
 
-    function _get(url, sel, cb) {
-        cb = cb || function () {
-            C.debug.apply(C, arguments);
-        };
-
-        W.debug > 0 && C.debug(name + '_nav', [url, sel]);
-
-        Df.jqxhr = $.get(url, function (data) {
-            Df.data = $(data).filter(sel).children();
-            C.debug('text success', Df.data);
-        }).done(function (data) {
-            Df.cache.append(Df.data);
-            C.debug('parsed success', [data, Df.data.html()]);
-        }).always(function () {
-            C.debug('finished');
-            cb(Df.cache);
-            Df.cache = Df.cache.clone().addClass('port');
-        }).fail(function (x) {
-            C.debug('error', x);
-        });
+    function _log() {
+        C.debug.apply(C, arguments);
     }
 
+    function _get(url, sel, cb) {
+        W.debug > 0 && C.debug(name + '_nav', [url, sel]);
+        cb = cb || _log;
+
+        Df.select = sel;
+        Df.page = new Page(url, _append);
+    }
+
+    function _append(page) {
+        Df.parse = $(page.body).filter(Df.select).children();
+        Df.cache.append(Df.parse);
+        Df.cache = Df.cache.clone().addClass('port');
+        C.debug(name, 'finished');
+    }
+
+    function _bodyonly(str){
+        str = str.split(/\s+/).join(' ');
+        str = str.match(/<body>.+<\/body>/);
+        str = str.toString();
+        return str;
+    }
 
     function _db(nom, str) {
         if (str) {
