@@ -23,8 +23,11 @@ var Extract;
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
-    function _log() {
-        C.debug.apply(C, arguments);
+    function _get(url, sel, cb) {
+        W.debug > 0 && C.debug(name + '_nav', [url, sel]);
+        cb = (cb || Main.cb);
+        Df.select = sel;
+        new Page(url, cb);
     }
 
     function _append(page) {
@@ -33,21 +36,17 @@ var Extract;
         Df.cache.clone().append(Df.parse).appendTo(Df.bezel);
     }
 
-    function _get(url, sel, cb) {
-        W.debug > 0 && C.debug(name + '_nav', [url, sel]);
-        cb = (cb || _log);
-
-        Df.select = sel;
-        Df.page = new Page(url, _append);
-    }
-
     function _nav(cb) {
         var url = '../lib/navport.html';
-        _get(url, '.port', cb);
+        cb = (cb || Main.cb);
+        Df.page = _get(url, '.port', _append);
+        cb(Df.page);
     }
 
     function _page(url, cb) {
-        _get(url, '#Feature', cb);
+        cb = (cb || Main.cb);
+        Df.page = _get(url, '#Feature', _append);
+        cb(Df.page);
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
