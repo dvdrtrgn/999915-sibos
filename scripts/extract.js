@@ -13,7 +13,7 @@ var Extract;
         cache: $('#Mobile'),
         cached: {},
         stored: {
-            'foo':'bar',
+            'foo': 'bar',
         },
         inits: function () {
             $.extend(this.cached, this.stored);
