@@ -105,6 +105,9 @@ function Main(W) {
         sectArr: function () {
             return Df.sects.split(' ');
         },
+        cb: function _log() {
+            C.debug.apply(C, arguments);
+        },
     });
     return self;
 }

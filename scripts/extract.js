@@ -10,7 +10,8 @@ var Extract;
         Df;
 
     Df = { // DEFAULTS
-        cache: $('#Mobile'),
+        bezel: $('#Mobile'),
+        cache: $('<section class="port">'),
         cached: {},
         stored: {
             'foo': 'bar',
@@ -27,9 +28,9 @@ var Extract;
     }
 
     function _append(page) {
-        Df.parse = $(page.body).filter(Df.select).children();
-        Df.cache.append(Df.parse);
-        Df.cache = Df.cache.clone().addClass('port');
+        Df.parse = $(page.body).scout(Df.select).children();
+        // this will only parse the children of top elements [html/body/head]
+        Df.cache.clone().append(Df.parse).appendTo(Df.bezel);
     }
 
     function _get(url, sel, cb) {
@@ -42,7 +43,7 @@ var Extract;
 
     function _nav(cb) {
         var url = '../lib/navport.html';
-        _get(url, '#Mobile', cb);
+        _get(url, '.port', cb);
     }
 
     function _page(url, cb) {
@@ -58,6 +59,10 @@ var Extract;
 
         Df.inits();
         _nav();
+        // extend jquery
+        $.fn.scout = function (sel) { // find and/or filter
+            return this.filter(sel).add(this.find(sel));
+        };
     }
 
     W[name] = $.extend(true, self, {
