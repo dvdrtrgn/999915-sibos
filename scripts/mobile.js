@@ -1,116 +1,106 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, window */
+/*globals $, Extract, Global, Main, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Mobile, Div, Art, Nav;
 
 (function (W) {
     var name = 'Mobile',
-    self = new Global(name, '(ajax fetch and db storage)'),
-    C = W.C,
-    Df;
+        self = new Global(name, '(ajax fetch and db storage)'),
+        C = W.C,
+        Df;
 
     Art = {
         div: null,
-    // slide out
-    //
-
-    }
+    };
     Nav = {
         div: null,
-    // slide out
-    //
-
-    }
+    };
 
     Df = { // DEFAULTS
         busy: false,
+        current: '',
         wide: 444,
+        time: 999,
         inits: function (cb) {
 
         }
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    function _getArt() {
-        var rtn = $('#Page article');
 
-        C.debug(rtn);
-        return rtn.clone();
-    }
+    function _slide(jq, num1, num2, cb) {
+        cb = (cb || Main.cb);
 
-    function _slideIn(jq) {
-        $(jq).css({
+        jq.css({
             display: 'block',
-            left: Df.wide,
+            left: num1,
             width: Df.wide,
-            //            top: '0',
             position: 'absolute',
         }).animate({
-            left: '0',
-        }, 999, function () {
-            });
+            left: num2,
+        }, Df.time, cb);
     }
 
-    function _useArt() {
-        Art.jqs.html('').append(_getArt());
+    function _revealPage(jq, yes) {
+        if (yes) {
+            _slide(Nav.jqs, 0, - Df.wide);
+            _slide(jq, Df.wide, 0, function () {
+                this.show();
+            });
+        } else {
+            _slide(Nav.jqs, - Df.wide, 0);
+            _slide(jq, 0, Df.wide, function () {
+                this.hide();
+            });
+        }
     }
 
-    function _slideOut(jq) {
-        $(jq).css({
-            display: 'block',
-            left: '0',
-        //            top: '0',
-        }).animate({
-            left: -Df.wide,
-        }, 999, function () {
-            });
+    function _drill(jq) {
+        _revealPage(jq, true);
+    }
+
+    function _home() {
+        _revealPage(Df.current, false);
     }
 
     function _loadArt() {
-        _slideOut(Nav.jqs);
-        _slideIn(Art.jqs);
+        _drill(Art.jqs);
     }
 
-    function _loadNav() {
-        _slideOut(Art.jqs);
-        _slideIn(Nav.jqs);
+    function _useFeature() {
+        Art.jqs.html('').append($('#Feature article'));
     }
 
-    function _binder(obj) {
+    function _binder() {
         Div = $('#Mobile');
         Nav.jqs = Div.find('.port article');
         Df.wide = Nav.jqs.width();
-        Art.jqs = Nav.jqs.clone()
+        Art.jqs = Nav.jqs.clone();
         Art.jqs.css('border', '1px solid lime');
-        Art.jqs.insertAfter(Nav.jqs)
+        Art.jqs.insertAfter(Nav.jqs);
 
-        _useArt();
-
-        Div.one('mousedown', function () {
-            _loadNav();
-        }).on('mouseup', function () {
-            _loadArt();
-        });
+//        _useFeature();
     }
 
-    function _capture(){
+    function _capture() {
         $('body').on('click', '#Mobile nav a', function (evt) {
             evt.preventDefault();
 
             var str = evt.target.href;
             str = Main.what(str);
             C.log(str);
-            Extract.page(str, $.noop);
+            Df.current = str;
+            Extract.page(str, _drill);
         });
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init(obj) {
+    function _init() {
         if (self.inited(true)) {
             return null;
         }
         Df.inits();
-        //        _binder();
+        _binder();
         _capture();
 
     }

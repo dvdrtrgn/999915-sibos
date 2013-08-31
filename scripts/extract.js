@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, Page, window */
+/*globals $, Global, Main, Page, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Extract;
 
@@ -24,44 +24,53 @@ var Extract;
     /// INTERNAL
 
     function _get(url, sel, cb) {
-        W.debug > 0 && C.debug(name + '_nav', [url, sel]);
         cb = (cb || Main.cb);
+        W.debug > 0 && C.debug(name + '_nav', [url, sel]);
+
         Df.select = sel;
-        new Page(url, cb);
+        return new Page(url, cb);
     }
 
     function _append(page) {
-        Df.parse = $(page.body).scout(Df.select).children();
         // this will only parse the children of top elements [html/body/head]
-        Df.cache.clone().append(Df.parse).appendTo(Df.bezel);
+        Df.parse = $(page.body).scout(Df.select).children();
+        Df.cached[page.url].append(Df.parse);
     }
 
-    function _nav(cb) {
+    function _nav() { // get nav html
         var url = '../lib/navport.html';
-        cb = (cb || Main.cb);
-        Df.page = _get(url, '.port', _append);
-        cb(Df.page);
+
+        Df.cached[url] = Df.cache.clone().appendTo(Df.bezel);
+        _get(url, '.port', _append);
     }
 
-    function _page(url, cb) {
+    function _page(url, cb) { // get content html
         cb = (cb || Main.cb);
-        Df.page = _get(url, '#Feature', _append);
-        cb(Df.page);
+        var jq = Df.cached[url];
+
+        if (!jq) { // never loaded
+            jq = Df.cache.clone().hide();
+            Df.cached[url] = jq.appendTo(Df.bezel);
+            _get(url, '#Feature', _append);
+        }
+        cb(jq);
     }
 
+    function _bindings() {
+        $.fn.scout = function (sel) { // find and/or filter
+            return this.filter(sel).add(this.find(sel));
+        };
+    }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init(obj) {
+    function _init() {
         if (self.inited(true)) {
             return null;
         }
 
         Df.inits();
+        _bindings(); // extend jquery
         _nav();
-        // extend jquery
-        $.fn.scout = function (sel) { // find and/or filter
-            return this.filter(sel).add(this.find(sel));
-        };
     }
 
     W[name] = $.extend(true, self, {
