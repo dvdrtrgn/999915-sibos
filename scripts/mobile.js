@@ -5,7 +5,7 @@ var Mobile, Div, Art, Nav;
 
 (function (W) {
     var name = 'Mobile',
-        self = new Global(name, '(ajax fetch and db storage)'),
+        self = new Global(name, '(mobile nav and page swapper)'),
         C = W.C,
         Df, Nav;
 
@@ -39,8 +39,6 @@ var Mobile, Div, Art, Nav;
         if (!Df.atnav) {
             yes = !yes;
             Df.current.hide();
-        } else {
-            _useRegions(jq);
         }
         Df.current = jq;
         if (yes) {
@@ -55,10 +53,6 @@ var Mobile, Div, Art, Nav;
             });
             Df.atnav = true;
         }
-    }
-
-    function _useRegions(jq) {
-        jq.html(jq.find('article, .mobile'));
     }
 
     function _drill(jq) {
@@ -105,7 +99,6 @@ var Mobile, Div, Art, Nav;
             return Df;
         },
         init: _init,
-        gut: _useRegions,
     });
 
     return self;

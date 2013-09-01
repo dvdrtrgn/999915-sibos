@@ -5,7 +5,7 @@ var Extract;
 
 (function (W) {
     var name = 'Extract',
-        self = new Global(name, '(ajax page getter and storage)'),
+        self = new Global(name, '(page parser and storage)'),
         C = W.C,
         Df;
 
@@ -13,6 +13,7 @@ var Extract;
         bezel: $('#Mobile'),
         cache: $('<section class="port">'),
         cached: {},
+        ported: {},
         stored: {
             'foo': 'bar',
         },
@@ -28,30 +29,37 @@ var Extract;
         W.debug > 0 && C.debug(name + '_nav', [url, sel]);
 
         Df.select = sel;
-        return new Page(url, cb);
+        Df.cached[url] = new Page(url, cb);
+    }
+
+    function _useRegions(jq) {
+        jq.html(jq.find('article, .mobile'));
     }
 
     function _append(page) {
         // this will only parse the children of top elements [html/body/head]
         Df.parse = $(page.body).scout(Df.select).children();
-        Df.cached[page.url].append(Df.parse);
+        Df.ported[page.url].append(Df.parse);
     }
 
     function _nav() { // get nav html
         var url = '../lib/navport.html';
 
-        Df.cached[url] = Df.cache.clone().appendTo(Df.bezel);
+        Df.ported[url] = Df.cache.clone().appendTo(Df.bezel);
         _get(url, '.port', _append);
     }
 
     function _page(url, cb) { // get content html
         cb = (cb || Main.cb);
-        var jq = Df.cached[url];
+        var jq = Df.ported[url];
 
         if (!jq) { // never loaded
             jq = Df.cache.clone().hide();
-            Df.cached[url] = jq.appendTo(Df.bezel);
-            _get(url, '#Feature', _append);
+            Df.ported[url] = jq.appendTo(Df.bezel);
+            _get(url, '#Feature', function (page) {
+                _append(page);
+                _useRegions(Df.ported[url]);
+            });
         }
         cb(jq);
     }
