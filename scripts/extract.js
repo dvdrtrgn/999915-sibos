@@ -10,15 +10,16 @@ var Extract;
         Df;
 
     Df = { // DEFAULTS
-        bezel: $('#Mobile'),
-        cache: $('<section class="port">'),
-        cached: {},
-        ported: {},
+        cache: $('<article>'),
+        caches: {},
+        navpage: '../lib/navport.html',
+        port: $('#Mobile'),
+        ports: {},
         stored: {
             'foo': 'bar',
         },
         inits: function () {
-            $.extend(this.cached, this.stored);
+            $.extend(this.caches, this.stored);
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -29,39 +30,46 @@ var Extract;
         W.debug > 0 && C.debug(name + '_nav', [url, sel]);
 
         Df.select = sel;
-        Df.cached[url] = new Page(url, cb);
+        return Df.caches[url] = new Page(url, cb);
     }
 
     function _useRegions(jq) {
-        jq.html(jq.find('article, .mobile'));
+        var hold = $('<div>');
+        jq.scout('.mini').children().appendTo(hold);
+        jq.empty();
+        jq.append(hold.children());
     }
 
     function _append(page) {
         // this will only parse the children of top elements [html/body/head]
         Df.parse = $(page.body).scout(Df.select).children();
-        Df.ported[page.url].append(Df.parse);
+        Df.ports[page.url].append(Df.parse);
+
+        if (page.url === Df.navpage) {
+            Df.port = Df.port.find('section.port').first();
+        }
     }
 
     function _nav() { // get nav html
-        var url = '../lib/navport.html';
+        var url = Df.navpage;
 
-        Df.ported[url] = Df.cache.clone().appendTo(Df.bezel);
-        _get(url, '.port', _append);
+        Df.ports[url] = Df.port;
+        return _get(url, '#Mobile', _append).jqxhr.promise();
     }
 
-    function _page(url, cb) { // get content html
-        cb = (cb || Main.cb);
-        var jq = Df.ported[url];
+    function _page(url, prepCb) { // get content html
+        prepCb = (prepCb || Main.cb);
+        var jq = Df.ports[url];
 
         if (!jq) { // never loaded
             jq = Df.cache.clone().hide();
-            Df.ported[url] = jq.appendTo(Df.bezel);
+            Df.ports[url] = jq.appendTo(Df.port);
             _get(url, '#Feature', function (page) {
                 _append(page);
-                _useRegions(Df.ported[url]);
+                _useRegions(Df.ports[url]);
             });
         }
-        cb(jq);
+        prepCb(jq);
     }
 
     function _bindings() {
@@ -71,14 +79,14 @@ var Extract;
     }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function _init() {
+    function _init(cb) {
         if (self.inited(true)) {
             return null;
         }
 
         Df.inits();
         _bindings(); // extend jquery
-        _nav();
+        _nav().done(cb);
     }
 
     W[name] = $.extend(true, self, {

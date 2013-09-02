@@ -97,8 +97,7 @@ function Main(W) {
             Banner.init();
         }
 
-        Extract.init();
-        Mobile.init();
+        Extract.init(Mobile.init);
         _binder();
     }
 

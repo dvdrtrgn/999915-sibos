@@ -64,10 +64,11 @@ var Mobile, Div, Art, Nav;
     }
 
     function _binder() {
-        Div = $('#Mobile').wrap('<div class="bezel"></div>');
+        Div = $('#Mobile');
+        Div.wrap('<div class="bezel"></div>');
         Div.parent().prependTo('body');
 
-        Nav = Div.find('.port');
+        Nav = Div.find('article').first();
         Df.wide = Nav.outerWidth();
         Df.left = parseInt(Nav.css('left'));
     }
