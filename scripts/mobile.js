@@ -76,7 +76,7 @@ var Mobile, Div, Art, Nav;
             evt.preventDefault();
 
             var str = evt.target.href;
-            str = Main.what(str);
+            str = Main.page(str);
             C.log(str);
             Extract.page(str, _drill);
         });
@@ -92,6 +92,11 @@ var Mobile, Div, Art, Nav;
         _binder();
         _capture();
 
+        var what = Main.page();
+        if (what !== 'mini.html') {
+            // if page isn't mobile then bezel this page...
+            Extract.page(what, _drill);
+        }
     }
 
     W[name] = $.extend(true, self, {

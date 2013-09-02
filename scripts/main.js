@@ -97,7 +97,7 @@ function Main(W) {
             return Df;
         },
         init: _init,
-        what: _whatPage,
+        page: _whatPage,
         noext: _noExt,
         sectStr: function () {
             return Df.sects;
