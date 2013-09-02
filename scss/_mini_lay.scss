@@ -7,6 +7,11 @@ $bzH: 800px; $dpH: 482px;
 $bzL: ($bzW - $dpW) / 2;
 $bzT: ($bzH - $dpH) / 2;
 
+#Feature {
+    .mini {
+        background-color: yellow !important;
+    }
+}
 
 #Mobile {
     background-image: url("../images/mobile/bezel.png");
