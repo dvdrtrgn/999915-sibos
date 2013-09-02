@@ -55,7 +55,7 @@ function Main(W) {
             //    $('#head6').attr('content', ShareStrings.img);
         } catch (e) {
             if (!W.isIE) {
-                C.error(e);
+                // C.error(e);
             }
         }
     }
@@ -68,6 +68,15 @@ function Main(W) {
     function _noExt(x) {
         x = x.split('.');
         return x.slice(0, 1).toString();
+    }
+
+    function _binder() {
+        if (debug > 0) {
+            $('.mast a').first().click(function (evt) {
+                evt.preventDefault();
+                W.location = 'mini.html';
+            });
+        }
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -90,6 +99,7 @@ function Main(W) {
 
         Extract.init();
         Mobile.init();
+        _binder();
     }
 
     W[name] = $.extend(true, self, {
