@@ -64,7 +64,8 @@ var Mobile, Div, Art, Nav;
     }
 
     function _binder() {
-        Div = $('#Mobile');
+        Div = $('#Mobile').wrap('<div class="bezel"></div>');
+        Div.parent().prependTo('body');
 
         Nav = Div.find('.port');
         Df.wide = Nav.outerWidth();

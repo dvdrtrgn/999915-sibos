@@ -12,20 +12,21 @@ $bzT: ($bzH - $dpH) / 2;
         background-color: yellow !important;
     }
 }
-
-#Mobile {
+.bezel {
     background-image: url("../images/mobile/bezel.png");
     margin: auto;
+    padding: $bzT $bzL;
     position: relative;
     width: $bzW; height: $bzH;
 
     &:hover {
         z-index: 1;
     }
+}
+#Mobile {
     section.port {
         background-color: #fcfcff;
         border: 1px solid green;
-        left: $bzL; top: $bzT;
         overflow-x: hidden;
         overflow-y: auto;
         padding: 4px;
