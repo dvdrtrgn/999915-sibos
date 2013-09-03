@@ -12,6 +12,7 @@ var Extract;
     Df = { // DEFAULTS
         cache: $('<article>'),
         caches: {},
+        homer: '<img class="home" title="home" src="../images/misc/home.png">',
         navpage: '../lib/navport.html',
         port: $('#Mobile'),
         ports: {},
@@ -50,6 +51,10 @@ var Extract;
         }
     }
 
+    function _homeBtn(jq) {
+        jq.prepend(Df.homer);
+    }
+
     function _nav() { // get nav html
         var url = Df.navpage;
 
@@ -67,7 +72,7 @@ var Extract;
             _get(url, '#Feature', function (page) {
                 _append(page);
                 _useRegions(Df.ports[url]);
-            });
+            }).jqxhr.promise().done(_homeBtn);
         }
         prepCb(jq);
     }

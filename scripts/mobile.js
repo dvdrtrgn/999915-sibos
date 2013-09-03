@@ -15,6 +15,7 @@ var Mobile, Div, Art, Nav;
         left: 111,
         time: 333,
         wide: 999,
+        high: 999,
         atnav: true,
         inits: function (cb) {
             // get width (and offset)
@@ -29,6 +30,7 @@ var Mobile, Div, Art, Nav;
             display: 'block',
             left: num1 + Df.left,
             width: Df.wide,
+            height: Df.high,
             position: 'absolute',
         }).animate({
             left: num2 + Df.left,
@@ -69,8 +71,14 @@ var Mobile, Div, Art, Nav;
         Div.parent().prependTo('body');
 
         Nav = Div.find('article').first();
-        Df.wide = Nav.outerWidth();
-        Df.left = parseInt(Nav.css('left'));
+        Df.wide = Nav.parent().innerWidth();
+        Df.high = Nav.parent().innerHeight();
+        Nav.parent().css({
+            width: Df.wide,
+            height: Df.high,
+            overflow: 'scroll',
+        });
+        Df.left = parseInt(Nav.parent().css('left')) || 0;
     }
 
     function _capture() {

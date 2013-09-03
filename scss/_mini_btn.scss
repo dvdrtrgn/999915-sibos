@@ -32,19 +32,12 @@
         border-color: $blue1;
     }
     .share {
-        @extend .blue;
         float: right;
-
-        &:after {
-            content: ' Share';
-        }
+        width: 61px;
     }
     .home {
-        @extend .blue;
-
-        &:after {
-            content: ' Home';
-        }
+        float: left;
+        width: 61px;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -1,0 +1,27 @@
+/* MINI PORTS */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+#Mobile {
+    section.port {
+        border: 1px solid red;
+        margin: -1px;
+        position: absolute;
+        z-index: -1;
+
+        article {
+            padding: $minim;
+        }
+
+        &:first-child {
+            overflow-y: hidden;
+        }
+        h3 {
+            font-weight: 600;
+        }
+        .banner {
+            width: 100%;
+        }
+    }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
