@@ -4,6 +4,7 @@
 
 var Data, CDN, W = (W || window);
 var ShareStrings;
+var switchTo5x = 1;
 
 W.debug = 1;
 
@@ -34,6 +35,8 @@ Modernizr.load([{
         CDN + 'underscore/js-1.4.4/underscore.js',
         CDN + 'js/console.js',
         CDN + 'js/global.js',
+        '../lib/buttons.js',
+        '../scripts/share.js',
     ],
     //        CDN + 'video-js/4.1/video-js.css',
     //        CDN + 'video-js/4.1/video.dev.js',
