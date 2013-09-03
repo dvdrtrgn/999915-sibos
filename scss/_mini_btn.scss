@@ -2,6 +2,9 @@
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Mobile {
+    .button {
+        cursor: pointer;
+    }
     button {
         color: #fff;
             vertical-align: baseline;
@@ -32,12 +35,14 @@
         border-color: $blue1;
     }
     .share {
+        @extend .button;
         float: right;
-        width: 61px;
+        width: 60px;
     }
     .home {
-        float: left;
-        width: 61px;
+        @extend .button;
+        width: 60px;
     }
+
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -21,6 +21,7 @@ var Extract;
         },
         inits: function () {
             $.extend(this.caches, this.stored);
+            this.homer = $(this.homer).click(Mobile.home);
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -55,26 +56,31 @@ var Extract;
         jq.prepend(Df.homer);
     }
 
-    function _nav() { // get nav html
+    function _nav(doing) { // get nav html
         var url = Df.navpage;
 
         Df.ports[url] = Df.port;
-        return _get(url, '#Mobile', _append).jqxhr.promise();
+        if (Df.port.children().length) {
+            return doing.resolve();
+        }
+
+        return _get(url, '#Mobile', _append).jqxhr.promise(doing);
     }
 
-    function _page(url, prepCb) { // get content html
-        prepCb = (prepCb || Main.cb);
+    function _page(url, naving) { // get content html
         var jq = Df.ports[url];
 
         if (!jq) { // never loaded
             jq = Df.cache.clone().hide();
             Df.ports[url] = jq.appendTo(Df.port);
+
             _get(url, '#Feature', function (page) {
                 _append(page);
                 _useRegions(Df.ports[url]);
-            }).jqxhr.promise().done(_homeBtn);
+                _homeBtn(jq);
+            });
         }
-        prepCb(jq);
+        naving.resolve(jq)
     }
 
     function _bindings() {
@@ -88,10 +94,10 @@ var Extract;
         if (self.inited(true)) {
             return null;
         }
-
         Df.inits();
+
         _bindings(); // extend jquery
-        _nav().done(cb);
+        _nav($.Deferred()).done(cb);
     }
 
     W[name] = $.extend(true, self, {

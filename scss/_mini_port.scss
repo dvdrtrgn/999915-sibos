@@ -10,11 +10,14 @@
 
         article {
             padding: $minim;
+            overflow-x: hidden;
+            overflow-y: scroll;
+
+            &:first-child {
+                overflow-y: hidden;
+            }
         }
 
-        &:first-child {
-            overflow-y: hidden;
-        }
         h3 {
             font-weight: 600;
         }
