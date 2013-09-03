@@ -94,8 +94,16 @@ var Extract;
         if (self.inited(true)) {
             return null;
         }
-        Df.inits();
+        var what = Main.page();
 
+        if (what !== 'mini.html' && what !== 'nav.html') {
+            // if page isn't mobile then bezel this page...
+            return;
+        } else {
+            $('#Mobile').show();
+        }
+
+        Df.inits();
         _bindings(); // extend jquery
         _nav($.Deferred()).done(cb);
     }
