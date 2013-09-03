@@ -21,7 +21,7 @@ var Extract;
         },
         inits: function () {
             $.extend(this.caches, this.stored);
-            this.homer = $(this.homer).click(Mobile.home);
+            this.homer = $(this.homer);
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -53,7 +53,7 @@ var Extract;
     }
 
     function _homeBtn(jq) {
-        jq.prepend(Df.homer);
+        Df.homer.clone().click(Mobile.home).prependTo(jq);
     }
 
     function _nav(doing) { // get nav html
