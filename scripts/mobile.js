@@ -80,7 +80,6 @@ var Mobile;
             height: Df.high,
         });
         Df.mob.wrap(Df.wrap);
-        Df.mob.parent().prependTo('body');
     }
 
     function _capture() {

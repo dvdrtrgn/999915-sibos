@@ -11,8 +11,8 @@ $pt1: 99px;
 $pt3: 66px;
 
 #Feature {
-    .mini {
-        background-color: $hilite !important;
+    .mini { // DEV TOOL
+/*        background-color: $hilite !important;*/
     }
 }
 .bezel {
@@ -27,8 +27,7 @@ $pt3: 66px;
     }
 }
 #Mobile {
-    @include bodyGrad();
-    background-attachment: fixed;
+    background-color: white;
 
     border: 1px solid green;
     //overflow: hidden;
@@ -47,7 +46,6 @@ $pt3: 66px;
 
     header {
         border-bottom: 1px solid #bbb;
-        box-shadow: 0 0 3px black;
         overflow: hidden;
 
         .logobar {
@@ -93,7 +91,7 @@ $pt3: 66px;
         }
         .reins {
             width: 120%;
-            margin: 10px -10% (-$minim);
+            margin: 0px -10% (-$minim);
         }
     }
 }

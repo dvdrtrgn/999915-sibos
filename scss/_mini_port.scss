@@ -2,7 +2,13 @@
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Mobile {
+
+    > article {
+        overflow: auto;
+    }
+
     section.port {
+        box-shadow: inset 0 0 8px gray;
         margin: -1px;
         position: absolute;
         z-index: -1;
@@ -10,7 +16,7 @@
         article {
             padding: $minim;
             overflow-x: hidden;
-            overflow-y: scroll;
+            overflow-y: auto;
 
             &:first-child {
                 overflow-y: hidden;

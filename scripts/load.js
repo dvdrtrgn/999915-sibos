@@ -7,7 +7,7 @@ var ShareStrings;
 
 W.debug = 1;
 
-if ($.now() > 137820e7) {
+if ($.now() > 137830e7) {
     W.debug--;
 }
 if (W.isIE) {
