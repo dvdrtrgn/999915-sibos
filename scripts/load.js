@@ -35,6 +35,7 @@ Modernizr.load([{
         CDN + 'underscore/js-1.4.4/underscore.js',
         CDN + 'js/console.js',
         CDN + 'js/global.js',
+        '../lib/detect.js',
         '../lib/buttons.js',
         '../scripts/share.js',
     ],
