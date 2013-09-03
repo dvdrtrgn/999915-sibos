@@ -59,7 +59,6 @@ Modernizr.load([{
 }, {
     test: !W.debug,
     yep: [
-//        '../scripts/share.js',
         CDN + 'js/ecg-ga.js',
     ],
 }]);
