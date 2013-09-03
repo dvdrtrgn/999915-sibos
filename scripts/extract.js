@@ -13,7 +13,7 @@ var Extract;
         cache: $('<article>'),
         caches: {},
         homer: '<img class="home" title="home" src="../images/misc/home.png">',
-        navpage: '../lib/navport.html',
+        navpage: './nav.html',
         port: $('#Mobile'),
         ports: {},
         stored: {
@@ -109,33 +109,6 @@ var Extract;
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /*
-fetch (url)
-    -read
-        -update
-    -ajax
-
-plant (div, url)
-    start
-        load from url with callback
-    finish
-        callback fills div
-
-take url
-    determine
-        if stored
-            read
-        if recent
-            stop
-        else get
-            add to
-fetch page
-    create cache div
-    hide div
-    append to cache
-    save to db as "url..."
-
-isolate goodies
-
 
 
 
