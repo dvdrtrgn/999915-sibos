@@ -17,7 +17,7 @@
 
         article {
             padding: $minim;
-            padding-bottom: 33px;
+            padding-bottom: 50px;
             overflow-x: hidden;
             overflow-y: scroll;
 
@@ -43,6 +43,9 @@
         }
         .shrink {
             font-size: 90%;
+            line-height: 110%;
+            padding-left: 15px;
+            text-indent: -15px;
         }
         .elim {
             display: none;
