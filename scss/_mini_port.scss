@@ -3,6 +3,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Mobile {
     display: none;
+
     > article {
         overflow: auto;
     }
@@ -16,6 +17,7 @@
 
         article {
             padding: $minim;
+            padding-bottom: 33px;
             overflow-x: hidden;
             overflow-y: scroll;
 

@@ -22,14 +22,12 @@ $pt3: 66px;
     position: relative;
     width: $bzW; height: $bzH;
 
-    &:hover {
+    body:hover & {
         z-index: 1;
     }
 }
 #Mobile {
     background-color: white;
-    //border: 1px solid green;
-    //overflow: hidden;
     position: relative;
     width: $dpW; height: $dpH;
     z-index: -1;
@@ -76,6 +74,7 @@ $pt3: 66px;
         }
     }
     section.port {
+        height: 375px;
         // SEE _MINI_PORT.SCSS
     }
     footer {
