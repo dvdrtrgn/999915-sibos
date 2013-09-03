@@ -40,6 +40,13 @@
         }
         h2 {
             font-weight: 600;
+            margin-top: 12px;
+        }
+        h3 img {
+            float: right;
+        }
+        h3.chev {
+            @include lightGrad();
         }
         .shrink {
             font-size: 90%;
