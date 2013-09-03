@@ -18,6 +18,8 @@ function Main(W) {
             bnr4: 'explore.html',
             bnr5: 'about.html',
             bnr6: 'booth.html',
+            bnr7: 'booth.html',
+            bnr8: '../media/Momentum_Sibos2013.pdf',
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -78,6 +80,10 @@ function Main(W) {
             });
         }
     }
+    function _subinits() {
+        Banner.init(Df.bnrLinks);
+        Mobile.init();
+    }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -91,13 +97,13 @@ function Main(W) {
         Init();
         Scroll.init();
 
-        if (_whatPage() === 'home.html') {
+        if (_whatPage() === 'mini.html'){
+            Extract.init(_subinits);
+        } else if (_whatPage() === 'home.html'  ) {
             Banner.init(Df.bnrLinks);
         } else {
             Banner.init();
         }
-
-        Extract.init(Mobile.init);
         _binder();
     }
 
