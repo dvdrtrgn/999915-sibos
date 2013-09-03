@@ -21,10 +21,10 @@ var Mobile;
         wide: 999,
         wrap: '<div class="bezel"></div>',
         inits: function () {
-            Df.mob = $('#Mobile');
+            Df.mob = $('#Mobile').show();
             Df.nav = Df.mob.find('article').first().addClass('nav');
             // get width (and offset)
-            Df.wide = Df.nav.parent().innerWidth();
+            Df.wide = Df.nav.parent().innerWidth() || 300;
             Df.high = Df.nav.parent().outerHeight();
             Df.left = parseInt(Df.nav.parent().css('left')) || 0;
             C.debug(name + '_inits', Df);
@@ -79,7 +79,14 @@ var Mobile;
             width: Df.wide,
             height: Df.high,
         });
-        Df.mob.wrap(Df.wrap);
+        if (!_mobile()) {
+            Df.mob.wrap(Df.wrap);
+        } else {
+            $('#Page').remove();
+            Df.mob.css({
+                zIndex: 1
+            });
+        }
     }
 
     function _capture() {
@@ -103,12 +110,6 @@ var Mobile;
         Df.inits();
         _binder();
         _capture();
-
-        var what = Main.page();
-        if (what !== 'mini.html' && what !== 'nav.html') {
-            // if page isn't mobile then bezel this page...
-            Extract.page(what, _drill);
-        }
     }
 
     W[name] = $.extend(true, self, {

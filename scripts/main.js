@@ -73,12 +73,6 @@ function Main(W) {
     }
 
     function _binder() {
-        if (debug > 0) {
-            $('.mast a').first().click(function (evt) {
-                evt.preventDefault();
-                W.location = 'mini.html';
-            });
-        }
     }
     function _subinits() {
         Banner.init(Df.bnrLinks);
