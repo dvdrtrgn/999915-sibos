@@ -1,31 +1,38 @@
 /*jslint es5:true, white:false */
 /*globals $, Extract, Global, Main, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Mobile, Div, Art, Nav;
+var Mobile;
 
 (function (W) {
     var name = 'Mobile',
         self = new Global(name, '(mobile nav and page swapper)'),
         C = W.C,
-        Df, Nav;
+        Df;
 
     Df = { // DEFAULTS
+        atnav: true,
         busy: false,
         current: '',
+        high: 999,
         left: 111,
+        mob: null,
+        nav: null,
         time: 333,
         wide: 999,
-        high: 999,
-        atnav: true,
-        inits: function (cb) {
+        wrap: '<div class="bezel"></div>',
+        inits: function () {
+            Df.mob = $('#Mobile');
+            Df.nav = Df.mob.find('article').first().addClass('nav');
             // get width (and offset)
+            Df.wide = Df.nav.parent().innerWidth();
+            Df.high = Df.nav.parent().outerHeight();
+            Df.left = parseInt(Df.nav.parent().css('left')) || 0;
+            C.debug(name + '_inits', Df);
         }
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _slide(jq, num1, num2, cb) {
-        cb = (cb || Main.cb);
-
         jq.css({
             display: 'block',
             left: num1 + Df.left,
@@ -39,17 +46,17 @@ var Mobile, Div, Art, Nav;
 
     function _revealPage(jq, yes) {
         if (!Df.atnav) {
-            yes = !yes;
             Df.current.hide();
         }
         Df.current = jq;
+
         if (yes) {
             jq.show();
-            _slide(Nav, 0, Df.wide * -1);
+            _slide(Df.nav, 0, Df.wide * -1);
             _slide(jq, Df.wide, 0);
             Df.atnav = false;
         } else {
-            _slide(Nav, Df.wide * -1, 0);
+            _slide(Df.nav, Df.wide * -1, 0);
             _slide(jq, 0, Df.wide, function () {
                 jq.hide();
             });
@@ -58,37 +65,33 @@ var Mobile, Div, Art, Nav;
     }
 
     function _drill(jq) {
+        C.debug(name + '_drill', jq);
         _revealPage(jq, true);
     }
 
     function _home() {
+        C.debug(name + '_home', Df.current);
         _revealPage(Df.current, false);
     }
 
     function _binder() {
-        Div = $('#Mobile');
-        Div.wrap('<div class="bezel"></div>');
-        Div.parent().prependTo('body');
-
-        Nav = Div.find('article').first();
-        Df.wide = Nav.parent().innerWidth();
-        Df.high = Nav.parent().innerHeight();
-        Nav.parent().css({
+        Df.nav.parent().css({
             width: Df.wide,
             height: Df.high,
-            overflow: 'scroll',
         });
-        Df.left = parseInt(Nav.parent().css('left')) || 0;
+        Df.mob.wrap(Df.wrap);
+        Df.mob.parent().prependTo('body');
     }
 
     function _capture() {
         $('body').on('click', '#Mobile nav a', function (evt) {
-            evt.preventDefault();
-
             var str = evt.target.href;
+
+            evt.preventDefault();
             str = Main.page(str);
-            C.log(str);
-            Extract.page(str, _drill);
+
+            C.debug('_capture', str);
+            Extract.page(str, $.Deferred().done(_drill));
         });
     }
 
@@ -103,7 +106,7 @@ var Mobile, Div, Art, Nav;
         _capture();
 
         var what = Main.page();
-        if (what !== 'mini.html') {
+        if (what !== 'mini.html' && what !== 'nav.html') {
             // if page isn't mobile then bezel this page...
             Extract.page(what, _drill);
         }
@@ -114,6 +117,7 @@ var Mobile, Div, Art, Nav;
             return Df;
         },
         init: _init,
+        home: _home,
     });
 
     return self;
