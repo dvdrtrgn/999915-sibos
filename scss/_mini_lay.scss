@@ -1,8 +1,8 @@
 /* MINI LAYOUT */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-$bzW: 600px; $dpW: 322px;
-$bzH: 800px; $dpH: 482px;
+$bzW: 600px; $dpW: 320px;
+$bzH: 800px; $dpH: 480px;
 
 $bzL: ($bzW - $dpW) / 2;
 $bzT: ($bzH - $dpH) / 2;
@@ -28,7 +28,7 @@ $pt3: 66px;
 }
 #Mobile {
     background-color: white;
-    border: 1px solid green;
+    //border: 1px solid green;
     //overflow: hidden;
     position: relative;
     width: $dpW; height: $dpH;
