@@ -73,7 +73,9 @@ function Main(W) {
     }
 
     function _binder() {
-        W.debug > 0 && $('html').addClass('dev');
+        if (W.location.hostname === 'localhost' && W.debug > 0) {
+            $('html').addClass('dev');
+        }
     }
 
     function _subinits() {

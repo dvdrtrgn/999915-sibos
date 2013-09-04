@@ -10,9 +10,12 @@ $bzT: ($bzH - $dpH) / 2;
 $pt1: 99px;
 $pt3: 66px;
 
-#Feature {
-    html.dev & .mini { // DEV TOOL
+#Feature { // DEV HELP
+    html.dev & .mini {
         background-color: $hilite !important;
+    }
+    html.dev & .elim {
+        background-color: $dilite !important;
     }
 }
 .bezel {
