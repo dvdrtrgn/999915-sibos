@@ -11,7 +11,7 @@ var Mobile;
 
     Df = { // DEFAULTS
         atnav: true,
-        bezl: '<div class="bezel"></div>',
+        bezel: '<div class="bezel"></div>',
         busy: false,
         current: '',
         high: 999,
@@ -22,6 +22,7 @@ var Mobile;
         time: 333,
         wide: 999,
         inits: function () {
+            Df.bezel = $(Df.bezel);
             Df.mobile = $(Df.mobile).show();
             Df.nav = Df.mobile.find('article').first().addClass('nav');
             // get width (and offset)
@@ -79,7 +80,8 @@ var Mobile;
         Df.share.fadeIn(function () {
             Df.share.css({
                 display: 'table',
-            }).parent().parent().one('click', function () {
+            });
+            Df.mobile.one('click', function () {
                 Df.share.hide();
             });
         });
@@ -93,7 +95,7 @@ var Mobile;
 
     function _embezelr() {
         if (!_mobile()) {
-            Df.mobile.wrap(Df.bezl);
+            Df.mobile.wrap(Df.bezel);
             $('#Page').show();
         } else {
             $('#Page').remove();
