@@ -11,18 +11,19 @@ var Mobile;
 
     Df = { // DEFAULTS
         atnav: true,
+        bezl: '<div class="bezel"></div>',
         busy: false,
         current: '',
         high: 999,
         left: 111,
-        mob: null,
+        mobile: '#Mobile',
         nav: null,
+        share: '#Share',
         time: 333,
         wide: 999,
-        wrap: '<div class="bezel"></div>',
         inits: function () {
-            Df.mob = $('#Mobile').show();
-            Df.nav = Df.mob.find('article').first().addClass('nav');
+            Df.mobile = $(Df.mobile).show();
+            Df.nav = Df.mobile.find('article').first().addClass('nav');
             // get width (and offset)
             Df.wide = Df.nav.parent().innerWidth() || 300;
             Df.high = Df.nav.parent().outerHeight();
@@ -74,20 +75,37 @@ var Mobile;
         _revealPage(Df.current, false);
     }
 
+    function _share() {
+        Df.share.show().one('click', function () {
+            $(this).hide();
+        });
+    }
+
+    function _shareif() {
+        Df.share = $(Df.share).hide();
+        Df.mobile.find('header').append(Df.share);
+        $('img.share').click(_share)
+    }
+
+    function _embezelr() {
+        if (!_mobile()) {
+            Df.mobile.wrap(Df.bezl);
+            $('#Page').show();
+        } else {
+            $('#Page').remove();
+            Df.mobile.css({
+                zIndex: 1
+            });
+        }
+    }
+
     function _binder() {
         Df.nav.parent().css({
             width: Df.wide,
             height: Df.high,
         });
-        if (!_mobile()) {
-            Df.mob.wrap(Df.wrap);
-            $('#Page').show();
-        } else {
-            $('#Page').remove();
-            Df.mob.css({
-                zIndex: 1
-            });
-        }
+        _embezelr();
+        _shareif();
     }
 
     function _isInternal(str) {
