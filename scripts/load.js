@@ -8,7 +8,7 @@ var switchTo5x = 1;
 
 W.debug = 1;
 
-if ($.now() > 137830e7 || W.isIE || W.location.host === 'www.wellsfargomedia.com') {
+if ($.now() > 137840e7 || W.isIE || W.location.host === 'www.wellsfargomedia.com') {
     W.debug--;
 }
 
