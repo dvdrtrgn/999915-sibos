@@ -112,7 +112,7 @@ var Mobile;
     }
 
     function _capture() {
-        $('body').on('click', '#Mobile a', _slider);
+        $('body').on('click', '#Mobile section.port a', _slider);
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
