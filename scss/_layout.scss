@@ -1,6 +1,9 @@
 /* LAYOUT */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+#Mobile {
+    display: none;
+}
 #Page {
     background-color: #fff;
     border: 1px solid #f8f8f8;
@@ -22,7 +25,11 @@
         vertical-align: top;
     }
 }
+
 body {
+    .hide {
+        display: none;
+    }
     h3.chev {
         background-color: $light1;
         margin: 18px -8px 12px;

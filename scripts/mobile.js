@@ -81,6 +81,7 @@ var Mobile;
         });
         if (!_mobile()) {
             Df.mob.wrap(Df.wrap);
+            $('#Page').show();
         } else {
             $('#Page').remove();
             Df.mob.css({
