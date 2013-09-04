@@ -18,8 +18,8 @@ function Main(W) {
             bnr4: 'explore.html',
             bnr5: 'about.html',
             bnr6: 'booth.html',
-            bnr7: 'booth.html',
-            bnr8: '../media/Momentum_Sibos2013.pdf',
+            bnr7: '../media/Momentum_Sibos2013.pdf',
+            bnr8: 'booth.html',
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

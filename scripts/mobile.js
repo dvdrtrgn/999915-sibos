@@ -65,12 +65,12 @@ var Mobile;
     }
 
     function _drill(jq) {
-        C.debug(name + '_drill', jq);
+        W.debug > 0 && C.debug(name + '_drill', jq);
         _revealPage(jq, true);
     }
 
     function _home() {
-        C.debug(name + '_home', Df.current);
+        W.debug > 0 && C.debug(name + '_home', Df.current);
         _revealPage(Df.current, false);
     }
 
@@ -89,16 +89,30 @@ var Mobile;
         }
     }
 
-    function _capture() {
-        $('body').on('click', '#Mobile nav a', function (evt) {
-            var str = evt.target.href;
+    function _isInternal(str) {
+        var ts1, ts2;
+        ts1 = str.match(W.location.host);
+        ts2 = str.match('.html');
+        return !!(ts1 && ts2);
+    }
 
+    function _slider(evt) {
+        var str = evt.currentTarget.href; // current because A wraps IMG
+
+        if (_isInternal(str)) {
             evt.preventDefault();
-            str = Main.page(str);
+        } else {
+            return;
+        }
 
-            C.debug('_capture', str);
-            Extract.page(str, $.Deferred().done(_drill));
-        });
+        evt.preventDefault();
+        str = Main.page(str);
+        W.debug > 0 && C.debug(name + '_capture', str);
+        Extract.page(str, $.Deferred().done(_drill));
+    }
+
+    function _capture() {
+        $('body').on('click', '#Mobile a', _slider);
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -118,6 +132,7 @@ var Mobile;
         },
         init: _init,
         home: _home,
+        slider: _slider,
     });
 
     return self;
