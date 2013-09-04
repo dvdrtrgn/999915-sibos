@@ -30,6 +30,9 @@ body {
     html.desktop & {
         overflow-y: scroll;
     }
+    html.mobile & {
+        font-size: 12.5px;
+    }
     h3.chev {
         background-color: $light1;
         margin: 18px -8px 12px;
