@@ -27,8 +27,8 @@
 }
 
 body {
-    .hide {
-        display: none;
+    html.desktop & {
+        overflow-y: scroll;
     }
     h3.chev {
         background-color: $light1;
