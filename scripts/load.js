@@ -3,8 +3,8 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 var Data, CDN, W = (W || window);
-var ShareStrings;
-var switchTo5x = 1;
+// sharing widget reqs
+var ShareStrings, switchTo5x = true;
 
 W.debug = 1;
 
