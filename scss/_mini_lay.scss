@@ -11,8 +11,8 @@ $pt1: 99px;
 $pt3: 66px;
 
 #Feature {
-    .mini { // DEV TOOL
-/*        background-color: $hilite !important;*/
+    html.dev & .mini { // DEV TOOL
+        background-color: $hilite !important;
     }
 }
 .bezel {
