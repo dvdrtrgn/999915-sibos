@@ -2,11 +2,7 @@
 /*globals $, W */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-var dev, drt = {
-    activeNavButton: function () {
-        var page = (' ' + W.location.pathname).split('/').pop();
-        $('a[href="./' + page + '"]').first().addClass('active');
-    },
+var drt = {
     shadowboxPic: function (i, e) {
         var lnk = $(e),
             pic = $('#' + e.title),
@@ -34,17 +30,25 @@ var dev, drt = {
         });
     },
     init: function () {
-        drt.activeNavButton();
-
         try {
-            if (!(/mobi/i).test(W.navigator.userAgent)) {
+            if (!_mobile()) {
                 $('a.popup.vid').each(drt.shadowboxVid);
                 $('a.popup.pic').each(drt.shadowboxPic);
             }
         } catch (err) {
-            return;
+            return err;
         }
     }
 };
 
 $(drt.init);
+
+/*
+Device::
+    isMobile:bool (< laptop)
+    isMini:bool (palmsize)
+    (xsr)treatAs:str (palmtop, laptop, desktop) inherit bestGuess
+    bestGuess:str
+        if not mini and not mobile ... desk?
+
+ */

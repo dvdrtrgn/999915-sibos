@@ -9,7 +9,6 @@ function Main(W) {
         Df;
 
     Df = { // DEFAULTS
-        sects: 'cgray red green purple amber plum teal exit legal slug',
         inits: function (cb) {},
         bnrLinks: {
             bnr1: '#',
@@ -72,10 +71,16 @@ function Main(W) {
         return x.slice(0, 1).toString();
     }
 
+    function _activeNav() {
+        var page = (' ' + W.location.pathname).split('/').pop();
+        $('a[href="./' + page + '"]').first().addClass('active');
+    }
+
     function _binder() {
         if (W.location.hostname === 'localhost' && W.debug > 0) {
             $('html').addClass('dev');
         }
+        _activeNav();
     }
 
     function _subinits() {
@@ -112,12 +117,6 @@ function Main(W) {
         init: _init,
         page: _whatPage,
         noext: _noExt,
-        sectStr: function () {
-            return Df.sects;
-        },
-        sectArr: function () {
-            return Df.sects.split(' ');
-        },
         cb: function () {
             C.debug.apply(C, [name, 'callback'].concat(arguments));
         },
