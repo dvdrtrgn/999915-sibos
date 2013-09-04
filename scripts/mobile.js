@@ -109,10 +109,11 @@ var Mobile;
     }
 
     function _isInternal(str) {
-        var ts1, ts2;
+        var ts1, ts2, ts3;
         ts1 = str.match(W.location.host);
-        ts2 = str.match('.html');
-        return !!(ts1 && ts2);
+        ts2 = str.match('/pages/');
+        ts3 = str.match('.html');
+        return !!(ts1 && ts2 && ts3);
     }
 
     function _slider(evt) {
