@@ -57,4 +57,6 @@ function startSharing() {
         });
     } catch(e){}
 }
+
+$(startSharing);
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

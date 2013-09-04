@@ -99,7 +99,6 @@ function Main(W) {
             Banner.init();
         }
         _binder();
-        startSharing();
     }
 
     W[name] = $.extend(true, self, {

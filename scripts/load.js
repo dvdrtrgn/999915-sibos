@@ -36,8 +36,6 @@ Modernizr.load([{
         CDN + 'js/console.js',
         CDN + 'js/global.js',
         '../lib/detect.js',
-        '../lib/buttons.js',
-        '../scripts/share.js',
     ],
     //        CDN + 'video-js/4.1/video-js.css',
     //        CDN + 'video-js/4.1/video.dev.js',
@@ -61,6 +59,8 @@ Modernizr.load([{
     test: !W.debug,
     yep: [
         CDN + 'js/ecg-ga.js',
+        '../lib/buttons.js',
+        '../scripts/share.js',
     ],
 }]);
 
