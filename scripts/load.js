@@ -6,12 +6,14 @@ var Data, CDN, W = (W || window);
 // sharing widget reqs
 var ShareStrings, switchTo5x = true;
 
-W.debug = 1;
+W.debug = 0;
 
-if ($.now() > 137840e7 || W.isIE || W.location.host === 'www.wellsfargomedia.com') {
+if ($.now() > 137840e7 || W.isIE || W.location.hostname == 'www.wellsfargomedia.com') {
     W.debug--;
 }
-
+if (W.location.hostname == 'localhost') {
+    W.debug++;
+}
 CDN = {
     self: '/lib/',
     disk: 'file:///lib/',
