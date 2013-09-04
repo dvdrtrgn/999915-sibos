@@ -13,7 +13,7 @@ var Extract;
         cache: $('<article>'),
         caches: {},
         homer: '<img class="home" title="home" src="../images/misc/home.png">',
-        navpage: './nav.html',
+        navpage: '_nav.html',
         port: $('#Mobile'),
         ports: {},
         stored: {
@@ -22,6 +22,7 @@ var Extract;
         inits: function () {
             $.extend(this.caches, this.stored);
             this.homer = $(this.homer);
+            W.debug > 0 && C.debug(name, 'Df.inits', Df);
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
