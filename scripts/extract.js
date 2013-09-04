@@ -12,7 +12,7 @@ var Extract;
     Df = { // DEFAULTS
         cache: $('<article>'),
         caches: {},
-        homer: '<img class="home" title="home" src="../images/misc/home.png">',
+        home: 'h1 img.home',
         navpage: '_nav.html',
         port: $('#Mobile'),
         ports: {},
@@ -21,7 +21,6 @@ var Extract;
         },
         inits: function () {
             $.extend(this.caches, this.stored);
-            this.homer = $(this.homer);
             W.debug > 0 && C.debug(name, 'Df.inits', Df);
         },
     };
@@ -30,7 +29,7 @@ var Extract;
 
     function _get(url, sel, cb) {
         cb = (cb || Main.cb);
-        W.debug > 0 && C.debug(name + '_nav', [url, sel]);
+        W.debug > 0 && C.debug(name + '_get', [url, sel]);
 
         Df.select = sel;
         return Df.caches[url] = new Page(url, cb);
@@ -43,21 +42,26 @@ var Extract;
         jq.append(hold.children());
     }
 
+    function _postNav() {
+        Df.port = Df.port.find('section.port').first();
+        Df.home = $(Df.home).detach();
+    }
+
     function _append(page) {
         // this will only parse the children of top elements [html/body/head]
         Df.parse = $(page.body).scout(Df.select).children();
         Df.ports[page.url].append(Df.parse);
 
         if (page.url === Df.navpage) {
-            Df.port = Df.port.find('section.port').first();
+            _postNav();
         }
     }
 
     function _homeBtn(jq) {
-        Df.homer.clone().click(Mobile.home).prependTo(jq);
+        Df.home.clone().click(Mobile.home).prependTo(jq);
     }
 
-    function _nav(doing) { // get nav html
+    function _loadNav(doing) { // get nav html
         var url = Df.navpage;
 
         Df.ports[url] = Df.port;
@@ -98,7 +102,7 @@ var Extract;
 
         Df.inits();
         _bindings(); // extend jquery
-        _nav($.Deferred()).done(cb);
+        _loadNav($.Deferred()).done(cb);
     }
 
     W[name] = $.extend(true, self, {
