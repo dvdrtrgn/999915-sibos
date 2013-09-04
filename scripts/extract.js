@@ -10,18 +10,21 @@ var Extract;
         Df;
 
     Df = { // DEFAULTS
-        cache: $('<article>'),
+        cache: '<article>',
         caches: {},
         home: 'h1 img.home',
-        navpage: '_nav.html',
-        port: $('#Mobile'),
+        mobile: '#Mobile',
+        navurl: '_nav.html',
+        port: 'section.port',
         ports: {},
         stored: {
             'foo': 'bar',
         },
         inits: function () {
+            this.cache = $(this.cache);
+            this.mobile = $(this.mobile);
             $.extend(this.caches, this.stored);
-            W.debug > 0 && C.debug(name, 'Df.inits', Df);
+            W.debug > 0 && C.debug(name, 'Df.inits\n', Df);
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -35,7 +38,7 @@ var Extract;
         return Df.caches[url] = new Page(url, cb);
     }
 
-    function _useRegions(jq) {
+    function _miniScrub(jq) {
         var hold = $('<div>');
         jq.scout('.mini').children().appendTo(hold);
         jq.empty();
@@ -43,7 +46,7 @@ var Extract;
     }
 
     function _postNav() {
-        Df.port = Df.port.find('section.port').first();
+        Df.port = Df.mobile.find(Df.port).first(); // TRANSFORM
         Df.home = $(Df.home).detach();
     }
 
@@ -52,7 +55,7 @@ var Extract;
         Df.parse = $(page.body).scout(Df.select).children();
         Df.ports[page.url].append(Df.parse);
 
-        if (page.url === Df.navpage) {
+        if (page.url === Df.navurl) {
             _postNav();
         }
     }
@@ -62,17 +65,17 @@ var Extract;
     }
 
     function _loadNav(doing) { // get nav html
-        var url = Df.navpage;
+        var url = Df.navurl;
 
-        Df.ports[url] = Df.port;
-        if (Df.port.children().length) {
+        Df.ports[url] = Df.mobile;
+        if (Df.mobile.children().length) {
             return doing.resolve();
         }
 
         return _get(url, '#Mobile', _append).jqxhr.promise(doing);
     }
 
-    function _page(url, naving) { // get content html
+    function _loadPage(url, naving) { // get content html
         var jq = Df.ports[url];
 
         if (!jq) { // never loaded
@@ -81,7 +84,7 @@ var Extract;
 
             _get(url, '#Feature', function (page) {
                 _append(page);
-                _useRegions(Df.ports[url]);
+                _miniScrub(Df.ports[url]);
                 _homeBtn(jq);
             });
         }
@@ -110,7 +113,7 @@ var Extract;
             return Df;
         },
         init: _init,
-        page: _page,
+        page: _loadPage,
     });
 
     return self;

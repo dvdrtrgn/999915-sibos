@@ -27,7 +27,7 @@ var Mobile;
             Df.wide = Df.nav.parent().innerWidth() || 300;
             Df.high = Df.nav.parent().outerHeight();
             Df.left = parseInt(Df.nav.parent().css('left')) || 0;
-            W.debug > 0 && C.debug(name, 'Df.inits', Df);
+            W.debug > 0 && C.debug(name, 'Df.inits\n', Df);
         }
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
