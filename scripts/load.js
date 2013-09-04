@@ -6,12 +6,12 @@ var Data, CDN, W = (W || window);
 // sharing widget reqs
 var ShareStrings, switchTo5x = true;
 
-W.debug = 0;
+W.debug = 1;
 
 if ($.now() > 137840e7 || W.isIE || W.location.hostname == 'www.wellsfargomedia.com') {
     W.debug--;
 }
-if (W.location.hostname == 'localhost') {
+if (W.location.hostname === 'localhost') {
     W.debug++;
 }
 CDN = {
@@ -58,7 +58,7 @@ Modernizr.load([{
         Main(W).init();
     },
 }, {
-    test: !W.debug,
+    test: W.debug < 1,
     yep: [
         CDN + 'js/ecg-ga.js',
         '../lib/buttons.js',
