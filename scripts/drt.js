@@ -5,7 +5,7 @@
 var drt = {
     shadowboxPic: function (i, e) {
         var lnk = $(e),
-            pic = $('#' + e.title),
+            pic = $('#' + lnk.data('title')),
             div = pic.parent();
         lnk.bind('click', function (evt) {
             evt.preventDefault();
