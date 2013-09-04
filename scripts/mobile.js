@@ -76,8 +76,12 @@ var Mobile;
     }
 
     function _share() {
-        Df.share.show().one('click', function () {
-            $(this).hide();
+        Df.share.fadeIn(function () {
+            Df.share.css({
+                display: 'table',
+            }).parent().parent().one('click', function () {
+                Df.share.hide();
+            });
         });
     }
 

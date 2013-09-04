@@ -7,7 +7,7 @@
     }
     button {
         color: #fff;
-            vertical-align: baseline;
+        vertical-align: baseline;
 
         &.hover, &:hover {
             opacity: 0.9;
@@ -34,14 +34,27 @@
 
         border-color: $blue1;
     }
+    .home {
+        @extend .button;
+        width: 55px;
+    }
     .share {
         @extend .button;
         float: right;
         width: 55px;
     }
-    .home {
-        @extend .button;
-        width: 55px;
+    header #Share {
+        height: 80px;
+        margin-top: -80px;
+        position: relative;
+        width: 100%;
+
+        > span {
+            background-color: white;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
