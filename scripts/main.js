@@ -117,6 +117,7 @@ function Main(W) {
             Banner.init();
         }
         _binder();
+        Popup.init();
     }
 
     W[name] = $.extend(true, self, {
