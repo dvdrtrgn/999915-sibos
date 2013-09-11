@@ -6,7 +6,7 @@ var Banner;
 (function (W) {
     var name = 'Banner',
         self = new Global(name, '(fade and loop)'),
-        C = W.C,
+        C = W.console,
         Df;
 
     Df = { // DEFAULTS

@@ -6,7 +6,7 @@ var Mobile;
 (function (W) {
     var name = 'Mobile',
         self = new Global(name, '(mobile nav and page swapper)'),
-        C = W.C,
+        C = W.console,
         Df;
 
     Df = { // DEFAULTS

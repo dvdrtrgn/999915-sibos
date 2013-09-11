@@ -6,7 +6,7 @@ var Extract;
 (function (W) {
     var name = 'Extract',
         self = new Global(name, '(page parser and storage)'),
-        C = W.C,
+        C = W.console,
         Df;
 
     Df = { // DEFAULTS
