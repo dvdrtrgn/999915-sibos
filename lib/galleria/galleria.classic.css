@@ -73,6 +73,7 @@
 }
 .galleria-info-text {
     background-color: #fff;
+    border: 1px solid #f5f5f5;
     padding: 12px;
     display: none;
     /* IE7 */ zoom:1;
