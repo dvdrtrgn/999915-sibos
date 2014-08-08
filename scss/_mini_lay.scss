@@ -10,9 +10,12 @@ $bzT: ($bzH - $dpH) / 2;
 $pt1: 99px;
 $pt3: 66px;
 
-#Feature {
-    .mini { // DEV TOOL
-/*        background-color: $hilite !important;*/
+#Feature { // DEV HELP
+    html.dev & .mini {
+        background-color: $hilite !important;
+    }
+    html.dev & .elim {
+        background-color: $dilite !important;
     }
 }
 .bezel {
@@ -83,6 +86,8 @@ $pt3: 66px;
         overflow: hidden;
         padding: $minim;
         position: absolute;
+        z-index: 9;
+
         p {
             margin: 0;
         }
@@ -92,5 +97,4 @@ $pt3: 66px;
         }
     }
 }
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

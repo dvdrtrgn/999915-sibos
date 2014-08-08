@@ -1,6 +1,9 @@
 /* LAYOUT */
 @import "__mix";
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+#Mobile {
+    display: none;
+}
 #Page {
     background-color: #fff;
     border: 1px solid #f8f8f8;
@@ -22,7 +25,14 @@
         vertical-align: top;
     }
 }
+
 body {
+    html.desktop & {
+        overflow-y: scroll;
+    }
+    html.mobile & {
+        font-size: 12.5px;
+    }
     h3.chev {
         background-color: $light1;
         margin: 18px -8px 12px;
@@ -41,6 +51,9 @@ body {
             text-transform: uppercase;
             white-space: nowrap;
         }
+    }
+    li {
+        list-style-image: url(../images/misc/bullet.gif);
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

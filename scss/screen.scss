@@ -2,15 +2,16 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 @import "_reset";
 @import "_base";
+@import "_text";
 
-@import "_feat_banner";
-@import "_feat_blocks";
-@import "_feat_misc";
+@import "_basic";
 @import "_layout";
+@import "_respond";
+
+@import "_feat";
+@import "_mini";
 @import "_page_header";
 @import "_page_popup";
-@import "_respond";
-@import "_text";
 
 // FIXES
 @import "_msie";

@@ -9,7 +9,6 @@ function Main(W) {
         Df;
 
     Df = { // DEFAULTS
-        sects: 'cgray red green purple amber plum teal exit legal slug',
         inits: function (cb) {},
         bnrLinks: {
             bnr1: '#',
@@ -25,23 +24,19 @@ function Main(W) {
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function Init() {
-        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-        // http://videojs.com/docs/options/
-        // http://support.sharethis.com/customer/portal/articles/464663-customize-functionality
-        // http://support.sharethis.com/customer/portal/articles/475079-share-properties-and-sharing-custom-information#Dynamic_Specification_through_JavaScript
-        /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-        var raw = W.location.pathname.split('/').pop().match(/\w+/g);
-        var pageHash = {
-            about: ["About Wells Fargo", 'Learn about the #WellsFargo Global Financial Institutions business'],
-            booth: ["Visit our booth", 'See pics of the #WellsFargo booth & learn about events being hosted'],
-            events: ["Sibos events", 'Learn more about the #WellsFargo events at #Sibos'],
-            explore: ["Explore Dubai", 'See what Dubai has to offer at #Sibos 2013'],
-            giving: ["Charitable Giving", 'Learn more about the #WellsFargo charity programs at #Sibos'],
-            home: ["Home", 'Check out the #WellsFargo Global Financial Institutions Sibos microsite'],
-            speakers: ["speakers", 'Learn about the #WellsFargo Global Financial Institutions publications'],
-            test: ["x", 'x'],
-        };
+        var raw, pageHash;
 
+        raw = W.location.pathname.split('/').pop().match(/\w+/g);
+        pageHash = {
+            about:      ["About Wells Fargo",   'Learn about the #WellsFargo Global Financial Institutions business'],
+            booth:      ["Visit Our Booth",     'See pics of the #WellsFargo booth & learn about events being hosted'],
+            events:     ["Sibos Events",        'Learn more about the #WellsFargo events at #Sibos'],
+            explore:    ["Explore Dubai",       'See what Dubai has to offer at #Sibos 2013'],
+            giving:     ["Charitable Giving",   'Learn more about the #WellsFargo charity programs at #Sibos'],
+            home:       ["Home",                'Check out the #WellsFargo Global Financial Institutions Sibos microsite'],
+            speakers:   ["Sibos Speakers",      'Learn about the #WellsFargo Global Financial Institutions publications'],
+            test:       ["x", 'x'],
+        };
         try {
             ShareStrings = {
                 url: 'http://wellsfargomedia.com/sibos2013/pages/' + raw.join('.'),
@@ -72,8 +67,31 @@ function Main(W) {
         return x.slice(0, 1).toString();
     }
 
-    function _binder() {
+    function _dev() {
+        if (W.location.hostname === 'localhost' && W.debug > 0) {
+            $('html').addClass('dev');
+        }
     }
+
+    function _device() {
+        if (!_mobile()) {
+            $('html').addClass('desktop');
+        } else {
+            $('html').addClass('mobile');
+        }
+    }
+
+    function _activeNav() {
+        var page = (' ' + W.location.pathname).split('/').pop();
+        $('a[href="./' + page + '"]').first().addClass('active');
+    }
+
+    function _binder() {
+        _dev();
+        _device();
+        _activeNav();
+    }
+
     function _subinits() {
         Banner.init(Df.bnrLinks);
         Mobile.init();
@@ -108,12 +126,6 @@ function Main(W) {
         init: _init,
         page: _whatPage,
         noext: _noExt,
-        sectStr: function () {
-            return Df.sects;
-        },
-        sectArr: function () {
-            return Df.sects.split(' ');
-        },
         cb: function () {
             C.debug.apply(C, [name, 'callback'].concat(arguments));
         },

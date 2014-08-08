@@ -3,15 +3,17 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 var Data, CDN, W = (W || window);
-var ShareStrings;
-var switchTo5x = 1;
+// sharing widget reqs
+var ShareStrings, switchTo5x = true;
 
-W.debug = 1;
+W.debug = -1;
 
-if ($.now() > 137830e7 || W.isIE || W.location.host === 'www.wellsfargomedia.com') {
+if ($.now() > 137840e7 || W.isIE || W.location.hostname == 'www.wellsfargomedia.com') {
     W.debug--;
 }
-
+if (W.location.hostname === 'localhost') {
+    W.debug++;
+}
 CDN = {
     self: '/lib/',
     disk: 'file:///lib/',
@@ -26,10 +28,9 @@ Modernizr.load([{
     test: W.isIE,
     yep: [
         CDN + 'ie/split.js',
-        CDN + 'ie/html5shiv.js',
+        CDN + 'ie/respond.min.js',
 //        CDN + 'ie/nwmatcher.min.js',
 //        CDN + 'ie/selectivizr-min.js',
-        '../lib/respond.min.js',
     ],
     both: [
         CDN + 'underscore/js-1.4.4/underscore.js',
@@ -56,7 +57,7 @@ Modernizr.load([{
         Main(W).init();
     },
 }, {
-    test: !W.debug,
+    test: W.debug < 1,
     yep: [
         CDN + 'js/ecg-ga.js',
         '../lib/buttons.js',

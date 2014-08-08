@@ -11,23 +11,25 @@ var Mobile;
 
     Df = { // DEFAULTS
         atnav: true,
+        bezel: '<div class="bezel"></div>',
         busy: false,
         current: '',
         high: 999,
         left: 111,
-        mob: null,
+        mobile: '#Mobile',
         nav: null,
+        share: '#Share',
         time: 333,
         wide: 999,
-        wrap: '<div class="bezel"></div>',
         inits: function () {
-            Df.mob = $('#Mobile').show();
-            Df.nav = Df.mob.find('article').first().addClass('nav');
+            Df.bezel = $(Df.bezel);
+            Df.mobile = $(Df.mobile).show();
+            Df.nav = Df.mobile.find('article').first().addClass('nav');
             // get width (and offset)
             Df.wide = Df.nav.parent().innerWidth() || 300;
             Df.high = Df.nav.parent().outerHeight();
             Df.left = parseInt(Df.nav.parent().css('left')) || 0;
-            C.debug(name + '_inits', Df);
+            W.debug > 0 && C.debug(name, 'Df.inits\n', Df);
         }
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -74,26 +76,50 @@ var Mobile;
         _revealPage(Df.current, false);
     }
 
-    function _binder() {
-        Df.nav.parent().css({
-            width: Df.wide,
-            height: Df.high,
+    function _share() {
+        Df.share.fadeIn(function () {
+            Df.share.css({
+                display: 'table',
+            });
+            Df.mobile.one('click', function () {
+                Df.share.hide();
+            });
         });
+    }
+
+    function _shareif() {
+        Df.share = $(Df.share).hide();
+        Df.mobile.find('header').append(Df.share);
+        $('img.share').click(_share)
+    }
+
+    function _embezelr() {
         if (!_mobile()) {
-            Df.mob.wrap(Df.wrap);
+            Df.mobile.wrap(Df.bezel);
+            $('#Page').show();
         } else {
             $('#Page').remove();
-            Df.mob.css({
+            Df.mobile.css({
                 zIndex: 1
             });
         }
     }
 
+    function _binder() {
+        Df.nav.parent().css({
+            width: Df.wide,
+            height: Df.high,
+        });
+        _embezelr();
+        _shareif();
+    }
+
     function _isInternal(str) {
-        var ts1, ts2;
+        var ts1, ts2, ts3;
         ts1 = str.match(W.location.host);
-        ts2 = str.match('.html');
-        return !!(ts1 && ts2);
+        ts2 = str.match('/pages/');
+        ts3 = str.match('.html');
+        return !!(ts1 && ts2 && ts3);
     }
 
     function _slider(evt) {

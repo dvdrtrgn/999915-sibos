@@ -10,18 +10,21 @@ var Extract;
         Df;
 
     Df = { // DEFAULTS
-        cache: $('<article>'),
+        cache: '<article>',
         caches: {},
-        homer: '<img class="home" title="home" src="../images/misc/home.png">',
-        navpage: './nav.html',
-        port: $('#Mobile'),
+        home: 'h1 img.home',
+        mobile: '#Mobile',
+        navurl: '_nav.html',
+        port: 'section.port',
         ports: {},
         stored: {
             'foo': 'bar',
         },
         inits: function () {
+            this.cache = $(this.cache);
+            this.mobile = $(this.mobile);
             $.extend(this.caches, this.stored);
-            this.homer = $(this.homer);
+            W.debug > 0 && C.debug(name, 'Df.inits\n', Df);
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -29,17 +32,22 @@ var Extract;
 
     function _get(url, sel, cb) {
         cb = (cb || Main.cb);
-        W.debug > 0 && C.debug(name + '_nav', [url, sel]);
+        W.debug > 0 && C.debug(name + '_get', [url, sel]);
 
         Df.select = sel;
         return Df.caches[url] = new Page(url, cb);
     }
 
-    function _useRegions(jq) {
+    function _miniScrub(jq) {
         var hold = $('<div>');
         jq.scout('.mini').children().appendTo(hold);
         jq.empty();
         jq.append(hold.children());
+    }
+
+    function _postNav() {
+        Df.port = Df.mobile.find(Df.port).first(); // TRANSFORM
+        Df.home = $(Df.home).detach();
     }
 
     function _append(page) {
@@ -47,27 +55,27 @@ var Extract;
         Df.parse = $(page.body).scout(Df.select).children();
         Df.ports[page.url].append(Df.parse);
 
-        if (page.url === Df.navpage) {
-            Df.port = Df.port.find('section.port').first();
+        if (page.url === Df.navurl) {
+            _postNav();
         }
     }
 
     function _homeBtn(jq) {
-        Df.homer.clone().click(Mobile.home).prependTo(jq);
+        Df.home.clone().click(Mobile.home).prependTo(jq);
     }
 
-    function _nav(doing) { // get nav html
-        var url = Df.navpage;
+    function _loadNav(doing) { // get nav html
+        var url = Df.navurl;
 
-        Df.ports[url] = Df.port;
-        if (Df.port.children().length) {
+        Df.ports[url] = Df.mobile;
+        if (Df.mobile.children().length) {
             return doing.resolve();
         }
 
         return _get(url, '#Mobile', _append).jqxhr.promise(doing);
     }
 
-    function _page(url, naving) { // get content html
+    function _loadPage(url, naving) { // get content html
         var jq = Df.ports[url];
 
         if (!jq) { // never loaded
@@ -76,7 +84,7 @@ var Extract;
 
             _get(url, '#Feature', function (page) {
                 _append(page);
-                _useRegions(Df.ports[url]);
+                _miniScrub(Df.ports[url]);
                 _homeBtn(jq);
             });
         }
@@ -97,7 +105,7 @@ var Extract;
 
         Df.inits();
         _bindings(); // extend jquery
-        _nav($.Deferred()).done(cb);
+        _loadNav($.Deferred()).done(cb);
     }
 
     W[name] = $.extend(true, self, {
@@ -105,7 +113,7 @@ var Extract;
             return Df;
         },
         init: _init,
-        page: _page,
+        page: _loadPage,
     });
 
     return self;
