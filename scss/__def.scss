@@ -12,23 +12,21 @@ $layers: '../images/layers';
 $resp: 800px;
 $debug: 1;
 $remx: 12px;
+$hilite: rgba(255, 255, 99, 0.7);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 //color
 
-$navgray1: #8f8f8f; $navgray2: #505050;
-$navred1: #e61c28;  $navred2: #af1e23;
-
-$button1: #CE4C12;  $button2: #CC3311;
-$teal1: #146A8C;    $teal2: #0A4257;
+$navback1: #9f958d; $navback2: #837970;
+$navfore1: #62564b; $navfore2: #4c443d;
 
 $red: #bb0826;
 $gold: #fcc60a;
 
 $prime1: $red;
-$prime2: $gold;
-$light1: #e0e3e2;
-$light2: #f6f7f6;
+$prime2: white;
+$light1: #e0dddb;
+$light2: #f5f5f4;
 
 
 $shad1: rgba( 123, 123, 123, 0.123 );

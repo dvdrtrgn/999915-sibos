@@ -10,7 +10,7 @@ header {
         height: 80px;
     }
     .navb { /* baseline */
-        @include navgray();
+        @include navBack();
         color: gray;
         font-family: Verdana, Geneva, sans-serif;
         font-size: 13px;
@@ -29,15 +29,15 @@ header {
         text-decoration: none;
     }
     .navb a:hover {
-        @include navred();
+        @include navFore();
         border-left: 1px solid white;
         border-right: 1px solid white;
         opacity: 0.7;
         margin-left: -1px;
     }
     .navb a.active {
-        @include navred();
-        background-color: $red;
+        @include navFore();
+        background-color: $navfore2;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -46,35 +46,42 @@ header {
     display: none;
     position: relative;
     height: 295px;
-}
-img.banner {
-    float: left;
-    margin: 1px 0 5px 0;
-    margin: -63px -10% 3px;
-    height: 90px;
-    left: 0;
-    position: absolute;
-    width: 120%;
-    top: 245px;
-    z-index: 9;
-}
-div.blot {
-    background-color: white;
-    bottom: 50px;
-    height: 40px;
-    right: 0;
-    width: 55%;
-    z-index: 3;
-    position: absolute;
-}
-img.banner1 {
-    @extend img.banner;
-    margin: -99px -20% 11px;
-    height: 150px;
-    width: 140%;
-}
-div.blot1 {
-    @extend div.blot;
-    height: 60px;
+
+    img.reins {
+        float: left;
+        left: 0;
+        position: absolute;
+        top: 245px;
+        z-index: 9;
+
+        &.small {
+            height: 90px;
+            margin: -63px -10% 3px;
+            width: 120%;
+        }
+        &.large {
+            @extend img.reins;
+            margin: -99px -20% 11px;
+            height: 150px;
+            width: 140%;
+        }
+    }
+    div.blot {
+        background-color: white;
+        bottom: 50px;
+        right: 0;
+        width: 55%;
+        z-index: 3;
+        position: absolute;
+
+        &.small {
+            @extend div.blot;
+            height: 40px;
+        }
+        &.large {
+            @extend div.blot;
+            height: 60px;
+        }
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -6,7 +6,7 @@ var i, metas = ['',
     '<meta  id="head5" property="og:url"         content="">',
     '<meta  id="head6" property="og:image"       content="http://www.wellsfargomedia.com/sibos2013/images/header/wf-sibos.png">',
     '<meta  id="head7" property="og:site_name"   content="www.wellsfargomedia.com">',
-    '<meta  id="head8" property="og:type"        content="microsite">',
+    '<meta  id="head8" property="og:type"        content="microsite">'
 ];
 
 for (i = 1; i < metas.length; i++) {
