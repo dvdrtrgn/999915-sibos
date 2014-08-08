@@ -14,6 +14,11 @@ $debug: 1;
 $remx: 12px;
 $hilite: rgba(255, 255, 99, 0.7);
 
+// fonts
+$SM: 0.666rem;
+$MD: 0.8rem;
+$LG: 1.1rem;
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 //color
 
@@ -32,6 +37,25 @@ $light2: #f5f5f4;
 $shad1: rgba( 123, 123, 123, 0.123 );
 $shad2: rgba( 23, 23, 23, 0.23 );
 $shad3: rgba( 77, 77, 77, 0.7 );
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+//color
+
+$beige1:#eee3da;   $beige2: #d7ccc3;
+$blue1: #779fdf;    $blue2: #6b83b2;
+$gray1: #999;       $gray2: #777;
+$red1:  #c21737;     $red2: #8c081d;
+$brown: #973f1e;
+$brick: #bb0826;
+$blue:  #336699;
+$paper: #f9f6f1;
+
+$clear:  rgba(255,255,255,0);
+$pale:   rgba(255,255,255,0.7);
+$target: rgba(255, 111, 111, 0.5); // #ff5555; reddish
+
+$shad:   rgba(0,0,0,0.33);
+$shad1:  rgba( 123, 123, 123, 0.123 );
+$shad2:  rgba( 23, 23, 23, 0.23 );
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 //shade

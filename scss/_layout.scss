@@ -1,0 +1,25 @@
+/* LAYOUT */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+#Page {
+    background-color: #fff;
+    border: 1px solid #f8f8f8;
+    margin: 0 auto;
+    position: relative;
+    width: 956px;
+}
+#Feature {
+    margin-left: 28px;
+    overflow: visible;
+    position: relative;
+    width: 898px;
+}
+#Share {
+    float: right;
+
+    .cap {
+        margin-right: 6px;
+        vertical-align: top;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

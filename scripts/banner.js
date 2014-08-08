@@ -22,6 +22,23 @@ var Banner;
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+    function _reinImage() {
+        var img, cls, div;
+
+        img = $('img.reins');
+        cls = img.attr('class');
+        div = img.wrap('<div>').parent();
+        div.addClass(cls);
+
+        img.removeClass(cls).remove();
+        div.css({
+            backgroundImage: 'url(' + img.attr('src') + ')',
+        });
+        W.setTimeout(function () {
+            div.css('backgroundSize', '100% 100%');
+        }, 1);
+        return;
+    }
 
     function descend() {
         Df.now--;
@@ -30,7 +47,7 @@ var Banner;
             Df.now = Df.total - 1;
             Df.all.fadeIn(0);
         }
-        W.debug > 0 && C.debug(Df.now);
+        W.debug > 1 && C.debug(Df.now);
     }
 
     function _runfade() {
@@ -77,8 +94,9 @@ var Banner;
             _binder(obj);
         }
 
-        $('.click2run').fadeIn().on('click', function () {
-            drt.activeNavButton();
+        $('#Banner').fadeOut(1).fadeIn(999);
+        $('.reins').on('click', function () {
+            _reinImage();
         });
     }
 
@@ -87,6 +105,7 @@ var Banner;
             return Df;
         },
         init: _init,
+        wrap: _reinImage,
     });
 
     return self;

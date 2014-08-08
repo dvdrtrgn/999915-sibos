@@ -5,7 +5,7 @@
 var dev, drt = {
     activeNavButton: function () {
         var page = (' ' + W.location.pathname).split('/').pop();
-        $('a[href="' + page + '"]').addClass('active');
+        $('a[href="./' + page + '"]').addClass('active');
     },
     shadowboxPic: function (i, e) {
         var lnk = $(e),
@@ -36,7 +36,6 @@ var dev, drt = {
     init: function () {
         drt.activeNavButton();
 
-        $('#Banner').show();
         try {
             if (!(/mobi/i).test(W.navigator.userAgent)) {
                 $('a.popup.vid').each(drt.shadowboxVid);

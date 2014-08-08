@@ -1,0 +1,50 @@
+/* BANNER */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+#Banner {
+    display: none;
+    position: relative;
+    height: 295px;
+
+    div.reins {
+        @include transition( all 0.5s ease-out 0 );
+        background-size: 111% 100%;
+        background-position: 50%;
+    }
+    .reins {
+        float: left;
+        left: 0;
+        position: absolute;
+        top: 245px;
+        z-index: 9;
+
+        &.small {
+            height: 90px;
+            margin: -63px -10% 3px;
+            width: 120%;
+        }
+        &.large {
+            margin: -99px -20% 11px;
+            height: 150px;
+            width: 140%;
+        }
+    }
+    div.blot {
+        background-color: white;
+        bottom: 50px;
+        right: 0;
+        width: 55%;
+        z-index: 3;
+        position: absolute;
+
+        &.small {
+            @extend div.blot;
+            height: 40px;
+        }
+        &.large {
+            @extend div.blot;
+            height: 60px;
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

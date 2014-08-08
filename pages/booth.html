@@ -10,7 +10,6 @@
         <link href="../styles/print.css" media="print" rel="stylesheet" type="text/css">
         <script src="/lib/jquery/1.8.2/jquery.js"></script>
         <script src="/lib/modernizr/2.6.2/modernizr.js"></script>
-        <script src="/lib/js/global.js"></script>
         <!--[if IE]><script>
             window.isIE = true;
             $(function(){ $('html').addClass('msie'); });
@@ -19,32 +18,22 @@
     </head>
     <body>
         <div id="Page">
-            <!-- #BeginLibraryItem "../lib/navbar.lbi" -->
             <header>
                 <div class="mast">
-                    <img src="../images/header/wf-sibos.png" alt="Sibos 2013" width="222" height="64" align="left">
-                    <img src="../images/header/stagecoach.png" alt="Together we’ll go far" width="227" height="64" align="right">
+                    <a href="./home.html"><img class="logo" src="../images/header/wf-sibos.png" alt="Sibos 2013"></a>
+                    <a href="//wellsfargo.com"><img class="stage" src="../images/header/stagecoach.png" alt="Together we’ll go far"></a>
                 </div>
-                <div class="navb">
-                    <!--  -->
-                    <a href="home.html">Home</a>
-                    <!--  -->
-                    <a href="about.html">About Wells Fargo</a>
-                    <!--  -->
-                    <a href="events.html">Sibos Events</a>
-                    <!--  -->
-                    <a href="booth.html">Wells Fargo Booth</a>
-                    <!--  -->
-                    <a href="speakers.html">Sibos Speakers</a>
-                    <!--  -->
-                    <a href="explore.html">Explore Dubai</a>
-                    <!--  -->
-                    <a href="giving.html">Charitable giving</a>
-                    <!--  -->
-                </div>
+                <nav>
+                    <!--  --> <a href="./home.html">Home</a>
+                    <!--  --> <a href="./about.html">About Wells Fargo</a>
+                    <!--  --> <a href="./events.html">Sibos Events</a>
+                    <!--  --> <a href="./booth.html">Our Booth</a>
+                    <!--  --> <a href="./speakers.html">Sibos Speakers</a>
+                    <!--  --> <a href="./explore.html">Explore Dubai</a>
+                    <!--  --> <a href="./giving.html">Charitable Giving</a>
+                </nav>
             </header>
-            <!-- #EndLibraryItem -->
-            <div id="feature">
+            <div id="Feature">
                 <section id="Banner">
                     <img class="" src="../images/banners/boothPage.jpg" alt="">
                     <img class="reins small" src="../images/header/reins.png" alt="">
@@ -56,23 +45,25 @@
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td><p>As a repeat exhibitor, Wells Fargo is excited to bring you a booth
-                                experience like no other. We look forward to seeing you at
-                            <strong>booth No. F87</strong>.</p>
-                    <p><strong>Learn. </strong>Stop by to take your picture in front of the
-                        Buffalo Bill stagecoach and learn more about the history of Wells Fargo.</p>
-                    <p><strong>Explore. </strong>Experience all the exciting new enhancements
-                        we&rsquo;ve made to our Sibos booth this year.</p>
-                    <p><strong>Connect.</strong>
-                        Our senior leadership and relationship managers look forward to connecting with you in our booth.
-                        You can also watch the TEDX UN Plaza conference from our booth. For more information about the sessions and speakers,
-                        please visit <a href="http://tedxunplaza.com">http://tedxunplaza.com</a> <img class="external" src="../images/misc/link_icon.gif" title="Not a Wells Fargo site"></p>
-                    <p><br><a title="booth_map" class="popup pic"
-                          href="../images/misc/photos/booth_map.pdf">View exhibition floor map</a> (right-click to save PDF*)</p></td>
-                    <td>&nbsp;</td>
-                    <td><p>
-                            <img src="../images/tiles/booth_giveaway.jpg" width="320" height="254" alt="Check in to our booth via Foursquare or your LinkedIn account and receive a 3 in 1 phone charger while supplies last. You can also tweet about us via Twitter to receive your free gift.">
-                        </p></td>
+                        <td><article>
+                                <p>As a repeat exhibitor, Wells Fargo is excited to bring you a booth
+                                    experience like no other. We look forward to seeing you at
+                                    <strong>booth No. F87</strong>.</p>
+                                <p><strong>Learn. </strong>Stop by to take your picture in front of the
+                                    Buffalo Bill stagecoach and learn more about the history of Wells Fargo.</p>
+                                <p><strong>Explore. </strong>Experience all the exciting new enhancements
+                                    we&rsquo;ve made to our Sibos booth this year.</p>
+                                <p><strong>Connect.</strong>
+                                    Our senior leadership and relationship managers look forward to connecting with you in our booth.
+                                    You can also watch the TEDX UN Plaza conference from our booth. For more information about the sessions and speakers,
+                                    please visit <a href="http://tedxunplaza.com">http://tedxunplaza.com</a> <img class="external" src="../images/misc/link_icon.gif" title="Not a Wells Fargo site"></p>
+                                <p><br><a title="booth_map" class="popup pic"
+                                          href="../images/misc/photos/booth_map.pdf">View exhibition floor map</a> (right-click to save PDF*)</p>
+                            </article></td>
+                        <td>&nbsp;</td>
+                        <td><p>
+                                <img src="../images/tiles/booth_giveaway.jpg" width="320" height="254" alt="Check in to our booth via Foursquare or your LinkedIn account and receive a 3 in 1 phone charger while supplies last. You can also tweet about us via Twitter to receive your free gift.">
+                            </p></td>
                     </tr>
                     <tr>
                         <td width="55%">&nbsp;</td>
@@ -94,33 +85,23 @@
                 </div>
                 <p class="shrink">
                     <img class="external" src="../images/misc/link_icon.gif" title="Not a Wells Fargo site">
-                    This link leads to a website that is not operated by Wells Fargo. We do not control the website.
-                    Wells Fargo has provided this link for your convenience, <br>
-                    but does not endorse and is not responsible for the content, links, privacy policy,
-                    or security policy of this website.</p>
+                    This link leads to a website that is not operated by Wells Fargo.
+                    We do not control the website. Wells Fargo has provided this link for your convenience, <br>
+                    but does not endorse and is not responsible for the content, links, privacy policy, or security policy of this website.</p>
             </div>
-            <!-- #BeginLibraryItem "../lib/navfoo.lbi" -->
             <footer>
-                <div id="sharebar">
+                <div id="Share">
                     <p class="cap">Share this page
-                        <!--  -->
-                        <span id="st_twitter"></span>
-                        <!--  -->
-                        <span id="st_linkedin"></span>
-                        <!--  -->
-                        <span id="st_email"></span>
-                        <!--  -->
-                        <span id="st_facebook"></span>
-                        <!--  -->
-                        <span id="st_googleplus"></span>
-                        <!--  -->
-                        <span id="st_pinterest"></span>
-                        <!--  -->
+                        <!--  --> <span id="st_twitter"></span>
+                        <!--  --> <span id="st_linkedin"></span>
+                        <!--  --> <span id="st_email"></span>
+                        <!--  --> <span id="st_facebook"></span>
+                        <!--  --> <span id="st_googleplus"></span>
+                        <!--  --> <span id="st_pinterest"></span>
                     </p>
                 </div>
                 <p>© 2013 Wells Fargo Bank, N.A. All rights reserved. ECG-999915</p>
             </footer>
-            <!-- #EndLibraryItem -->
         </div>
     </body>
 </html>

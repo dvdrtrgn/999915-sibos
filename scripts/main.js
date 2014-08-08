@@ -34,9 +34,10 @@ function Main(W) {
             booth: ["Visit our booth", 'See pics of the #WellsFargo booth & learn about events being hosted'],
             events: ["Sibos events", 'Learn more about the #WellsFargo events at #Sibos'],
             explore: ["Explore Dubai", 'See what Dubai has to offer at #Sibos 2013'],
-            giving: ["Charitable giving", 'Learn more about the #WellsFargo charity programs at #Sibos'],
+            giving: ["Charitable Giving", 'Learn more about the #WellsFargo charity programs at #Sibos'],
             home: ["Home", 'Check out the #WellsFargo Global Financial Institutions Sibos microsite'],
             speakers: ["speakers", 'Learn about the #WellsFargo Global Financial Institutions publications'],
+            test: ["x", 'x'],
         };
 
         try {
