@@ -64,19 +64,18 @@ var Banner;
     function _blotto() {
         var me = $('.reins.small'),
             mq = $('<div>').addClass('blot small');
-        me.before(mq);
+        me.after(mq);
 
         var me1 = $('.reins.large'),
             mq1 = $('<div>').addClass('blot large');
-        me1.before(mq1);
+        me1.after(mq1);
 
     }
 
     function _binder(obj) {
         $.each(obj, function (i, e) {
-            $('.' + i).click(function () {
-                W.location = e;
-            });
+            var anc = $('<a>').attr('href', e);
+            $('.' + i).wrap(anc);
         });
     }
 
@@ -95,9 +94,9 @@ var Banner;
         }
 
         $('#Banner').fadeOut(1).fadeIn(999);
-        $('.reins').on('click', function () {
-            _reinImage();
-        });
+//        $('.reins').on('click', function () {
+//            W.isIE || _reinImage();
+//        });
     }
 
     W[name] = $.extend(true, self, {
@@ -113,3 +112,10 @@ var Banner;
 }(window));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*
+
+
+
+
+ */

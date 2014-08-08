@@ -3,11 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=8">
+        <script>location.href.match(/\.com.*(\/[^\.\/]+)+$/)&&(location.href+='/')</script>
         <title id="head0">Wells Fargo at Sibos 2013</title>
         <script src="../scripts/metas.js"></script>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content="width=device-width, minimum-scale=0.75, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
         <!--  -->
         <link href="../styles/screen.css" media="all" rel="stylesheet" type="text/css">
         <link href="../styles/print.css" media="print" rel="stylesheet" type="text/css">
+        <link href="../styles/mini.css" media="all" rel="stylesheet" type="text/css">
         <script src="/lib/jquery/1.8.2/jquery.js"></script>
         <script src="/lib/modernizr/2.6.2/modernizr.js"></script>
         <!--[if IE]><script>
@@ -20,7 +25,7 @@
         <div id="Page">
             <header>
                 <div class="mast">
-                    <a href="./home.html"><img class="logo" src="../images/header/wf-sibos.png" alt="Sibos 2013"></a>
+                    <a href="./"><img class="logo" src="../images/header/wf-sibos.png" alt="Sibos 2013"></a>
                     <a href="//wellsfargo.com"><img class="stage" src="../images/header/stagecoach.png" alt="Together we’ll go far"></a>
                 </div>
                 <nav>
@@ -40,52 +45,49 @@
                 </section>
                 <table>
                     <tr>
-                        <td><div id="Charitable">
-                                <div class="part">
-                                    <h2>Charitable Giving</h2>
-                                </div>
-                            </div></td>
+                        <td class="mini">
+                            <h2>Charitable Giving</h2></td>
                         <td rowspan="4">&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td><h3>Together, we can make a difference</h3></td>
+                        <td class="mini">
+                            <h3>Together, we can make a difference</h3></td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <td><article>
-                                <p> At Wells Fargo, we&rsquo;re
-                                    committed to providing community solutions – local
-                                    responses to local needs. We promote economic
-                                    development and self-sufficiency through community
-                                    development, financial education, cash contributions,
-                                    affordable housing, environmental stewardship, and
-                                    through the efforts of our enthusiastic team member
-                                    volunteers. </p>
-                                <p>For philanthropic activities and investments last year,
-                                    Wells Fargo reached important milestones:</p>
-                                <ul>
-                                    <li><em>The Chronicle of Philanthropy</em> recognized Wells Fargo
-                                        as the Most Generous Cash Donor in the U.S. for investing $315.8
-                                        million in 19,500 nonprofits.</li>
-                                    <li>The United Way Worldwide, for the fourth year in a row, named
-                                        Wells Fargo&rsquo;s annual Community Support and United Way
-                                        Campaign as the No. 1 Giving Campaign. </li>
-                                    <li>Wells Fargo team members volunteered 1.5 million hours and
-                                        donated $70 million to nonprofits. </li>
-                                </ul>
-                                <p>And now, by working together with you, we can make a difference in our international communities.
-                                    You are invited, for the third year in a row, to cast a vote for one of four nonprofits (noted below)
-                                    that make a difference in  our local communities. Based on this poll held at our Wells Fargo Sibos reception,
-                                    Wells Fargo will donate a total of USD$10,000 to these four charities.</p>
-                            </article></td>
-                        <td rowspan="2"><div class="tofix">
+                        <td class="mini">
+                            <p> At Wells Fargo, we&rsquo;re
+                                committed to providing community solutions – local
+                                responses to local needs. We promote economic
+                                development and self-sufficiency through community
+                                development, financial education, cash contributions,
+                                affordable housing, environmental stewardship, and
+                                through the efforts of our enthusiastic team member
+                                volunteers. </p>
+                            <p>For philanthropic activities and investments last year,
+                                Wells Fargo reached important milestones:</p>
+                            <ul>
+                                <li><em>The Chronicle of Philanthropy</em> recognized Wells Fargo
+                                    as the Most Generous Cash Donor in the U.S. for investing $315.8
+                                    million in 19,500 nonprofits.</li>
+                                <li>The United Way Worldwide, for the fourth year in a row, named
+                                    Wells Fargo&rsquo;s annual Community Support and United Way
+                                    Campaign as the No. 1 Giving Campaign. </li>
+                                <li>Wells Fargo team members volunteered 1.5 million hours and
+                                    donated $70 million to nonprofits. </li>
+                            </ul>
+                            <p>And now, by working together with you, we can make a difference in our international communities.
+                                You are invited, for the third year in a row, to cast a vote for one of four nonprofits (noted below)
+                                that make a difference in  our local communities. Based on this poll held at our Wells Fargo Sibos reception,
+                                Wells Fargo will donate a total of USD$10,000 to these four charities.</p>
+                        </td>
+                        <td rowspan="2">
+                            <div class="tofix">
                                 <table>
                                     <tr>
-                                        <td class="blocks ribron"><h3>learn more</h3></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="blocks"><p><strong>Click on each nonprofit to learn more:</strong></p>
+                                        <td class="blocks mini"><h3 class="chev"><span>learn more</span></h3>
+                                            <p><strong>Click on each nonprofit to learn more:</strong></p>
                                             <ul>
                                                 <li><a class="scroll" href="#bread">The Bread Tin</a> is
                                                     a new giving club that teaches young professionals about philanthropy in London </li>
@@ -96,13 +98,15 @@
                                                 <li><a class="scroll" href="#pvf">Project Vietnam Foundation</a> works
                                                     on creating sustainable pediatric healthcare in Vietnam, while providing free
                                                     healthcare and aid to impoverished rural areas across the country </li>
-                                            </ul></td>
+                                            </ul>
+                                        </td>
                                     </tr>
                                 </table>
-                            </div></td>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
-                        <td><article>
+                        <td class="mini">
                             <div id="bread">
                                 <h3>The Bread Tin</h3>
                                 <p>
@@ -134,7 +138,8 @@
                                     works in seven countries around the world to help victims
                                     of war and civil conflict rebuild their lives.
                                     (Human Services) </p>
-                                <p><a title="charity_ARC" class="popup pic"><img src="../images/photos/charity_ARC.jpg" alt="FPO" class="headshot"></a><em>&ldquo;ARC is building a 21st Century
+                                <p><a title="charity_ARC" class="popup pic">
+                                        <img src="../images/photos/charity_ARC.jpg" alt="FPO" class="headshot"></a><em>&ldquo;ARC is building a 21st Century
                                         humanitarian organization rooted in co-creating with committed people to provide more meaningful
                                         solutions to humanitarian crises worldwide. &nbsp;My work with ARC had me engaged in facilitating
                                         meaningful partnerships between ARC and Middle Eastern NGO counterparts to engage in projects in
@@ -156,7 +161,9 @@
                                 <p><em>Dubai Center for Special Needs</em> provides specialized education and
                                     therapy for children with various disabilities.
                                     (Education)</p>
-                                <p><a title="charity_DubaiCenter" class="popup pic"><img src="../images/photos/charity_DubaiCenter.jpg" alt="FPO" class="headshot"></a><em>&ldquo;The teachers at DCSN are truly amazing and treat all the kids with love
+                                <p><a title="charity_DubaiCenter" class="popup pic">
+                                        <img src="../images/photos/charity_DubaiCenter.jpg" alt="FPO" class="headshot"></a>
+                                    <em>&ldquo;The teachers at DCSN are truly amazing and treat all the kids with love
                                         and compassion. One thing I learnt from them; you can embrace life
                                         and have fun, no matter your circumstances.&rdquo; </em></p>
                                 <p><strong>— Dalene Byrnes</strong>, GFI DIFC Branch </p>
@@ -171,7 +178,8 @@
                                     </em></p>
                                 <p><em>Project Vietnam Foundation</em> works on creating sustainable pediatric healthcare in Vietnam,
                                     while providing free healthcare and aid to impoverished rural areas across the country. (Human Services) </p>
-                                <p><a title="charity_ProjectVietnam" class="popup pic"><img src="../images/photos/charity_ProjectVietnam.jpg" alt="FPO" class="headshot"></a>&ldquo;<em>Apart from providing free surgery,
+                                <p><a title="charity_ProjectVietnam" class="popup pic">
+                                        <img src="../images/photos/charity_ProjectVietnam.jpg" alt="FPO" class="headshot"></a>&ldquo;<em>Apart from providing free surgery,
                                         dental and medical checks for poor children in rural areas, Project Vietnam has multiplied its
                                         ability to provide sustainable medical support to kids through its strategy to train the
                                         trainers. Over the last 3 years, 200 instructors and 3,000 health care workers have been trained
@@ -179,7 +187,7 @@
                                         can save a baby at birth.&rdquo;</em></p>
                                 <p><strong>— Linh Trinh</strong>, GFI Vietnam office</p>
                             </div>
-                        </article></td>
+                        </td>
                     </tr>
                     <tr>
                         <td width="66%">&nbsp;</td>
@@ -187,39 +195,13 @@
                         <td width="29%">&nbsp;</td>
                     </tr>
                 </table>
-                <p class="shrink">
-                    <img class="external" src="../images/misc/link_icon.gif" title="Not a Wells Fargo site">
-                    This link leads to a website that is not operated by Wells Fargo.
-                    We do not control the website. Wells Fargo has provided this link for your convenience, <br>
-                    but does not endorse and is not responsible for the content, links, privacy policy, or security policy of this website.</p>
-                <div class="popup">
-                    CLICK OUTSIDE IMAGE TO CLOSE<br>
-                    <br>
-                    <img id="charity_BreadTin" src="../images/photos/charity_BreadTin.jpg" tabindex="-1">
-                    <br>
-                    Wells Fargo London branch volunteer Loretta Wong (left) with her giving club members and core donor.
-                </div>
-                <div class="popup">
-                    CLICK OUTSIDE IMAGE TO CLOSE<br>
-                    <br>
-                    <img id="charity_ARC" src="../images/photos/charity_ARC.jpg" tabindex="-1">
-                    <br>
-                    Wells Fargo DIFC branch volunteer, Adel el-Huni, on the ARC trip to Sudan.
-                </div>
-                <div class="popup">
-                    CLICK OUTSIDE IMAGE TO CLOSE<br>
-                    <br>
-                    <img id="charity_DubaiCenter" src="../images/photos/charity_DubaiCenter.jpg" tabindex="-1">
-                    <br>
-                    Wells Fargo DIFC branch volunteers, including Dalene Byrnes (far right).
-                </div>
-                <div class="popup">
-                    CLICK OUTSIDE IMAGE TO CLOSE<br>
-                    <br>
-                    <img id="charity_ProjectVietnam" src="../images/photos/charity_ProjectVietnam.jpg" tabindex="-1">
-                    <br>
-                    Project Vietnam Foundation volunteers provide pediatric healthcare in Vietnam.
-                </div>
+                <article class="mini">
+                    <p class="shrink">
+                        <img class="external" src="../images/misc/link_icon.gif" title="Not a Wells Fargo site">
+                        This link leads to a website that is not operated by Wells Fargo.
+                        We do not control the website. Wells Fargo has provided this link for your convenience, <br>
+                        but does not endorse and is not responsible for the content, links, privacy policy, or security policy of this website.</p>
+                </article>
             </div>
             <footer>
                 <div id="Share">
@@ -229,11 +211,39 @@
                         <!--  --> <span id="st_email"></span>
                         <!--  --> <span id="st_facebook"></span>
                         <!--  --> <span id="st_googleplus"></span>
-                        <!--  --> <span id="st_pinterest"></span>
                     </p>
                 </div>
                 <p>© 2013 Wells Fargo Bank, N.A. All rights reserved. ECG-999915</p>
             </footer>
         </div>
+        <div class="popup">
+            CLICK OUTSIDE IMAGE TO CLOSE<br>
+            <br>
+            <img id="charity_BreadTin" src="../images/photos/charity_BreadTin.jpg" tabindex="-1">
+            <br>
+            Wells Fargo London branch volunteer Loretta Wong (left) with her giving club members and core donor.
+        </div>
+        <div class="popup">
+            CLICK OUTSIDE IMAGE TO CLOSE<br>
+            <br>
+            <img id="charity_ARC" src="../images/photos/charity_ARC.jpg" tabindex="-1">
+            <br>
+            Wells Fargo DIFC branch volunteer, Adel el-Huni, on the ARC trip to Sudan.
+        </div>
+        <div class="popup">
+            CLICK OUTSIDE IMAGE TO CLOSE<br>
+            <br>
+            <img id="charity_DubaiCenter" src="../images/photos/charity_DubaiCenter.jpg" tabindex="-1">
+            <br>
+            Wells Fargo DIFC branch volunteers, including Dalene Byrnes (far right).
+        </div>
+        <div class="popup">
+            CLICK OUTSIDE IMAGE TO CLOSE<br>
+            <br>
+            <img id="charity_ProjectVietnam" src="../images/photos/charity_ProjectVietnam.jpg" tabindex="-1">
+            <br>
+            Project Vietnam Foundation volunteers provide pediatric healthcare in Vietnam.
+        </div>
+        <div id="Mobile"></div>
     </body>
 </html>

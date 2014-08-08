@@ -4,13 +4,11 @@
 
 var Data, CDN, W = (W || window);
 var ShareStrings;
+var switchTo5x = 1;
 
 W.debug = 1;
 
-if ($.now() > 137790e7) {
-    W.debug--;
-}
-if (W.isIE) {
+if ($.now() > 137830e7 || W.isIE || W.location.host === 'www.wellsfargomedia.com') {
     W.debug--;
 }
 
@@ -29,13 +27,15 @@ Modernizr.load([{
     yep: [
         CDN + 'ie/split.js',
         CDN + 'ie/html5shiv.js',
+//        CDN + 'ie/nwmatcher.min.js',
+//        CDN + 'ie/selectivizr-min.js',
+        '../lib/respond.min.js',
     ],
-    //        CDN + 'ie/nwmatcher.min.js',
-    //        CDN + 'ie/selectivizr-min.js',
     both: [
         CDN + 'underscore/js-1.4.4/underscore.js',
         CDN + 'js/console.js',
         CDN + 'js/global.js',
+        '../lib/detect.js',
     ],
     //        CDN + 'video-js/4.1/video-js.css',
     //        CDN + 'video-js/4.1/video.dev.js',
@@ -44,8 +44,11 @@ Modernizr.load([{
     },
 }, {
     both: [
+        '../lib/Page.js',
         '../scripts/drt.js',
         '../scripts/banner.js',
+        '../scripts/extract.js',
+        '../scripts/mobile.js',
         '../scripts/scroll.js',
         '../scripts/main.js',
     ],
@@ -55,9 +58,17 @@ Modernizr.load([{
 }, {
     test: !W.debug,
     yep: [
-//        '../scripts/share.js',
         CDN + 'js/ecg-ga.js',
+        '../lib/buttons.js',
+        '../scripts/share.js',
     ],
 }]);
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*
+
+
+
+
+ */

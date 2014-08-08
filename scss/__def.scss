@@ -14,6 +14,8 @@ $debug: 1;
 $remx: 12px;
 $hilite: rgba(255, 255, 99, 0.7);
 
+$minim: 5px;
+
 // fonts
 $SM: 0.666rem;
 $MD: 0.8rem;
@@ -40,10 +42,11 @@ $shad3: rgba( 77, 77, 77, 0.7 );
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 //color
 
-$beige1:#eee3da;   $beige2: #d7ccc3;
+$bar1: #D4002F;     $bar2: #83001C;
+$beige1:#eeeeee;    $beige2: #cccccc;
 $blue1: #779fdf;    $blue2: #6b83b2;
 $gray1: #999;       $gray2: #777;
-$red1:  #c21737;     $red2: #8c081d;
+$red1:  #c21737;    $red2: #8c081d;
 $brown: #973f1e;
 $brick: #bb0826;
 $blue:  #336699;

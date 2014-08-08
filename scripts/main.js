@@ -18,6 +18,8 @@ function Main(W) {
             bnr4: 'explore.html',
             bnr5: 'about.html',
             bnr6: 'booth.html',
+            bnr7: '../media/Momentum_Sibos2013.pdf',
+            bnr8: 'booth.html',
         },
     };
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -55,12 +57,26 @@ function Main(W) {
             //    $('#head6').attr('content', ShareStrings.img);
         } catch (e) {
             if (!W.isIE) {
-                C.error(e);
+                // C.error(e);
             }
         }
     }
-    function _whatPage() {
-        return location.pathname.split('/').slice(-1).toString();
+
+    function _whatPage(x) {
+        x = x || W.location.pathname;
+        return x.split('/').slice(-1).toString();
+    }
+
+    function _noExt(x) {
+        x = x.split('.');
+        return x.slice(0, 1).toString();
+    }
+
+    function _binder() {
+    }
+    function _subinits() {
+        Banner.init(Df.bnrLinks);
+        Mobile.init();
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -75,11 +91,14 @@ function Main(W) {
         Init();
         Scroll.init();
 
-        if (_whatPage() === 'home.html') {
+        if (_whatPage() === 'mini.html'){
+            Extract.init(_subinits);
+        } else if (_whatPage() === 'home.html'  ) {
             Banner.init(Df.bnrLinks);
         } else {
             Banner.init();
         }
+        _binder();
     }
 
     W[name] = $.extend(true, self, {
@@ -87,11 +106,16 @@ function Main(W) {
             return Df;
         },
         init: _init,
+        page: _whatPage,
+        noext: _noExt,
         sectStr: function () {
             return Df.sects;
         },
         sectArr: function () {
             return Df.sects.split(' ');
+        },
+        cb: function () {
+            C.debug.apply(C, [name, 'callback'].concat(arguments));
         },
     });
     return self;

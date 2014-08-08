@@ -19,32 +19,18 @@
         &.blocks p {
             max-width: 95%;
         }
-        &.ribron {
-            background-color: $light1;
-            padding: 0px;
-        }
     }
     .blocks {
         background-color: #fff;
 
         h3 {
-            color: $prime2;
-            background: {
-                image: url(../images/misc/ribron.png);
-                repeat: no-repeat;
-                position: 100% 50%;
-            }
-            display: inline-block;
-            line-height: 22px;
-            margin: 0;
-            padding: 4px 20px 1px 10px;
-            text-transform: uppercase;
-            white-space: nowrap;
+            margin: -8px -8px 12px;
         }
         a.learn {
+            @include sans;
+
             float: right;
             font-size: 9px;
-            font-family: Verdana, Geneva, sans-serif;
             margin: 5px 9px;
         }
     }
