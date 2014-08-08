@@ -1,12 +1,12 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, Main, Page, window */
+/*globals $, Global, Main, Mobile, Page, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Extract;
 
 (function (W) {
     var name = 'Extract',
         self = new Global(name, '(page parser and storage)'),
-        C = W.C,
+        C = W.console,
         Df;
 
     Df = { // DEFAULTS
@@ -35,7 +35,7 @@ var Extract;
         W.debug > 0 && C.debug(name + '_get', [url, sel]);
 
         Df.select = sel;
-        return Df.caches[url] = new Page(url, cb);
+        return (Df.caches[url] = new Page(url, cb));
     }
 
     function _miniScrub(jq) {
@@ -88,7 +88,7 @@ var Extract;
                 _homeBtn(jq);
             });
         }
-        naving.resolve(jq)
+        naving.resolve(jq);
     }
 
     function _bindings() {

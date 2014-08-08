@@ -1,13 +1,19 @@
+/*jslint es5:true, white:false */
+/*globals $, ShareStrings, stLight, stWidget, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 function startSharing() {
+    var W = window,
+        D = W.document;
+
     try {
-        stLight = window.stLight || {};
+        stLight = W.stLight || {};
         stLight.options({
             publisher: "82e0d732-4a87-44d4-9685-61131d7a57b6",
             onhover: false
         });
         stWidget.addEntry({
-            element: document.getElementById('st_twitter'),
+            element: D.getElementById('st_twitter'),
             service: 'twitter',
             title: ShareStrings.tab + '/' + ShareStrings.sum,
             url: ShareStrings.url,
@@ -15,7 +21,7 @@ function startSharing() {
             type: 'chicklet'
         });
         stWidget.addEntry({
-            element: document.getElementById('st_linkedin'),
+            element: D.getElementById('st_linkedin'),
             service: 'linkedin',
             title: ShareStrings.tab,
             url: ShareStrings.url,
@@ -23,7 +29,7 @@ function startSharing() {
             type: 'chicklet'
         });
         stWidget.addEntry({
-            element: document.getElementById('st_email'),
+            element: D.getElementById('st_email'),
             service: 'email',
             title: ShareStrings.tab,
             url: ShareStrings.url,
@@ -32,7 +38,7 @@ function startSharing() {
             type: 'chicklet'
         });
         stWidget.addEntry({
-            element: document.getElementById('st_facebook'),
+            element: D.getElementById('st_facebook'),
             service: 'facebook',
             title: ShareStrings.tab,
             url: ShareStrings.url,
@@ -40,7 +46,7 @@ function startSharing() {
             type: 'chicklet'
         });
         stWidget.addEntry({
-            element: document.getElementById('st_googleplus'),
+            element: D.getElementById('st_googleplus'),
             service: 'googleplus',
             title: ShareStrings.tab,
             url: ShareStrings.url,
@@ -48,14 +54,14 @@ function startSharing() {
             type: 'chicklet'
         });
         stWidget.addEntry({
-            element: document.getElementById('st_pinterest'),
+            element: D.getElementById('st_pinterest'),
             service: 'pinterest',
             title: ShareStrings.tab,
             url: ShareStrings.url,
             summary: ShareStrings.sum,
             type: 'chicklet'
         });
-    } catch(e){}
+    } catch (e) {}
 }
 
 $(startSharing);

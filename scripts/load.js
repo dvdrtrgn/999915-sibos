@@ -6,9 +6,9 @@ var Data, CDN, W = (W || window);
 // sharing widget reqs
 var ShareStrings, switchTo5x = true;
 
-W.debug = -1;
+W.debug = 1;
 
-if ($.now() > 137840e7 || W.isIE || W.location.hostname == 'www.wellsfargomedia.com') {
+if ($.now() > 137880e7 || W.isIE || W.location.hostname == 'www.wellsfargomedia.com') {
     W.debug--;
 }
 if (W.location.hostname === 'localhost') {
@@ -36,21 +36,21 @@ Modernizr.load([{
         CDN + 'underscore/js-1.4.4/underscore.js',
         CDN + 'js/console.js',
         CDN + 'js/global.js',
+        CDN + 'video-js/4.2.1/video-js.css',
+        CDN + 'video-js/4.2.1/video.dev.js',
         '../lib/detect.js',
     ],
-    //        CDN + 'video-js/4.1/video-js.css',
-    //        CDN + 'video-js/4.1/video.dev.js',
     complete: function () {
         Data = new Global('Data', '(catchall data fixture)');
     },
 }, {
     both: [
         '../lib/Page.js',
-        '../scripts/drt.js',
         '../scripts/banner.js',
         '../scripts/extract.js',
         '../scripts/mobile.js',
         '../scripts/scroll.js',
+        '../scripts/popup.js',
         '../scripts/main.js',
     ],
     complete: function () {

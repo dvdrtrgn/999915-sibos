@@ -6,7 +6,7 @@ var Mobile;
 (function (W) {
     var name = 'Mobile',
         self = new Global(name, '(mobile nav and page swapper)'),
-        C = W.C,
+        C = W.console,
         Df;
 
     Df = { // DEFAULTS
@@ -28,7 +28,7 @@ var Mobile;
             // get width (and offset)
             Df.wide = Df.nav.parent().innerWidth() || 300;
             Df.high = Df.nav.parent().outerHeight();
-            Df.left = parseInt(Df.nav.parent().css('left')) || 0;
+            Df.left = (parseInt(Df.nav.parent().css('left'), 10) || 0);
             W.debug > 0 && C.debug(name, 'Df.inits\n', Df);
         }
     };
@@ -90,11 +90,11 @@ var Mobile;
     function _shareif() {
         Df.share = $(Df.share).hide();
         Df.mobile.find('header').append(Df.share);
-        $('img.share').click(_share)
+        $('img.share').click(_share);
     }
 
     function _embezelr() {
-        if (!_mobile()) {
+        if (!Main.mobile()) {
             Df.mobile.wrap(Df.bezel);
             $('#Page').show();
         } else {

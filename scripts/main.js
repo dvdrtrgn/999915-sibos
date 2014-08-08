@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, Banner, Global, Scroll, ShareStrings:true, drt */
+/*globals $, Banner, Extract, Global, Mobile, Popup, Scroll, ShareStrings:true, _mobile */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 function Main(W) {
@@ -12,7 +12,7 @@ function Main(W) {
         inits: function (cb) {},
         bnrLinks: {
             bnr1: '#',
-            bnr2: 'http://tagboard.com/wfpony',
+            bnr2: '#http://tagboard.com/wfpony',
             bnr3: 'booth.html',
             bnr4: 'explore.html',
             bnr5: 'about.html',
@@ -51,9 +51,7 @@ function Main(W) {
             $('#head5').attr('content', ShareStrings.url);
             //    $('#head6').attr('content', ShareStrings.img);
         } catch (e) {
-            if (!W.isIE) {
-                // C.error(e);
-            }
+            return e;
         }
     }
 
@@ -116,7 +114,9 @@ function Main(W) {
         } else {
             Banner.init();
         }
+
         _binder();
+        Popup.init();
     }
 
     W[name] = $.extend(true, self, {
@@ -125,6 +125,7 @@ function Main(W) {
         },
         init: _init,
         page: _whatPage,
+        mobile: _mobile,
         noext: _noExt,
         cb: function () {
             C.debug.apply(C, [name, 'callback'].concat(arguments));

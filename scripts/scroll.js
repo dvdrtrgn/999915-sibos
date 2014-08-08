@@ -6,7 +6,7 @@ var Scroll;
 (function (W) {
     var name = 'Scroll',
         self = new Global(name, '(scroll and do it smooth)'),
-        C = W.C,
+        C = W.console,
         Df;
 
     Df = { // DEFAULTS
