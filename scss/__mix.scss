@@ -1,0 +1,64 @@
+/* mix */
+@import "__fun";
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+@mixin clearfix(){
+    &:after {
+        clear: both;
+        content: "";
+        display: table;
+        /* clearfix */
+    }
+}
+@mixin nosel(){
+    -webkit-user-drag: none;
+    @include user-select(none);
+    //cursor: move;
+}
+@mixin rex($prop, $rem){
+    #{$prop}: $rem * $remx;
+    //#{$prop}: $rem * 1rem;
+}
+@mixin pos($x:0, $y:0){
+    @include rex('left', $x);
+    @include rex('top', $y);
+}
+@mixin siz($w:0, $h:0){
+    @include rex('width', $w);
+    @include rex('height', $h);
+}
+@mixin textshadow() {
+    text-shadow: 1px 1px 1px black;
+}
+@mixin outline($color: $hilite, $width: 4){
+    outline: {
+        color: $color;
+        width: $width * 1px;
+    }
+}
+@mixin vgrad($clr1: white, $clr2: black, $per1: 1%, $per2: 77% ){
+    @include background-image( linear-gradient(top, $clr1 $per1, $clr2 $per2) );
+}
+
+// GRADS
+@mixin buttongrad1(){
+    background-color: $button1;
+    @include background-image( linear-gradient(top, $button1 50%, $button2 53%) );
+}
+@mixin navgray(){
+    background-color: $navgray1;
+    @include vgrad( $navgray1, $navgray2);
+}
+@mixin navred(){
+    background-color: $navred1;
+    @include vgrad( $navred1, $navred2);
+}
+@mixin graygrad(){
+    background-color: #ddd;
+    @include vgrad( #fff, #ddd, 44%, 88%);
+}
+@mixin buttongrad2(){
+    background-color: $button2;
+    @include background-image( linear-gradient(top, $button2 50%, $button1 53%) );
+}
+
+//* >^º!º^< */

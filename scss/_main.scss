@@ -1,0 +1,102 @@
+/* MAIN */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 11.5px;
+    height: 100%;
+    line-height: 145%;
+    position: absolute;
+    width: 100%;
+
+    body {
+        font-family: Archer, Georgia, serif;
+
+        h2 {
+            font-family: "Archer";
+            font-size: 23px;
+            line-height: 26px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+        h2, h3 {
+            color: $red;
+        }
+        h3 {
+            font-size: 18px;
+            line-height: 32px;
+            font-weight: normal;
+        }
+        h4 {
+            font-size: 15px;
+            line-height: 22px;
+        }
+        hr {
+            border-color: gray;
+            margin: 1em 0;
+        }
+        img {
+            border: 0;
+            &.portait {
+                margin-right: 9px;
+                border: 1px solid #ddd;
+            }
+        }
+        p, li {
+            font-family: Verdana, Geneva, sans-serif;
+            margin-bottom: 11px;
+            text-indent: 1px;
+        }
+        a {
+            color: #336699;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        table {
+            clear: both;
+        }
+        ul {
+            font-size: 100%;
+            list-style-type: square;
+            margin-top: 9px;
+            padding-left: 22px;
+        }
+    }
+}
+/* SEGMENTS */
+#Page {
+    background-color: #fff;
+    border: 1px solid #f8f8f8;
+    margin: 0 auto;
+    position: relative;
+    width: 954px;
+}
+#feature {
+    margin-left: 28px;
+    overflow: visible;
+    position: relative;
+    width: 898px;
+}
+footer {
+    clear: both;
+    color: #857b72;
+    border-top: 1px solid #e7e5e3;
+    font-family: Verdana;
+    height: 22px;
+    margin: 8px 28px;
+    position: relative;
+    vertical-align: baseline;
+    width: 898px;
+
+    p {
+        font-size: 10px;
+        line-height: 28px;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
