@@ -11,7 +11,10 @@ table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
     border: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
     box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
 }
@@ -23,6 +26,7 @@ input, button, textarea {
 button {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
+    -o-box-sizing: content-box;
     box-sizing: content-box;
 }
 blockquote, q {
@@ -32,16 +36,18 @@ blockquote:before, blockquote:after, q:before, q:after {
     content: '';
     content: none;
 }
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 table {
     border-collapse: collapse;
     border-spacing: 0;
     margin: auto;
     width: 100%;
 }
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-/* = html5 tag render */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+td img {
+    display: block; // fight html5 table looseness
+}
+article, aside, canvas, details, figcaption, figure, // html5 tag render
+footer, header, hgroup, menu, nav, progress, section, summary {
     display: block;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
